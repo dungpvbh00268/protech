@@ -17,6 +17,19 @@ return new class extends Migration
             $table->text('description');
             $table->string('image')->nullable();
             $table->integer('cost')->unsigned();
+            $table->string('cpu')->nullable();
+            $table->string('gpu')->nullable();
+            $table->string('ram')->nullable();
+            $table->string('storage')->nullable();
+            $table->string('screen_size')->nullable();
+            $table->string('warranty_period');
+            $table->string('os')->nullable();
+            $table->string('keyboard')->nullable();
+            $table->string('pin')->nullable();
+            $table->string('connector')->nullable();
+
+            $table->unsignedBigInteger('id_typeProduct')->nullable();
+            $table->foreign('id_typeProduct')->references('id')->on('type_product');
 
             $table->unsignedBigInteger('id_category')->nullable();
             $table->foreign('id_category')->references('id')->on('categories');
