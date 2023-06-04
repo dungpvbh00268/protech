@@ -89,7 +89,7 @@
 
                 <!-- element product -->
                 <div class="element__product">
-                    <a href="details.html" class="list__product">
+                    <a href="details" class="list__product">
                         <span class="inner__text">-14%</span>
                         <span class="excerpt">Refund 1,000,000 VND</span>
                         <div class="element__product-info">
@@ -437,6 +437,71 @@
                             </div>
                         </div>
                     </a>
+
+                    @foreach ($products as $product)
+                        @if($product -> id_typeProduct == 1)
+                            <a href="details" class="list__product">
+                                <span class="excerpt">FREE 8GB DDR5 RAM</span>
+                                <span class="inner__text">-10%</span>
+                                <div class="element__product-info">
+                                    <div class="element__product-info--img">
+                                        <img src="{{$product -> image}}" alt="" class="element__product-img">
+                                    </div>
+                                    <div class="element__product-title">
+                                        {{ Str::limit($product -> name, $limit = 51, $end = '...') }}
+                                        
+                                    </div>
+
+                                    <div class="star-rating">
+                                        <i class="fa-sharp fa-solid fa-star"></i>
+                                        <i class="fa-sharp fa-solid fa-star"></i>
+                                        <i class="fa-sharp fa-solid fa-star"></i>
+                                        <i class="fa-sharp fa-solid fa-star"></i>
+                                        <i class="fa-sharp fa-solid fa-star"></i>
+                                    </div>
+
+                                    <div class="element__product-costs">
+                                        <del class="element__product-costs--old">30,490,000 <u>đ</u></del>
+                                        <div class="element__product-costs--new">
+                                            {{ number_format($product -> cost, 0, ',', ',') }}
+                                            <u>đ</u></div>
+                                    </div>
+                                </div>
+
+                                <div class="element__product-details">
+                                    <div>
+                                        <img src="images/cpu.png" alt="">
+                                        <span>{{$product -> cpu}}</span>
+                                    </div>
+
+                                    <div>
+                                        <img src="images/vga.png" alt="">
+                                        <span>{{$product -> gpu}}</span>
+                                    </div>
+
+                                    <div>
+                                        <img src="images/ram.png" alt="">
+                                        <span>{{$product -> ram}}</span>
+                                    </div>
+
+                                    <div>
+                                        <img src="images/storage.png" alt="">
+                                        <span>{{$product -> storage}}</span>
+                                    </div>
+
+                                    <div>
+                                        <img src="images/baohanh.png" alt="">
+                                        <span>{{$product -> warranty_period}}</span>
+                                    </div>
+
+                                    <div>
+                                        <img src="images/screen.png" alt="">
+                                        <span>{{$product -> screen_size}}</span>
+                                    </div>
+                                </div>
+                            </a>
+                        @endif
+                    @endforeach
 
                 </div>
 
@@ -1343,6 +1408,73 @@
                             </div>
                         </div>
                     </a>
+
+
+
+                    {{-- test list products --}}
+                    @foreach ($products as $product)
+                        @if ($product -> id_typeProduct == 4)
+                            <a href="details.html" class="list__product">
+                                <span class="inner__text">-14%</span>
+                                <span class="excerpt">VOUCHER 1.000.000 VNĐ</span>
+                                <div class="element__product-info">
+                                    <div class="element__product-info--img">
+                                        <img src="images/logitech.png" alt="" class="element__product-img">
+                                    </div>
+                                    <div class="element__product-title">
+                                        {{$product -> name}}
+                                    </div>
+
+                                    <div class="star-rating">
+                                        <i class="fa-sharp fa-solid fa-star"></i>
+                                        <i class="fa-sharp fa-solid fa-star"></i>
+                                        <i class="fa-sharp fa-solid fa-star"></i>
+                                        <i class="fa-sharp fa-solid fa-star"></i>
+                                        <i class="fa-sharp fa-solid fa-star"></i>
+                                    </div>
+
+                                    <div class="element__product-costs">
+                                        <del class="element__product-costs--old">3,490,000<u>đ</u></del>
+                                        <div class="element__product-costs--new">
+                                            {{ number_format($product -> cost, 0, ',', ',') }}
+                                            <u>đ</u></div>
+                                    </div>
+                                </div>
+
+                                <div class="element__product-details">
+                                    <div>
+                                        <img src="images/connector.png" alt="">
+                                        <span>Wireless</span>
+                                    </div>
+
+                                    <div>
+                                        <img src="images/mouse.png" alt="">
+                                        <span>Gaming</span>
+                                    </div>
+
+                                    <div>
+                                        <img src="images/charging.png" alt="">
+                                        <span>Type C</span>
+                                    </div>
+
+                                    <div>
+                                        <img src="images/color.png" alt="">
+                                        <span>Black</span>
+                                    </div>
+
+                                    <div>
+                                        <img src="images/brand.png" alt="">
+                                        <span>Logitech</span>
+                                    </div>
+
+                                    <div>
+                                        <img src="images/delivery.png" alt="">
+                                        <span>Free Nationwide</span>
+                                    </div>
+                                </div>
+                            </a>
+                        @endif
+                    @endforeach
 
                 </div>
 

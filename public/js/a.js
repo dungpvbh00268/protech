@@ -239,3 +239,67 @@ function toast({ title = "", message = "", type = "info", duration = 3000 }) {
   }
 }
 //end
+
+// function validateInputsAndSubmit() {
+//   var phoneInput = document.querySelectorAll('.phoneInput');
+//   var passwordInput = document.querySelectorAll('.passwordInput');
+//   var verificationInput = document.querySelectorAll('.verificationInput');
+  
+//   for( let i = 0; i < phoneInput.length; i++){
+//     if (phoneInput[i].value === null) {
+//       showErrorToast();
+//     }
+//   }
+//   for( let i = 0; i < passwordInput.length; i++){
+//     if (passwordInput[i].value === null) {
+//       showErrorToast();
+//     }
+//   }
+//   for( let i = 0; i < verificationInput.length; i++){
+//     if (verificationInput[i].value === null) {
+//       showErrorToast();
+//     }
+//   }
+
+  // var phoneInput = document.getElementById('phoneInput');
+  // var passwordInput = document.getElementById('passwordInput');
+  // var verificationInput = document.getElementById('verificationInput');
+  
+  // if ( phoneInput.value === '' || passwordInput.value === '' || verificationInput.value === ''){
+  //   showErrorToast();
+  // }
+  
+// }
+
+function validateInputsAndSubmit() {
+  var inputs = document.querySelectorAll('.form__row');
+  var isEmpty = false;
+
+  inputs.forEach(function(input) {
+    if (input.value === '') {
+      isEmpty = true;
+    } else{
+      isEmpty = false;
+    }
+  });
+  
+
+  if (isEmpty) {
+    showErrorToast();
+  }
+
+  // Thực hiện hành động khi tất cả các giá trị input không trống
+  // ...
+}
+
+
+//updating
+function updating(){
+  toast({
+    title: "Error!",
+    message: "Updating ..........!",
+    type: "error",
+    duration: 5000
+  });
+  notificationSound1.play();
+}

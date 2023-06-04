@@ -22,8 +22,8 @@ return new class extends Migration
             $table->unsignedBigInteger('id_user')->nullable();
             $table->foreign('id_user')->references('id')->on('account');
 
-            $table->unsignedBigInteger('id_cart')->nullable();
-            $table->foreign('id_cart')->references('id')->on('cart');
+            // $table->unsignedBigInteger('id_cart')->nullable();
+            // $table->foreign('id_cart')->references('id')->on('cart');
 
             $table->timestamps();
         });

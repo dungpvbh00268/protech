@@ -10,27 +10,32 @@
         integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="a.css">
-    <link rel="stylesheet" href="{{asset('css/a.css')}}">
+    <link rel="stylesheet" href="{{ asset('css/a.css') }}">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap" rel="stylesheet">
     <script src="a.js"></script>
-    <script src="{{asset('js/a.js')}}"></script>
+    <script src="{{ asset('js/a.js') }}"></script>
 
     <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous">
+    </script> -->
     <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> -->
     <link rel="shortcut icon" href="images/designlogo.png" type="image/x-icon">
 
     <!--refer-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+        integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
+        crossorigin="anonymous" />
 
 </head>
 
 <body>
+    
     <!-- header -->
     <div class="header">
         <div class="header__main">
@@ -76,20 +81,21 @@
                                             <div class="cart__inner-pro-img">
                                                 <img src="images/laptop main.png" alt="">
                                             </div>
-    
+
                                             <div class="cart__inner-pro-details">
                                                 <div class="cart__ịnner-title">
-                                                    
-                                                    Laptop Acer Predator Helios Neo 16 PHN16-71-59TN Geforce RTX 4060 8GB Intel Core i5
+
+                                                    Laptop Acer Predator Helios Neo 16 PHN16-71-59TN Geforce RTX 4060
+                                                    8GB Intel Core i5
                                                     13500HX 16GB 512GB 16″ WQXGA IPS 165Hz RGB 4-Zone Win11 N9.QJSWW.002
-                    
+
                                                 </div>
-    
+
                                                 <div class="cart__ịnner-promotion">
                                                     <div>
                                                         Choose a promotional package:
                                                     </div>
-    
+
                                                     <div class="cart__ịnner-promotion--select">
                                                         abc
                                                     </div>
@@ -110,7 +116,7 @@
                                                 <i class="fa-regular fa-circle-xmark"></i>
                                             </div>
                                         </div>
-    
+
                                         <!-- <div class="elementor-menu-cart__subtotal">
                                             <span>Total Money:&nbsp;</span>
                                             <span>79,970,000 <u>đ</u></span>
@@ -136,20 +142,21 @@
                                             <div class="cart__inner-pro-img">
                                                 <img src="images/laptop main.png" alt="">
                                             </div>
-    
+
                                             <div class="cart__inner-pro-details">
                                                 <div class="cart__ịnner-title">
-                                                    
-                                                    Laptop Acer Predator Helios Neo 16 PHN16-71-59TN Geforce RTX 4060 8GB Intel Core i5
+
+                                                    Laptop Acer Predator Helios Neo 16 PHN16-71-59TN Geforce RTX 4060
+                                                    8GB Intel Core i5
                                                     13500HX 16GB 512GB 16″ WQXGA IPS 165Hz RGB 4-Zone Win11 N9.QJSWW.002
-                    
+
                                                 </div>
-    
+
                                                 <div class="cart__ịnner-promotion">
                                                     <div>
                                                         Choose a promotional package:
                                                     </div>
-    
+
                                                     <div class="cart__ịnner-promotion--select">
                                                         abc
                                                     </div>
@@ -170,7 +177,7 @@
                                                 <i class="fa-regular fa-circle-xmark"></i>
                                             </div>
                                         </div>
-    
+
                                         <!-- <div class="elementor-menu-cart__subtotal">
                                             <span>Total Money:&nbsp;</span>
                                             <span>79,970,000 <u>đ</u></span>
@@ -196,20 +203,21 @@
                                             <div class="cart__inner-pro-img">
                                                 <img src="images/laptop main.png" alt="">
                                             </div>
-    
+
                                             <div class="cart__inner-pro-details">
                                                 <div class="cart__ịnner-title">
-                                                    
-                                                    Laptop Acer Predator Helios Neo 16 PHN16-71-59TN Geforce RTX 4060 8GB Intel Core i5
+
+                                                    Laptop Acer Predator Helios Neo 16 PHN16-71-59TN Geforce RTX 4060
+                                                    8GB Intel Core i5
                                                     13500HX 16GB 512GB 16″ WQXGA IPS 165Hz RGB 4-Zone Win11 N9.QJSWW.002
-                    
+
                                                 </div>
-    
+
                                                 <div class="cart__ịnner-promotion">
                                                     <div>
                                                         Choose a promotional package:
                                                     </div>
-    
+
                                                     <div class="cart__ịnner-promotion--select">
                                                         abc
                                                     </div>
@@ -230,7 +238,7 @@
                                                 <i class="fa-regular fa-circle-xmark"></i>
                                             </div>
                                         </div>
-    
+
                                         <!-- <div class="elementor-menu-cart__subtotal">
                                             <span>Total Money:&nbsp;</span>
                                             <span>79,970,000 <u>đ</u></span>
@@ -256,20 +264,21 @@
                                             <div class="cart__inner-pro-img">
                                                 <img src="images/laptop main.png" alt="">
                                             </div>
-    
+
                                             <div class="cart__inner-pro-details">
                                                 <div class="cart__ịnner-title">
-                                                    
-                                                    Laptop Acer Predator Helios Neo 16 PHN16-71-59TN Geforce RTX 4060 8GB Intel Core i5
+
+                                                    Laptop Acer Predator Helios Neo 16 PHN16-71-59TN Geforce RTX 4060
+                                                    8GB Intel Core i5
                                                     13500HX 16GB 512GB 16″ WQXGA IPS 165Hz RGB 4-Zone Win11 N9.QJSWW.002
-                    
+
                                                 </div>
-    
+
                                                 <div class="cart__ịnner-promotion">
                                                     <div>
                                                         Choose a promotional package:
                                                     </div>
-    
+
                                                     <div class="cart__ịnner-promotion--select">
                                                         abc
                                                     </div>
@@ -290,7 +299,7 @@
                                                 <i class="fa-regular fa-circle-xmark"></i>
                                             </div>
                                         </div>
-    
+
                                         <!-- <div class="elementor-menu-cart__subtotal">
                                             <span>Total Money:&nbsp;</span>
                                             <span>79,970,000 <u>đ</u></span>
@@ -316,20 +325,21 @@
                                             <div class="cart__inner-pro-img">
                                                 <img src="images/laptop main.png" alt="">
                                             </div>
-    
+
                                             <div class="cart__inner-pro-details">
                                                 <div class="cart__ịnner-title">
-                                                    
-                                                    Laptop Acer Predator Helios Neo 16 PHN16-71-59TN Geforce RTX 4060 8GB Intel Core i5
+
+                                                    Laptop Acer Predator Helios Neo 16 PHN16-71-59TN Geforce RTX 4060
+                                                    8GB Intel Core i5
                                                     13500HX 16GB 512GB 16″ WQXGA IPS 165Hz RGB 4-Zone Win11 N9.QJSWW.002
-                    
+
                                                 </div>
-    
+
                                                 <div class="cart__ịnner-promotion">
                                                     <div>
                                                         Choose a promotional package:
                                                     </div>
-    
+
                                                     <div class="cart__ịnner-promotion--select">
                                                         abc
                                                     </div>
@@ -350,7 +360,7 @@
                                                 <i class="fa-regular fa-circle-xmark"></i>
                                             </div>
                                         </div>
-    
+
                                         <!-- <div class="elementor-menu-cart__subtotal">
                                             <span>Total Money:&nbsp;</span>
                                             <span>79,970,000 <u>đ</u></span>
@@ -375,11 +385,11 @@
                                         <span>79,970,000 <u>đ</u></span>
                                     </div>
                                     <div class="elementor-menu-cart__footer-buttons">
-                                        <a href="cart.html" class="title__product-laptop-link">
+                                        <a href="cart" class="title__product-laptop-link">
                                             View Cart
                                         </a>
 
-                                        <a href="" class="title__product-laptop-link">
+                                        <a onclick="updating()" class="title__product-laptop-link">
                                             Pay
                                         </a>
                                     </div>
@@ -394,143 +404,235 @@
                 </div>
 
                 <div class="header__other-a header__user">
-                    <a onclick="showModal()" href="###" class="fa-solid fa-user btn-user-click"></a>
+                    @if(session('username'))
+                        <a onclick="showModal()" href="###" class="fa-solid fa-user btn-user-click" title = "{{session('username')}}"></a>
+                    @else
+                        <a onclick="showModal()" href="###" class="fa-solid fa-user btn-user-click"></a>
+                    @endif
+                    
 
                     <!-- test audio -->
                     <audio id="notificationSound">
-                        <source src="{{asset('audio/notify.mp3')}}" type="audio/mpeg">
+                        <source src="{{ asset('audio/notify.mp3') }}" type="audio/mpeg">
                     </audio>
 
                     <audio id="notificationSound1">
-                        <source src="{{asset('audio/notify1.mp3')}}" type="audio/mpeg">
+                        <source src="{{ asset('audio/notify1.mp3') }}" type="audio/mpeg">
                     </audio>
 
                     <audio id="notificationSound2">
-                        <source src="{{asset('audio/notify2.mp3')}}" type="audio/mpeg">
+                        <source src="{{ asset('audio/notify2.mp3') }}" type="audio/mpeg">
                     </audio>
 
                     <audio id="notificationSound3">
-                        <source src="{{asset('audio/click.mp3')}}" type="audio/mpeg">
+                        <source src="{{ asset('audio/click.mp3') }}" type="audio/mpeg">
                     </audio>
 
                     <!-- modal sign in/up-->
                     <div id="myModal" class="modal">
                         <div class="modal__main">
                             <div class="modal__inner">
-                                <!-- signup -->
-                                <form method="POST" action="/laptop/index.html"
-                                    class="modal__inner-signin modal__inner-signin">
-                                    <div class="form__input--padding">
-                                        <div class="inner__header">
-                                            <h2>Sign Up</h2>
-                                            <h4 onclick="changeToSignIn()">Sign In</h4>
-                                        </div>
-
-                                        <div class="inner__form">
-                                            <div onclick="enbEffModal()" class="inner__form-row">
-                                                <input autocomplete="off" type="text" class="form__row" title="Username"
-                                                    placeholder="" name="username" required>
-                                                <span class="form__row-label">Enter Username</span>
+                                @if (!session()->has('username') && !session()->has('password'))
+                                    <!-- signup -->
+                                    <form method="POST" action="{{ route('signup') }}"
+                                        class="modal__inner-signin modal__inner-signin">
+                                        @csrf
+                                        <div class="form__input--padding">
+                                            <div class="inner__header">
+                                                <h2>Sign Up</h2>
+                                                <h4 onclick="changeToSignIn()">Sign In</h4>
                                             </div>
 
-                                            <div onclick="enbEffModal()" class="inner__form-row">
-                                                <input autocomplete="off" type="password" class="form__row"
-                                                    title="Password" placeholder="" name="password" required>
-                                                <span class="form__row-label">Enter Password</span>
+                                            <div class="inner__form">
+                                                <div onclick="enbEffModal()" class="inner__form-row">
+                                                    <input autocomplete="off" type="text" class="form__row"
+                                                        title="Username" placeholder="" name="username" class="phoneInput" required>
+                                                    <span class="form__row-label">Enter Username</span>
+                                                </div>
+
+                                                <div onclick="enbEffModal()" class="inner__form-row">
+                                                    <input autocomplete="off" type="password" class="form__row"
+                                                        title="Password" placeholder="" name="password" class="passwordInput" required>
+                                                    <span class="form__row-label">Enter Password</span>
+                                                </div>
+
+                                                <div onclick="enbEffModal()" class="inner__form-row">
+                                                    <input autocomplete="off" type="text" class="form__row"
+                                                        title="Verification" placeholder="" class="verificationInput" required>
+                                                    <span class="form__row-label">Verification Code</span>
+                                                </div>
                                             </div>
 
-                                            <div onclick="enbEffModal()" class="inner__form-row">
-                                                <input autocomplete="off" type="text" class="form__row"
-                                                    title="Verification" placeholder="" required>
-                                                <span class="form__row-label">Verification Code</span>
-                                            </div>
-                                        </div>
-
-                                        <div class="inner__terms">
-                                            By signup, you agree to ProTech's <a class="inner__terms-link"
-                                                href="##">Terms of Service</a> & <a class="inner__terms-link"
-                                                href="###">Privacy Policy</a>
-                                        </div>
-
-                                        <div class="inner__btn">
-                                            <div onclick="backModal()" class="inner__btn-main inner__btn-back">Back
-                                            </div><!--up-->
-                                            <button ondblclick="showToast()" onclick="showErrorToast();" type="submit" class="inner__btn-main inner__btn-signup">Sign
-                                                Up</button><!--up-->
-                                        </div>
-
-                                    </div>
-
-                                    <div class="form__social-media">
-                                        <div class="inner__media-signup">
-                                            <a href="" class="inner__media-signup--together inner__media-signup--fb">
-                                                <img src="{{asset('images/fb.png')}}" class="media__fb-img">
-                                                <div class="media__fb-txt">Connect With Facebook</div>
-                                            </a>
-                                            <a href="" class="inner__media-signup--together inner__media-signup--gg">
-                                                <img src="{{asset('images/gg.png')}}" class="media__fb-img">
-                                                <div class="media__fb-txt">Connect With Google</div>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </form>
-
-                                <!-- sign in -->
-                                <form method="POST" action="/laptop/index.html"
-                                    class="modal__inner-signup modal__inner-signin">
-                                    <div class="form__input--padding">
-                                        <div class="inner__header">
-                                            <h2>Sign In</h2>
-                                            <h4 onclick="changeToSignUp()">Sign Up</h4>
-                                        </div>
-
-                                        <div class="inner__form">
-                                            <div onclick="enbEffModal()" class="inner__form-row">
-                                                <input autocomplete="off" type="text" class="form__row" title="Username"
-                                                    placeholder="" required>
-                                                <span class="form__row-label">Enter Phone Number</span>
+                                            <div class="inner__terms">
+                                                By signup, you agree to ProTech's <a class="inner__terms-link"
+                                                    href="##">Terms of Service</a> & <a class="inner__terms-link"
+                                                    href="###">Privacy Policy</a>
                                             </div>
 
-                                            <div onclick="enbEffModal()" class="inner__form-row">
-                                                <input autocomplete="off" type="password" class="form__row"
-                                                    title="Password" placeholder="" required>
-                                                <span class="form__row-label">Enter Password</span>
+                                            <div class="inner__btn">
+                                                <div onclick="backModal()" class="inner__btn-main inner__btn-back">
+                                                    Back
+                                                </div>
+                                                <!--up-->
+                                                <button ondblclick="showToast()" onclick="validateInputsAndSubmit();"
+                                                    type="submit" class="inner__btn-main inner__btn-signup">Sign
+                                                    Up</button>
+                                                <!--up-->
                                             </div>
 
-                                            <div onclick="enbEffModal()" class="inner__form-row">
-                                                <input autocomplete="off" type="text" class="form__row"
-                                                    title="Verification" placeholder="" required>
-                                                <span class="form__row-label">Verification Code</span>
+                                        </div>
+
+                                        <div class="form__social-media">
+                                            <div class="inner__media-signup">
+                                                <a href=""
+                                                    class="inner__media-signup--together inner__media-signup--fb">
+                                                    <img src="{{ asset('images/fb.png') }}" class="media__fb-img">
+                                                    <div class="media__fb-txt">Connect With Facebook</div>
+                                                </a>
+                                                <a href=""
+                                                    class="inner__media-signup--together inner__media-signup--gg">
+                                                    <img src="{{ asset('images/gg.png') }}" class="media__fb-img">
+                                                    <div class="media__fb-txt">Connect With Google</div>
+                                                </a>
                                             </div>
                                         </div>
+                                    </form>
 
-                                        <div class="inner__terms inner__terms--fogot">
-                                            <a class="inner__terms-link" href="##">Forgot Password?</a>
-                                            <a class="inner__terms-link" href="###">Login With SMS</a>
+                                    <!-- sign in -->
+                                    <form method="POST" action="{{ route('login') }}"
+                                        class="modal__inner-signup modal__inner-signin">
+                                        @csrf
+                                        <div class="form__input--padding">
+                                            <div class="inner__header">
+                                                <h2>Sign In</h2>
+                                                <h4 onclick="changeToSignUp()">Sign Up</h4>
+                                            </div>
+
+                                            <div class="inner__form">
+                                                <div onclick="enbEffModal()" class="inner__form-row">
+                                                    <input autocomplete="off" type="text" class="form__row"
+                                                        title="Username" placeholder="" name="username" class="phoneInput" required>
+                                                    <span class="form__row-label">Enter Username</span>
+                                                </div>
+
+                                                <div onclick="enbEffModal()" class="inner__form-row">
+                                                    <input autocomplete="off" type="password" class="form__row"
+                                                        title="Password" placeholder="" name="password" class="passwordInput" required>
+                                                    <span class="form__row-label">Enter Password</span>
+                                                </div>
+
+                                                <div onclick="enbEffModal()" class="inner__form-row">
+                                                    <input autocomplete="off" type="text" class="form__row"
+                                                        title="Verification" placeholder="" class="verificationInput" required>
+                                                    <span class="form__row-label">Verification Code</span>
+                                                </div>
+                                            </div>
+
+                                            <div class="inner__terms inner__terms--fogot">
+                                                <a class="inner__terms-link" href="##">Forgot Password?</a>
+                                                <a class="inner__terms-link" href="###">Login With SMS</a>
+                                            </div>
+
+                                            <div class="inner__btn">
+                                                <div onclick="backModal()" class="inner__btn-main inner__btn-back">
+                                                    Back
+                                                </div>
+                                                <!--up-->
+                                                <button onclick="validateInputsAndSubmit()" type="submit"
+                                                    class="inner__btn-main inner__btn-signup">Sign
+                                                    In</button>
+                                                <!--up-->
+                                            </div>
+
                                         </div>
 
-                                        <div class="inner__btn">
-                                            <div onclick="backModal()" class="inner__btn-main inner__btn-back">Back
-                                            </div><!--up-->
-                                            <button onclick="showErrorToast();" type="submit" class="inner__btn-main inner__btn-signup">Sign
-                                                In</button><!--up-->
+                                        <div class="form__social-media">
+                                            <div class="inner__media-signup">
+                                                <a href=""
+                                                    class="inner__media-signup--together inner__media-signup--fb">
+                                                    <img src="{{ asset('images/fb.png') }}" class="media__fb-img">
+                                                    <div class="media__fb-txt">Connect With Facebook</div>
+                                                </a>
+                                                <a href=""
+                                                    class="inner__media-signup--together inner__media-signup--gg">
+                                                    <img src="{{ asset('images/gg.png') }}" class="media__fb-img">
+                                                    <div class="media__fb-txt">Connect With Google</div>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </form>
+                                @else
+                                    <!-- edit profile -->
+                                    <form method="POST" action="{{ route('logout') }}"
+                                        class="modal__inner-signin modal__inner-signin">
+                                        @csrf
+                                        <div class="form__input--padding">
+                                            <div class="inner__header">
+                                                <h2>Your Profile</h2>
+                                                <a  href="{{route('logout')}}" >Sign Out</a>
+                                            </div>
+
+                                            <div class="inner__form">
+                                                <div class="profile__avatar">
+                                                    <img src="{{asset('images/avatar.png')}}" alt="">
+                                                    <div class="profile__avatar-name">User: {{session('username')}}</div>
+                                                </div>
+
+                                                <div onclick="enbEffModal()" class="inner__form-row">
+                                                    <input autocomplete="off" type="text" class="form__row"
+                                                        title="Username" placeholder="" name="username" class="phoneInput" required>
+                                                    <span class="form__row-label">Enter Username</span>
+                                                </div>
+
+                                                <div onclick="enbEffModal()" class="inner__form-row">
+                                                    <input autocomplete="off" type="password" class="form__row"
+                                                        title="Password" placeholder="" name="password" class="passwordInput" required>
+                                                    <span class="form__row-label">Enter Password</span>
+                                                </div>
+
+                                                <div onclick="enbEffModal()" class="inner__form-row">
+                                                    <input autocomplete="off" type="text" class="form__row"
+                                                        title="Verification" placeholder="" class="verificationInput" required>
+                                                    <span class="form__row-label">Verification Code</span>
+                                                </div>
+                                            </div>
+
+                                            <div class="inner__terms">
+                                                    Please provide personal information to ProTech, we are committed to the security of your account, 
+                                                    ensuring your privacy and you can easily pay your order at ProTech. <a class="inner__terms-link"
+                                                    href="##">Terms of Service</a> & <a class="inner__terms-link"
+                                                    href="###">Privacy Policy</a> or <a class="inner__terms-link"
+                                                    href="###">You forgot your password</a>
+                                            </div>
+
+                                            <div class="inner__btn">
+                                                <div onclick="backModal()" class="inner__btn-main inner__btn-back">
+                                                    Back
+                                                </div>
+                                                <!--up-->
+                                                <button ondblclick="showToast()" onclick="validateInputsAndSubmit();"
+                                                    type="submit" class="inner__btn-main inner__btn-signup">Update</button>
+                                                <!--up-->
+                                            </div>
+
                                         </div>
 
-                                    </div>
-
-                                    <div class="form__social-media">
-                                        <div class="inner__media-signup">
-                                            <a href="" class="inner__media-signup--together inner__media-signup--fb">
-                                                <img src="{{asset('images/fb.png')}}" class="media__fb-img">
-                                                <div class="media__fb-txt">Connect With Facebook</div>
-                                            </a>
-                                            <a href="" class="inner__media-signup--together inner__media-signup--gg">
-                                                <img src="{{asset('images/gg.png')}}" class="media__fb-img">
-                                                <div class="media__fb-txt">Connect With Google</div>
-                                            </a>
+                                        <div class="form__social-media">
+                                            <div class="inner__media-signup">
+                                                <a href=""
+                                                    class="inner__media-signup--together inner__media-signup--fb">
+                                                    <img src="{{ asset('images/fb.png') }}" class="media__fb-img">
+                                                    <div class="media__fb-txt">Connect With Facebook</div>
+                                                </a>
+                                                <a href=""
+                                                    class="inner__media-signup--together inner__media-signup--gg">
+                                                    <img src="{{ asset('images/gg.png') }}" class="media__fb-img">
+                                                    <div class="media__fb-txt">Connect With Google</div>
+                                                </a>
+                                            </div>
                                         </div>
-                                    </div>
-                                </form>
+                                    </form>
+                                @endif
                             </div>
                         </div>
                         <!-- backModal() -->
@@ -958,7 +1060,7 @@
     </div>
 
     @yield('contents')
-    
+
 
     <!-- footer -->
     <footer>
@@ -1041,7 +1143,8 @@
                     <div>
                         <a href="https://goo.gl/maps/qsnUm3LDEWWepuXm7" target="_blank"><img src="images/map.png"
                                 alt=""></a>
-                        <a href="https://goo.gl/maps/qsnUm3LDEWWepuXm7" target="_blank" class="larger-map">View larger
+                        <a href="https://goo.gl/maps/qsnUm3LDEWWepuXm7" target="_blank" class="larger-map">View
+                            larger
                             map</a>
                     </div>
                 </div>
@@ -1053,7 +1156,8 @@
 
                     <div>
                         <a href=""> <img src="images/map.png" alt=""></a>
-                        <a href="https://goo.gl/maps/qsnUm3LDEWWepuXm7" target="_blank" class="larger-map">View larger
+                        <a href="https://goo.gl/maps/qsnUm3LDEWWepuXm7" target="_blank" class="larger-map">View
+                            larger
                             map</a>
                     </div>
                 </div>
@@ -1127,34 +1231,99 @@
     </div>
     -->
 
-    <div id="toast"></div>
+    @if(session('username') && session('password'))
+        <div id="toast"></div>
+{{-- 
+        <div style="visibility: hidden">
+            <div onclick="showSuccessToast();" class="btn btn--success">Show success toast</div>
+            <div onclick="showErrorToast();" class="btn btn--danger">Show error toast</div>
+        </div> --}}
 
-    <div>
-        <div onclick="showSuccessToast();" class="btn btn--success">Show success toast</div>
-        <div onclick="showErrorToast();" class="btn btn--danger">Show error toast</div>
-    </div>
+        <script>
+            var username = "{{ session('username') }}";
+        
+            toast({
+                    title: "Success!",
+                    message: "Welcome " + username + " to the world of ProTech!",
+                    type: "success",
+                    duration: 5000
+                });
+                notificationSound1.play();
+            function showSuccessToast() {
+                toast({
+                    title: "Success!",
+                    message: "Welcome to the world of ProTech!",
+                    type: "success",
+                    duration: 5000
+                });
+                notificationSound1.play();
+            }
 
-    <script>
-        function showSuccessToast() {
-          toast({
-            title: "Success!",
-            message: "Welcome to the world of ProTech!",
-            type: "success",
-            duration: 5000
-          });
-          notificationSound1.play();
-        }
-      
-        function showErrorToast() {
-          toast({
-            title: "Error!",
-            message: "An error has occurred, please contact the administrator.",
-            type: "error",
-            duration: 5000
-          });
-          notificationSound1.play();
-        }
-    </script>
+            function showErrorToast() {
+                toast({
+                    title: "Error!",
+                    message: "An error has occurred, please contact the administrator.",
+                    type: "error",
+                    duration: 5000
+                });
+                notificationSound1.play();
+            }
+        </script>
+    @endif
+    {{-- @if (session('username') && session('password')) --}}
+        <div id="toast"></div>
+
+        {{-- <div>
+            <div onclick="showSuccessToast();" class="btn btn--success">Show success toast</div>
+            <div onclick="showErrorToast();" class="btn btn--danger">Show error toast</div>
+        </div> --}}
+
+        <script>
+            function showSuccessToast() {
+                toast({
+                    title: "Success!",
+                    message: "Welcome to the world of ProTech!",
+                    type: "success",
+                    duration: 5000
+                });
+                notificationSound1.play();
+            }
+
+            function showErrorToast() {
+                toast({
+                    title: "Error!",
+                    message: "An error has occurred, please contact the administrator.",
+                    type: "error",
+                    duration: 5000
+                });
+                notificationSound1.play();
+            }
+        </script>
+        
+    {{-- @endif --}}
+    @if(session('showToastSignup'))
+        <script>
+            toast({
+                title: "Success!",
+                message: "You have successfully registered an account!",
+                type: "success",
+                duration: 5000
+            });
+            notificationSound1.play();
+        </script>
+    @endif
+
+    @if (session('showToastSigninError'))
+        <script>
+            toast({
+                title: "Error!",
+                message: "An error has occurred, please contact the administrator.",
+                type: "error",
+                duration: 5000
+            });
+            notificationSound1.play();
+        </script>
+    @endif
 
     <!--warning-->
     <!-- <div id="message" class="message message--warning">

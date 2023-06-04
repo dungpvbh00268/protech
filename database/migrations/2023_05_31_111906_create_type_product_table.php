@@ -13,8 +13,10 @@ return new class extends Migration
     {
         Schema::create('type_product', function (Blueprint $table) {
             $table->id();
-            $table->string('laptop');
-            $table->string('pc');
+            // $table->string('laptop');
+            // $table->string('pc');
+            $table->integer('type')->nullable(); //0: laptop, 1: pc, 2, screen, 3: mouse, ...
+            $table->string("description")->nullable();
             $table->timestamps();
         });
     }
