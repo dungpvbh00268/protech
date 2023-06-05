@@ -15,6 +15,6 @@ class brandsModel extends Model
     protected $fillable = 'name';
 
     public function products(){
-        return $this->hasMan(productsModel::class, 'id_brand', 'id');
+        return $this->hasMany(productsModel::class, 'id_brand', 'id');
     }
 }

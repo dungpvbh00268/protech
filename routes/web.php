@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\authController;
+use App\Http\Controllers\cartController;
+use App\Http\Controllers\detailsController;
 use App\Http\Controllers\productController;
 use Illuminate\Support\Facades\Route;
 
@@ -25,14 +27,18 @@ Route::get('/',[productController::class,'index'])->name('index');
 //     return view('layouts/master');
 // });
 
-Route::get('cart', function(){
-    return view('pages/cart');
-});
+Route::get('cart', [cartController::class, 'index'])->name('cart');
 
-Route::get('details', function(){
-    return view('pages/details');
-});
+// Route::get('cart', function(){
+//     return view('pages/cart');
+// });
+Route::get('details', [detailsController::class, 'index'])->name('details');
+// Route::get('details', function(){
+//     return view('pages/details');
+// });
 
 Route::post('/login', [authController::class, 'login'])->name('login');
 Route::get('/logout',[authController::class, 'logout'])->name('logout');
 Route::post('/signup',[authController::class, 'signup'])->name('signup');
+
+Route::get('getCart', [cartController::class, 'getCart'])->name('getCart');

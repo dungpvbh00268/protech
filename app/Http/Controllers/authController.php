@@ -6,6 +6,8 @@ use App\Models\accountModel;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Validator as ValidationValidator;
+use Illuminate\Database\Eloquent\Model;
+use App\Models\cartModel;
 
 class authController extends Controller
 {
@@ -19,6 +21,7 @@ class authController extends Controller
             $request->session()->put('username', $account->username);
             $request->session()->put('password', $account->password);
             $request->session()->put('is_admin', $account->is_admin);
+            $request->session()->put('id', $account->id);
 
             return redirect()->intended('/');
 
@@ -38,8 +41,8 @@ class authController extends Controller
     {
         if ($request->isMethod('post')) {
             $validator = Validator::make($request->all(), [
-                'username' => 'required',
-                'password' => 'required'
+                'username' => 'required|max:12',
+                'password' => 'required|min:6'
             ]);
 
             if ($validator->fails()) {
@@ -52,6 +55,20 @@ class authController extends Controller
             $newAccount->password = $request->password;
 
             $newAccount->save();
+
+            // Lấy ID của tài khoản mới đăng ký
+            $userId = $newAccount->id;
+
+            // Tạo bản ghi mới trong bảng cart
+            $newCart = new cartModel();
+            $newCart->id_user = $userId;
+            // Gán các trường khác trong bảng cart
+            // $newCart->field1 = 'value1';
+            // $newCart->field2 = 'value2';
+            // ...
+
+            $newCart->save();
+
 
             return redirect()->intended('/')
                 ->with('showToastSignup', true);

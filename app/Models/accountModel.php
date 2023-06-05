@@ -11,11 +11,18 @@ class accountModel extends Model
 
     protected $table = "account";
     protected $primaryKey = "id";
-    protected $fillable = ['username','password','is_admin','gender','email','address','phone_number','bane','dob','avatar','description','id_giftcode'];
+    protected $fillable = ['username', 'password', 'is_admin', 'gender', 'email', 'address', 'phone_number', 'bane', 'dob', 'avatar', 'description', 'id_giftcode'];
 
     public $timestamps = true;
 
-    public function giftcode(){
+    public function giftcode()
+    {
         return $this->belongsTo(giftcodeModel::class, 'id_giftcode', 'id');
     }
+
+    public function cart()
+    {
+        return $this->hasOne(cartModel::class, 'id_user');
+    }
+
 }

@@ -27,4 +27,7 @@ class productsModel extends Model
     {
         return $this->belongsTo(categoriesModel::class, 'id_category', 'id');
     }
+    public function cart_pro(){
+        return $this->hasMany(cart_proModel::class, "id_product", "id");
+    }
 }

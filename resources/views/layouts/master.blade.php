@@ -35,7 +35,7 @@
 </head>
 
 <body>
-    
+
     <!-- header -->
     <div class="header">
         <div class="header__main">
@@ -380,6 +380,69 @@
                                     </div>
                                     <!-- end -->
 
+                                    {{-- test --}}
+                                    @foreach ($accounts as $account)
+                                        @foreach ($carts as $cart)
+                                            @foreach ($cart_pros as $cart_pro)
+                                                @foreach ($products as $product)
+                                                    @if ($account->id == $cart->id_user)
+                                                        @if ($cart->id == $cart_pro->id_cart && $product->id == $cart_pro->id_product)
+                                                            @if ($account->cart && $cart->cart_pro && $product->cart_pro)
+                                                                @if (session('id') == $cart->id_user)
+                                                                    <div class="cart__inner-pro--have">
+                                                                        <a href="details.html"
+                                                                            class="cart__inner-pro--mess">
+                                                                            <div class="cart__inner-pro-img">
+                                                                                <img src="images/laptop main.png"
+                                                                                    alt="">
+                                                                            </div>
+
+                                                                            <div class="cart__inner-pro-details">
+                                                                                <div class="cart__ịnner-title">
+
+                                                                                    {{ $cart->id_user }}
+
+                                                                                </div>
+
+                                                                                <div class="cart__ịnner-promotion">
+                                                                                    <div>
+                                                                                        Choose a promotional package:
+                                                                                    </div>
+
+                                                                                    <div
+                                                                                        class="cart__ịnner-promotion--select">
+                                                                                        abc
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </a>
+
+                                                                        <div class="cart__inner-price-product">
+                                                                            <div class="price-product__quantity">
+                                                                                1 x&nbsp;
+                                                                            </div>
+
+                                                                            <div class="price-product__cost">
+                                                                                39,990,000 <u>đ</u>
+                                                                            </div>
+
+                                                                            <div class="price-product__remove">
+                                                                                <i
+                                                                                    class="fa-regular fa-circle-xmark"></i>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="cart__boder"></div>
+                                                                    </div>
+                                                                @endif
+                                                            @endif
+                                                        @endif
+                                                    @endif
+                                                @endforeach
+                                            @endforeach
+                                        @endforeach
+                                    @endforeach
+                                    <!-- end -->
+
                                     <div class="elementor-menu-cart__subtotal">
                                         <span>Total Money:&nbsp;</span>
                                         <span>79,970,000 <u>đ</u></span>
@@ -404,12 +467,13 @@
                 </div>
 
                 <div class="header__other-a header__user">
-                    @if(session('username'))
-                        <a onclick="showModal()" href="###" class="fa-solid fa-user btn-user-click" title = "{{session('username')}}"></a>
+                    @if (session('username'))
+                        <a onclick="showModal()" href="###" class="fa-solid fa-user btn-user-click"
+                            title="{{ session('username') }}"></a>
                     @else
                         <a onclick="showModal()" href="###" class="fa-solid fa-user btn-user-click"></a>
                     @endif
-                    
+
 
                     <!-- test audio -->
                     <audio id="notificationSound">
@@ -446,19 +510,22 @@
                                             <div class="inner__form">
                                                 <div onclick="enbEffModal()" class="inner__form-row">
                                                     <input autocomplete="off" type="text" class="form__row"
-                                                        title="Username" placeholder="" name="username" class="phoneInput" required>
+                                                        title="Username" placeholder="" name="username"
+                                                        class="phoneInput" required>
                                                     <span class="form__row-label">Enter Username</span>
                                                 </div>
 
                                                 <div onclick="enbEffModal()" class="inner__form-row">
                                                     <input autocomplete="off" type="password" class="form__row"
-                                                        title="Password" placeholder="" name="password" class="passwordInput" required>
+                                                        title="Password" placeholder="" name="password"
+                                                        class="passwordInput" required>
                                                     <span class="form__row-label">Enter Password</span>
                                                 </div>
 
                                                 <div onclick="enbEffModal()" class="inner__form-row">
                                                     <input autocomplete="off" type="text" class="form__row"
-                                                        title="Verification" placeholder="" class="verificationInput" required>
+                                                        title="Verification" placeholder="" class="verificationInput"
+                                                        required>
                                                     <span class="form__row-label">Verification Code</span>
                                                 </div>
                                             </div>
@@ -511,19 +578,22 @@
                                             <div class="inner__form">
                                                 <div onclick="enbEffModal()" class="inner__form-row">
                                                     <input autocomplete="off" type="text" class="form__row"
-                                                        title="Username" placeholder="" name="username" class="phoneInput" required>
+                                                        title="Username" placeholder="" name="username"
+                                                        class="phoneInput" required>
                                                     <span class="form__row-label">Enter Username</span>
                                                 </div>
 
                                                 <div onclick="enbEffModal()" class="inner__form-row">
                                                     <input autocomplete="off" type="password" class="form__row"
-                                                        title="Password" placeholder="" name="password" class="passwordInput" required>
+                                                        title="Password" placeholder="" name="password"
+                                                        class="passwordInput" required>
                                                     <span class="form__row-label">Enter Password</span>
                                                 </div>
 
                                                 <div onclick="enbEffModal()" class="inner__form-row">
                                                     <input autocomplete="off" type="text" class="form__row"
-                                                        title="Verification" placeholder="" class="verificationInput" required>
+                                                        title="Verification" placeholder="" class="verificationInput"
+                                                        required>
                                                     <span class="form__row-label">Verification Code</span>
                                                 </div>
                                             </div>
@@ -569,40 +639,46 @@
                                         <div class="form__input--padding">
                                             <div class="inner__header">
                                                 <h2>Your Profile</h2>
-                                                <a  href="{{route('logout')}}" >Sign Out</a>
+                                                <a href="{{ route('logout') }}">Sign Out</a>
                                             </div>
 
                                             <div class="inner__form">
                                                 <div class="profile__avatar">
-                                                    <img src="{{asset('images/avatar.png')}}" alt="">
-                                                    <div class="profile__avatar-name">User: {{session('username')}}</div>
+                                                    <img src="{{ asset('images/avatar.png') }}" alt="">
+                                                    <div class="profile__avatar-name">User: {{ session('username') }}
+                                                    </div>
                                                 </div>
 
                                                 <div onclick="enbEffModal()" class="inner__form-row">
                                                     <input autocomplete="off" type="text" class="form__row"
-                                                        title="Username" placeholder="" name="username" class="phoneInput" required>
+                                                        title="Username" placeholder="" name="username"
+                                                        class="phoneInput" required>
                                                     <span class="form__row-label">Enter Username</span>
                                                 </div>
 
                                                 <div onclick="enbEffModal()" class="inner__form-row">
                                                     <input autocomplete="off" type="password" class="form__row"
-                                                        title="Password" placeholder="" name="password" class="passwordInput" required>
+                                                        title="Password" placeholder="" name="password"
+                                                        class="passwordInput" required>
                                                     <span class="form__row-label">Enter Password</span>
                                                 </div>
 
                                                 <div onclick="enbEffModal()" class="inner__form-row">
                                                     <input autocomplete="off" type="text" class="form__row"
-                                                        title="Verification" placeholder="" class="verificationInput" required>
+                                                        title="Verification" placeholder="" class="verificationInput"
+                                                        required>
                                                     <span class="form__row-label">Verification Code</span>
                                                 </div>
                                             </div>
 
                                             <div class="inner__terms">
-                                                    Please provide personal information to ProTech, we are committed to the security of your account, 
-                                                    ensuring your privacy and you can easily pay your order at ProTech. <a class="inner__terms-link"
-                                                    href="##">Terms of Service</a> & <a class="inner__terms-link"
-                                                    href="###">Privacy Policy</a> or <a class="inner__terms-link"
-                                                    href="###">You forgot your password</a>
+                                                Please provide personal information to ProTech, we are committed to the
+                                                security of your account,
+                                                ensuring your privacy and you can easily pay your order at ProTech. <a
+                                                    class="inner__terms-link" href="##">Terms of Service</a> & <a
+                                                    class="inner__terms-link" href="###">Privacy Policy</a> or <a
+                                                    class="inner__terms-link" href="###">You forgot your
+                                                    password</a>
                                             </div>
 
                                             <div class="inner__btn">
@@ -611,7 +687,8 @@
                                                 </div>
                                                 <!--up-->
                                                 <button ondblclick="showToast()" onclick="validateInputsAndSubmit();"
-                                                    type="submit" class="inner__btn-main inner__btn-signup">Update</button>
+                                                    type="submit"
+                                                    class="inner__btn-main inner__btn-signup">Update</button>
                                                 <!--up-->
                                             </div>
 
@@ -1231,9 +1308,9 @@
     </div>
     -->
 
-    @if(session('username') && session('password'))
+    @if (session('username') && session('password'))
         <div id="toast"></div>
-{{-- 
+        {{-- 
         <div style="visibility: hidden">
             <div onclick="showSuccessToast();" class="btn btn--success">Show success toast</div>
             <div onclick="showErrorToast();" class="btn btn--danger">Show error toast</div>
@@ -1241,14 +1318,15 @@
 
         <script>
             var username = "{{ session('username') }}";
-        
+
             toast({
-                    title: "Success!",
-                    message: "Welcome " + username + " to the world of ProTech!",
-                    type: "success",
-                    duration: 5000
-                });
-                notificationSound1.play();
+                title: "Success!",
+                message: "Welcome " + username + " to the world of ProTech!",
+                type: "success",
+                duration: 5000
+            });
+            notificationSound1.play();
+
             function showSuccessToast() {
                 toast({
                     title: "Success!",
@@ -1271,37 +1349,37 @@
         </script>
     @endif
     {{-- @if (session('username') && session('password')) --}}
-        <div id="toast"></div>
+    <div id="toast"></div>
 
-        {{-- <div>
+    {{-- <div>
             <div onclick="showSuccessToast();" class="btn btn--success">Show success toast</div>
             <div onclick="showErrorToast();" class="btn btn--danger">Show error toast</div>
         </div> --}}
 
-        <script>
-            function showSuccessToast() {
-                toast({
-                    title: "Success!",
-                    message: "Welcome to the world of ProTech!",
-                    type: "success",
-                    duration: 5000
-                });
-                notificationSound1.play();
-            }
+    <script>
+        function showSuccessToast() {
+            toast({
+                title: "Success!",
+                message: "Welcome to the world of ProTech!",
+                type: "success",
+                duration: 5000
+            });
+            notificationSound1.play();
+        }
 
-            function showErrorToast() {
-                toast({
-                    title: "Error!",
-                    message: "An error has occurred, please contact the administrator.",
-                    type: "error",
-                    duration: 5000
-                });
-                notificationSound1.play();
-            }
-        </script>
-        
+        function showErrorToast() {
+            toast({
+                title: "Error!",
+                message: "An error has occurred, please contact the administrator.",
+                type: "error",
+                duration: 5000
+            });
+            notificationSound1.play();
+        }
+    </script>
+
     {{-- @endif --}}
-    @if(session('showToastSignup'))
+    @if (session('showToastSignup'))
         <script>
             toast({
                 title: "Success!",
