@@ -12,7 +12,7 @@ class brandsModel extends Model
 
     protected $table = 'brands';
     protected $primaryKey = 'id';
-    protected $fillable = 'name';
+    protected $fillable = ['name'];
 
     public function products(){
         return $this->hasMany(productsModel::class, 'id_brand', 'id');

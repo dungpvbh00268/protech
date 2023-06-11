@@ -17,6 +17,7 @@ class productController extends Controller
         $cart_pros = cart_proModel::all();
         $carts = cartModel::all();
         $accounts = accountModel::all();
+
         return view('pages.home', compact(['products', 'cart_pros', 'carts', 'accounts']));
     }
 }

@@ -27,12 +27,13 @@ Route::get('/',[productController::class,'index'])->name('index');
 //     return view('layouts/master');
 // });
 
-Route::get('cart', [cartController::class, 'index'])->name('cart');
+Route::get('cart/', [cartController::class, 'index'])->name('cart');
 
 // Route::get('cart', function(){
 //     return view('pages/cart');
 // });
-Route::get('details', [detailsController::class, 'index'])->name('details');
+Route::get('details/{id}/{name}', [detailsController::class, 'index'])->name('details');
+
 // Route::get('details', function(){
 //     return view('pages/details');
 // });
@@ -41,4 +42,7 @@ Route::post('/login', [authController::class, 'login'])->name('login');
 Route::get('/logout',[authController::class, 'logout'])->name('logout');
 Route::post('/signup',[authController::class, 'signup'])->name('signup');
 
-Route::get('getCart', [cartController::class, 'getCart'])->name('getCart');
+// Route::get('getCart', [cartController::class, 'getCart'])->name('getCart');
+
+Route::get('addCart/{id}', [detailsController::class, 'addCart'])->name('addCart');
+Route::get('removeProductFromCart/{id}', [detailsController::class, 'removeProductFromCart'])->name('removeProductFromCart');

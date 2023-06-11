@@ -15,8 +15,13 @@
 
             <div class="detail__product">
                 <h2 class="detail__product-title">
-                    Laptop Acer Predator Helios Neo 16 PHN16-71-59TN Geforce RTX 4060 8GB Intel Core i5
-                    13500HX 16GB 512GB 16″ WQXGA IPS 165Hz RGB 4-Zone Win11 N9.QJSWW.002
+                    {{-- Laptop Acer Predator Helios Neo 16 PHN16-71-59TN Geforce RTX 4060 8GB Intel Core i5
+                    13500HX 16GB 512GB 16″ WQXGA IPS 165Hz RGB 4-Zone Win11 N9.QJSWW.002 --}}
+                    @foreach ($products as $product)
+                        @if ($product->id == $id)
+                            {{ $product->name }}
+                        @endif
+                    @endforeach
                 </h2>
 
                 <div class="detail__product-element">
@@ -43,7 +48,23 @@
 
                         <div class="detail__brand nav__link">
                             <span style="color: #333;" class="">Brand: </span>
-                            <a href="33" class="detail__brand--color">Acer</a>
+                            <a href="33" class="detail__brand--color">
+                                @php
+                                    $previousBrand = null;
+                                @endphp
+
+                                @foreach ($products as $product)
+                                    @foreach ($brands as $brand)
+                                        @if ($product->id_brand == $brand->id && $brand->name != $previousBrand)
+                                            {{ $brand->name }}
+                                            @php
+                                                $previousBrand = $brand->name;
+                                            @endphp
+                                        @endif
+                                    @endforeach
+                                @endforeach
+
+                            </a>
                         </div>
                     </div>
 
@@ -58,24 +79,29 @@
             <div class="details">
                 <div class="detail__pro-right">
                     <div class="pro-right-img-main">
-                        <img src="images/laptop main.png" alt="">
+                        @foreach ($products as $product)
+                            @if ($product->id == $id)
+                                <img src="{{ asset('images/' . $product->image) }}" alt="">
+                            @endif
+                        @endforeach
+
                     </div>
 
                     <div class="pro-right-img-nav">
                         <div class="pro-right-img-nav--a">
-                            <img src="images/laptop main.png" alt="">
+                            <img src="{{ asset('images/laptop main.png') }}" alt="">
                         </div>
 
                         <div class="pro-right-img-nav--a">
-                            <img src="images/laptop main.png" alt="">
+                            <img src="{{ asset('images/laptop main.png') }}" alt="">
                         </div>
 
                         <div class="pro-right-img-nav--a">
-                            <img src="images/laptop main.png" alt="">
+                            <img src="{{ asset('images/laptop main.png') }}" alt="">
                         </div>
 
                         <div class="pro-right-img-nav--a">
-                            <img src="images/laptop main.png" alt="">
+                            <img src="{{ asset('images/laptop main.png') }}" alt="">
                         </div>
                     </div>
                 </div>
@@ -99,7 +125,7 @@
                             </h5>
 
                             <div class="pro-left__choice">
-                                <input name="promotion" id="a" type="radio">
+                                <input name="promotion" id="a" type="radio" checked>
                                 <label for="a">Shock price package</label>
                             </div>
 
@@ -145,12 +171,30 @@
                                     <span>♦ Free machine cleaning.</span><br>
                                     <span>♦ Free delivery nationwide.</span><br>
                                 </div>
+                                {{-- <div class="btn__payment">
+                                    <input type="number" value="1" title="Quantity" min="1" name="quantity">
+                                    <a href="{{ route('addCart', ['id' => $id]) }}" onclick="showSuccessToastCart(event)()">
+                                        Add To Cart
+                                    </a>
+
+                                    <button onclick="updating()">Buy Now</button>
+                                </div> --}}
 
                                 <div class="btn__payment">
-                                    <input type="number" value="1" title="Quantity" min="1">
-                                    <button onclick="showSuccessToastCart()">Add To Cart</button>
+                                    {{-- <input type="number" value="1" title="Quantity" min="1" name="quantity"> --}}
+
+                                    <form action="{{ route('addCart', ['id' => $id]) }}" method="get">
+                                        @csrf
+                                        <div class="btn__payment">
+                                            <input type="number" value="1" title="Quantity" min="1"
+                                                name="quantity">
+                                            <button type="submit" onclick="showSuccessToastCart(event)()">Add To
+                                                Cart</button>
+                                        </div>
+                                    </form>
                                     <button onclick="updating()">Buy Now</button>
                                 </div>
+
                             </div>
                         </div>
                     </div>
@@ -174,7 +218,7 @@
                         <span class="excerpt">Refund 1,000,000 VND</span>
                         <div class="element__product-info">
                             <div class="element__product-info--img">
-                                <img src="images/laptop.png" alt="" class="element__product-img">
+                                <img src="{{ asset('images/laptop.png') }}" alt="" class="element__product-img">
                             </div>
                             <div class="element__product-title">
                                 Laptop Gaming MSI Cyborg 15 A12VE 240VN Geforce RTX…
@@ -192,38 +236,40 @@
                                 <!-- format cost -->
                                 {{-- <!-- {{ number_format($number, 0, ',', '.') }} --> --}}
                                 <del class="element__product-costs--old">30,490,000 <u>đ</u></del>
-                                <div class="element__product-costs--new">26,890,000 <u>đ</u></div>
+                                <div class="element__product-costs--new">{{ number_format($product->cost, 0, ',', ',') }}
+                                    <u>đ</u>
+                                </div>
                             </div>
                         </div>
 
                         <div class="element__product-details">
                             <div>
-                                <img src="images/cpu.png" alt="">
+                                <img src="{{ asset('images/cpu.png') }}" alt="">
                                 <span>i5 13500HX</span>
                             </div>
 
                             <div>
-                                <img src="images/vga.png" alt="">
+                                <img src="{{ asset('images/vga.png') }}" alt="">
                                 <span>RTX 4060</span>
                             </div>
 
                             <div>
-                                <img src="images/ram.png" alt="">
+                                <img src="{{ asset('images/ram.png') }}" alt="">
                                 <span>DDR5 16GB</span>
                             </div>
 
                             <div>
-                                <img src="images/storage.png" alt="">
+                                <img src="{{ asset('images/storage.png') }}" alt="">
                                 <span>512GB</span>
                             </div>
 
                             <div>
-                                <img src="images/baohanh.png" alt="">
+                                <img src="{{ asset('images/baohanh.png') }}" alt="">
                                 <span>12 months 3s1</span>
                             </div>
 
                             <div>
-                                <img src="images/screen.png" alt="">
+                                <img src="{{ asset('images/screen.png') }}" alt="">
                                 <span>16" 2K+ 165Hz</span>
                             </div>
                         </div>
@@ -233,7 +279,8 @@
                         <span class="inner__text">-12%</span>
                         <div class="element__product-info">
                             <div class="element__product-info--img">
-                                <img src="images/laptop2.png" alt="" class="element__product-img">
+                                <img src="{{ asset('images/laptop2.png') }}" alt=""
+                                    class="element__product-img">
                             </div>
                             <div class="element__product-title">
                                 Laptop Gaming MSI Cyborg 15 A12VE 240VN Geforce RTX…
@@ -255,32 +302,32 @@
 
                         <div class="element__product-details">
                             <div>
-                                <img src="images/cpu.png" alt="">
+                                <img src="{{ asset('images/cpu.png') }}" alt="">
                                 <span>i5 13500HX</span>
                             </div>
 
                             <div>
-                                <img src="images/vga.png" alt="">
+                                <img src="{{ asset('images/vga.png') }}" alt="">
                                 <span>RTX 4060</span>
                             </div>
 
                             <div>
-                                <img src="images/ram.png" alt="">
+                                <img src="{{ asset('images/ram.png') }}" alt="">
                                 <span>DDR5 16GB</span>
                             </div>
 
                             <div>
-                                <img src="images/storage.png" alt="">
+                                <img src="{{ asset('images/storage.png') }}" alt="">
                                 <span>512GB</span>
                             </div>
 
                             <div>
-                                <img src="images/baohanh.png" alt="">
+                                <img src="{{ asset('images/baohanh.png') }}" alt="">
                                 <span>12 months 3s1</span>
                             </div>
 
                             <div>
-                                <img src="images/screen.png" alt="">
+                                <img src="{{ asset('images/screen.png') }}" alt="">
                                 <span>16" 2K+ 165Hz</span>
                             </div>
                         </div>
@@ -290,7 +337,8 @@
                         <span class="excerpt">FREE 8GB DDR5 RAM</span>
                         <div class="element__product-info">
                             <div class="element__product-info--img">
-                                <img src="images/laptop3.png" alt="" class="element__product-img">
+                                <img src="{{ asset('images/laptop3.png') }}" alt=""
+                                    class="element__product-img">
                             </div>
                             <div class="element__product-title">
                                 Laptop Gaming MSI Cyborg 15 A12VE 240VN Geforce RTX…
@@ -312,32 +360,32 @@
 
                         <div class="element__product-details">
                             <div>
-                                <img src="images/cpu.png" alt="">
+                                <img src="{{ asset('images/cpu.png') }}" alt="">
                                 <span>i5 13500HX</span>
                             </div>
 
                             <div>
-                                <img src="images/vga.png" alt="">
+                                <img src="{{ asset('images/vga.png') }}" alt="">
                                 <span>RTX 4060</span>
                             </div>
 
                             <div>
-                                <img src="images/ram.png" alt="">
+                                <img src="{{ asset('images/ram.png') }}" alt="">
                                 <span>DDR5 16GB</span>
                             </div>
 
                             <div>
-                                <img src="images/storage.png" alt="">
+                                <img src="{{ asset('images/storage.png') }}" alt="">
                                 <span>512GB</span>
                             </div>
 
                             <div>
-                                <img src="images/baohanh.png" alt="">
+                                <img src="{{ asset('images/baohanh.png') }}" alt="">
                                 <span>12 months 3s1</span>
                             </div>
 
                             <div>
-                                <img src="images/screen.png" alt="">
+                                <img src="{{ asset('images/screen.png') }}" alt="">
                                 <span>16" 2K+ 165Hz</span>
                             </div>
                         </div>
@@ -348,7 +396,7 @@
                         <span class="inner__text">-14%</span>
                         <div class="element__product-info">
                             <div class="element__product-info--img">
-                                <img src="images/laptop.png" alt="" class="element__product-img">
+                                <img src="{{ asset('images/laptop.png') }}" alt="" class="element__product-img">
                             </div>
                             <div class="element__product-title">
                                 Laptop Gaming MSI Cyborg 15 A12VE 240VN Geforce RTX…
@@ -370,32 +418,32 @@
 
                         <div class="element__product-details">
                             <div>
-                                <img src="images/cpu.png" alt="">
+                                <img src="{{ asset('images/cpu.png') }}" alt="">
                                 <span>i5 13500HX</span>
                             </div>
 
                             <div>
-                                <img src="images/vga.png" alt="">
+                                <img src="{{ asset('images/vga.png') }}" alt="">
                                 <span>RTX 4060</span>
                             </div>
 
                             <div>
-                                <img src="images/ram.png" alt="">
+                                <img src="{{ asset('images/ram.png') }}" alt="">
                                 <span>DDR5 16GB</span>
                             </div>
 
                             <div>
-                                <img src="images/storage.png" alt="">
+                                <img src="{{ asset('images/storage.png') }}" alt="">
                                 <span>512GB</span>
                             </div>
 
                             <div>
-                                <img src="images/baohanh.png" alt="">
+                                <img src="{{ asset('images/baohanh.png') }}" alt="">
                                 <span>12 months 3s1</span>
                             </div>
 
                             <div>
-                                <img src="images/screen.png" alt="">
+                                <img src="{{ asset('images/screen.png') }}" alt="">
                                 <span>16" 2K+ 165Hz</span>
                             </div>
                         </div>
@@ -510,7 +558,7 @@
                             </h2>
 
                             <!--1 start -->
-                            <img src="images/info-lap.png" alt="">
+                            <img src="{{ asset('images/info-lap.png') }}" alt="">
                             <h2>
                                 MIXED WITH THE BEST
                             </h2>
@@ -526,7 +574,7 @@
                             <!-- end -->
 
                             <!--2 start -->
-                            <img src="images/info-lap.png" alt="">
+                            <img src="{{ asset('images/info-lap.png') }}" alt="">
                             <h2>
                                 MIXED WITH THE BEST
                             </h2>
@@ -545,7 +593,7 @@
                             <!-- end -->
 
                             <!--3 start -->
-                            <img src="images/info-lap.png" alt="">
+                            <img src="{{ asset('images/info-lap.png') }}" alt="">
                             <h2>
                                 PERFORMANCE EXPLOSION
                             </h2>
@@ -564,7 +612,7 @@
                             <!-- end -->
 
                             <!--4 start -->
-                            <img src="images/info-lap.png" alt="">
+                            <img src="{{ asset('images/info-lap.png') }}" alt="">
                             <h2>
                                 NVIDIA® GEFORCE RTX™ 40 SERIES
                             </h2>
@@ -583,7 +631,7 @@
 
 
                             <!--5 start -->
-                            <img src="images/info-lap.png" alt="">
+                            <img src="{{ asset('images/info-lap.png') }}" alt="">
                             <h2>
                                 AMAZING PHOTO
                             </h2>

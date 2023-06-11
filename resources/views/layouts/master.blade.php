@@ -25,13 +25,12 @@
     <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> -->
-    <link rel="shortcut icon" href="images/designlogo.png" type="image/x-icon">
+    <link rel="shortcut icon" href="{{ asset('images/designlogo.png') }}" type="image/x-icon">
 
     <!--refer-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
         integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
         crossorigin="anonymous" />
-
 </head>
 
 <body>
@@ -41,14 +40,13 @@
         <div class="header__main">
             <div class="header__img">
                 <a href="/">
-                    <img src="images/design logo1 - Copy.png" alt="logo">
+                    <img src="{{ asset('images/design logo1 - Copy.png') }}" alt="logo">
                 </a>
             </div>
             <form method="get" action="" class="header_input">
                 <div class="header__input-search">
                     <input type="text" title="search" name="header__search" id=""
                         placeholder="What products are you looking for?">
-
                 </div>
                 <button class="header__input-btn-search" type="submit" title="search">
                     <!-- <input type="submit" class="header__btn-search" value=""> -->
@@ -67,392 +65,126 @@
                                 <div onclick="offModal()" class="elementor-menu-cart__close-button"></div>
 
                                 <div class="cart__inner-pro">
-                                    <!-- if have not product -->
-                                    <div class="cart__inner-pro--not-have">
-                                        <!-- <div class="cart__inner-pro--mess">
-                                            No products in the cart.
-                                        </div> -->
-                                    </div>
-
-                                    <!-- If have product -->
-                                    <!-- product index 1 -->
-                                    <div class="cart__inner-pro--have">
-                                        <a href="details.html" class="cart__inner-pro--mess">
-                                            <div class="cart__inner-pro-img">
-                                                <img src="images/laptop main.png" alt="">
-                                            </div>
-
-                                            <div class="cart__inner-pro-details">
-                                                <div class="cart__ịnner-title">
-
-                                                    Laptop Acer Predator Helios Neo 16 PHN16-71-59TN Geforce RTX 4060
-                                                    8GB Intel Core i5
-                                                    13500HX 16GB 512GB 16″ WQXGA IPS 165Hz RGB 4-Zone Win11 N9.QJSWW.002
-
-                                                </div>
-
-                                                <div class="cart__ịnner-promotion">
-                                                    <div>
-                                                        Choose a promotional package:
-                                                    </div>
-
-                                                    <div class="cart__ịnner-promotion--select">
-                                                        abc
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </a>
-
-                                        <div class="cart__inner-price-product">
-                                            <div class="price-product__quantity">
-                                                1 x&nbsp;
-                                            </div>
-
-                                            <div class="price-product__cost">
-                                                39,990,000 <u>đ</u>
-                                            </div>
-
-                                            <div class="price-product__remove">
-                                                <i class="fa-regular fa-circle-xmark"></i>
+                                    @if (!session('username') && !session('password'))
+                                        <!-- if have not product -->
+                                        <div class="cart__inner-pro--not-have">
+                                            <div class="cart__inner-pro--mess">
+                                                No products in the cart.
                                             </div>
                                         </div>
+                                    @else
+                                        <!-- If have product -->
+                                        {{-- test --}}
+                                        @php
+                                            $productCount = 0;
+                                            $totalPrice = 0;
+                                            $countPro = 0;
+                                        @endphp
 
-                                        <!-- <div class="elementor-menu-cart__subtotal">
-                                            <span>Total Money:&nbsp;</span>
-                                            <span>79,970,000 <u>đ</u></span>
-                                        </div> -->
 
-                                        <!-- <div class="elementor-menu-cart__footer-buttons">
-                                            <a href="" class="title__product-laptop-link">
-                                                View Cart
-                                            </a>
+                                        @foreach ($accounts as $account)
+                                            @foreach ($carts as $cart)
+                                                @foreach ($cart_pros as $cart_pro)
+                                                    @foreach ($products as $product)
+                                                        @if ($account->id == $cart->id_user)
+                                                            @if ($cart->id == $cart_pro->id_cart && $product->id == $cart_pro->id_product)
+                                                                @if ($account->cart && $cart->cart_pro && $product->cart_pro)
+                                                                    @if (session('id') == $cart->id_user)
+                                                                        @php
+                                                                            $productCount++;
+                                                                            $totalPrice += $product->cost * $cart_pro->quantity;
+                                                                            $countPro += $cart_pro->quantity;
+                                                                        @endphp
 
-                                            <a href="" class="title__product-laptop-link">
-                                                Pay
-                                            </a>
-                                        </div> -->
-
-                                        <div class="cart__boder"></div>
-                                    </div>
-                                    <!-- end -->
-
-                                    <!-- product index 2 -->
-                                    <div class="cart__inner-pro--have">
-                                        <a href="details.html" class="cart__inner-pro--mess">
-                                            <div class="cart__inner-pro-img">
-                                                <img src="images/laptop main.png" alt="">
-                                            </div>
-
-                                            <div class="cart__inner-pro-details">
-                                                <div class="cart__ịnner-title">
-
-                                                    Laptop Acer Predator Helios Neo 16 PHN16-71-59TN Geforce RTX 4060
-                                                    8GB Intel Core i5
-                                                    13500HX 16GB 512GB 16″ WQXGA IPS 165Hz RGB 4-Zone Win11 N9.QJSWW.002
-
-                                                </div>
-
-                                                <div class="cart__ịnner-promotion">
-                                                    <div>
-                                                        Choose a promotional package:
-                                                    </div>
-
-                                                    <div class="cart__ịnner-promotion--select">
-                                                        abc
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </a>
-
-                                        <div class="cart__inner-price-product">
-                                            <div class="price-product__quantity">
-                                                1 x&nbsp;
-                                            </div>
-
-                                            <div class="price-product__cost">
-                                                39,990,000 <u>đ</u>
-                                            </div>
-
-                                            <div class="price-product__remove">
-                                                <i class="fa-regular fa-circle-xmark"></i>
-                                            </div>
-                                        </div>
-
-                                        <!-- <div class="elementor-menu-cart__subtotal">
-                                            <span>Total Money:&nbsp;</span>
-                                            <span>79,970,000 <u>đ</u></span>
-                                        </div> -->
-
-                                        <!-- <div class="elementor-menu-cart__footer-buttons">
-                                            <a href="" class="title__product-laptop-link">
-                                                View Cart
-                                            </a>
-
-                                            <a href="" class="title__product-laptop-link">
-                                                Pay
-                                            </a>
-                                        </div> -->
-
-                                        <div class="cart__boder"></div>
-                                    </div>
-                                    <!-- end -->
-
-                                    <!-- product index 2 -->
-                                    <div class="cart__inner-pro--have">
-                                        <a href="details.html" class="cart__inner-pro--mess">
-                                            <div class="cart__inner-pro-img">
-                                                <img src="images/laptop main.png" alt="">
-                                            </div>
-
-                                            <div class="cart__inner-pro-details">
-                                                <div class="cart__ịnner-title">
-
-                                                    Laptop Acer Predator Helios Neo 16 PHN16-71-59TN Geforce RTX 4060
-                                                    8GB Intel Core i5
-                                                    13500HX 16GB 512GB 16″ WQXGA IPS 165Hz RGB 4-Zone Win11 N9.QJSWW.002
-
-                                                </div>
-
-                                                <div class="cart__ịnner-promotion">
-                                                    <div>
-                                                        Choose a promotional package:
-                                                    </div>
-
-                                                    <div class="cart__ịnner-promotion--select">
-                                                        abc
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </a>
-
-                                        <div class="cart__inner-price-product">
-                                            <div class="price-product__quantity">
-                                                1 x&nbsp;
-                                            </div>
-
-                                            <div class="price-product__cost">
-                                                39,990,000 <u>đ</u>
-                                            </div>
-
-                                            <div class="price-product__remove">
-                                                <i class="fa-regular fa-circle-xmark"></i>
-                                            </div>
-                                        </div>
-
-                                        <!-- <div class="elementor-menu-cart__subtotal">
-                                            <span>Total Money:&nbsp;</span>
-                                            <span>79,970,000 <u>đ</u></span>
-                                        </div> -->
-
-                                        <!-- <div class="elementor-menu-cart__footer-buttons">
-                                            <a href="" class="title__product-laptop-link">
-                                                View Cart
-                                            </a>
-
-                                            <a href="" class="title__product-laptop-link">
-                                                Pay
-                                            </a>
-                                        </div> -->
-
-                                        <div class="cart__boder"></div>
-                                    </div>
-                                    <!-- end -->
-
-                                    <!-- product index 2 -->
-                                    <div class="cart__inner-pro--have">
-                                        <a href="details.html" class="cart__inner-pro--mess">
-                                            <div class="cart__inner-pro-img">
-                                                <img src="images/laptop main.png" alt="">
-                                            </div>
-
-                                            <div class="cart__inner-pro-details">
-                                                <div class="cart__ịnner-title">
-
-                                                    Laptop Acer Predator Helios Neo 16 PHN16-71-59TN Geforce RTX 4060
-                                                    8GB Intel Core i5
-                                                    13500HX 16GB 512GB 16″ WQXGA IPS 165Hz RGB 4-Zone Win11 N9.QJSWW.002
-
-                                                </div>
-
-                                                <div class="cart__ịnner-promotion">
-                                                    <div>
-                                                        Choose a promotional package:
-                                                    </div>
-
-                                                    <div class="cart__ịnner-promotion--select">
-                                                        abc
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </a>
-
-                                        <div class="cart__inner-price-product">
-                                            <div class="price-product__quantity">
-                                                1 x&nbsp;
-                                            </div>
-
-                                            <div class="price-product__cost">
-                                                39,990,000 <u>đ</u>
-                                            </div>
-
-                                            <div class="price-product__remove">
-                                                <i class="fa-regular fa-circle-xmark"></i>
-                                            </div>
-                                        </div>
-
-                                        <!-- <div class="elementor-menu-cart__subtotal">
-                                            <span>Total Money:&nbsp;</span>
-                                            <span>79,970,000 <u>đ</u></span>
-                                        </div> -->
-
-                                        <!-- <div class="elementor-menu-cart__footer-buttons">
-                                            <a href="" class="title__product-laptop-link">
-                                                View Cart
-                                            </a>
-
-                                            <a href="" class="title__product-laptop-link">
-                                                Pay
-                                            </a>
-                                        </div> -->
-
-                                        <div class="cart__boder"></div>
-                                    </div>
-                                    <!-- end -->
-
-                                    <!-- product index 2 -->
-                                    <div class="cart__inner-pro--have">
-                                        <a href="details.html" class="cart__inner-pro--mess">
-                                            <div class="cart__inner-pro-img">
-                                                <img src="images/laptop main.png" alt="">
-                                            </div>
-
-                                            <div class="cart__inner-pro-details">
-                                                <div class="cart__ịnner-title">
-
-                                                    Laptop Acer Predator Helios Neo 16 PHN16-71-59TN Geforce RTX 4060
-                                                    8GB Intel Core i5
-                                                    13500HX 16GB 512GB 16″ WQXGA IPS 165Hz RGB 4-Zone Win11 N9.QJSWW.002
-
-                                                </div>
-
-                                                <div class="cart__ịnner-promotion">
-                                                    <div>
-                                                        Choose a promotional package:
-                                                    </div>
-
-                                                    <div class="cart__ịnner-promotion--select">
-                                                        abc
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </a>
-
-                                        <div class="cart__inner-price-product">
-                                            <div class="price-product__quantity">
-                                                1 x&nbsp;
-                                            </div>
-
-                                            <div class="price-product__cost">
-                                                39,990,000 <u>đ</u>
-                                            </div>
-
-                                            <div class="price-product__remove">
-                                                <i class="fa-regular fa-circle-xmark"></i>
-                                            </div>
-                                        </div>
-
-                                        <!-- <div class="elementor-menu-cart__subtotal">
-                                            <span>Total Money:&nbsp;</span>
-                                            <span>79,970,000 <u>đ</u></span>
-                                        </div> -->
-
-                                        <!-- <div class="elementor-menu-cart__footer-buttons">
-                                            <a href="" class="title__product-laptop-link">
-                                                View Cart
-                                            </a>
-
-                                            <a href="" class="title__product-laptop-link">
-                                                Pay
-                                            </a>
-                                        </div> -->
-
-                                        <div class="cart__boder"></div>
-                                    </div>
-                                    <!-- end -->
-
-                                    {{-- test --}}
-                                    @foreach ($accounts as $account)
-                                        @foreach ($carts as $cart)
-                                            @foreach ($cart_pros as $cart_pro)
-                                                @foreach ($products as $product)
-                                                    @if ($account->id == $cart->id_user)
-                                                        @if ($cart->id == $cart_pro->id_cart && $product->id == $cart_pro->id_product)
-                                                            @if ($account->cart && $cart->cart_pro && $product->cart_pro)
-                                                                @if (session('id') == $cart->id_user)
-                                                                    <div class="cart__inner-pro--have">
-                                                                        <a href="details.html"
-                                                                            class="cart__inner-pro--mess">
-                                                                            <div class="cart__inner-pro-img">
-                                                                                <img src="images/laptop main.png"
-                                                                                    alt="">
-                                                                            </div>
-
-                                                                            <div class="cart__inner-pro-details">
-                                                                                <div class="cart__ịnner-title">
-
-                                                                                    {{ $cart->id_user }}
-
+                                                                        <div class="cart__inner-pro--have">
+                                                                            <a href="details/{{ $product->id }}"
+                                                                                class="cart__inner-pro--mess">
+                                                                                <div class="cart__inner-pro-img">
+                                                                                    <img src="{{ asset('images/' . $product->image) }}"
+                                                                                        alt="">
                                                                                 </div>
 
-                                                                                <div class="cart__ịnner-promotion">
-                                                                                    <div>
-                                                                                        Choose a promotional package:
+                                                                                <div class="cart__inner-pro-details">
+                                                                                    <div class="cart__ịnner-title">
+
+                                                                                        {{ $product->name }}
+
                                                                                     </div>
 
-                                                                                    <div
-                                                                                        class="cart__ịnner-promotion--select">
-                                                                                        abc
+                                                                                    <div class="cart__ịnner-promotion">
+                                                                                        <div>
+                                                                                            Choose a promotional
+                                                                                            package:
+                                                                                        </div>
+
+                                                                                        <div
+                                                                                            class="cart__ịnner-promotion--select">
+                                                                                            abc
+                                                                                        </div>
                                                                                     </div>
                                                                                 </div>
-                                                                            </div>
-                                                                        </a>
+                                                                            </a>
 
-                                                                        <div class="cart__inner-price-product">
-                                                                            <div class="price-product__quantity">
-                                                                                1 x&nbsp;
-                                                                            </div>
+                                                                            <div class="cart__inner-price-product">
+                                                                                <div class="price-product__quantity">
+                                                                                    {{ $cart_pro->quantity }}
+                                                                                    x&nbsp;
+                                                                                </div>
 
-                                                                            <div class="price-product__cost">
-                                                                                39,990,000 <u>đ</u>
-                                                                            </div>
+                                                                                <div class="price-product__cost">
+                                                                                    {{ number_format($product->cost, 0, ',', ',') }}
+                                                                                    <u>đ</u>
+                                                                                </div>
 
-                                                                            <div class="price-product__remove">
-                                                                                <i
-                                                                                    class="fa-regular fa-circle-xmark"></i>
+                                                                                <div class="price-product__remove">
+                                                                                    <a href="{{ route('removeProductFromCart', ['id' => $product->id]) }}"
+                                                                                        class="fa-regular fa-circle-xmark"></a>
+                                                                                </div>
                                                                             </div>
+                                                                            <div class="cart__boder"></div>
                                                                         </div>
-                                                                        <div class="cart__boder"></div>
-                                                                    </div>
+                                                                    @endif
                                                                 @endif
                                                             @endif
                                                         @endif
-                                                    @endif
+                                                    @endforeach
                                                 @endforeach
                                             @endforeach
                                         @endforeach
-                                    @endforeach
+
+                                        <style>
+                                            .header__other-a.header__cart i::after {
+                                                content: "{{ $countPro }}";
+                                            }
+                                        </style>
+
+                                        @if ($productCount === 0)
+                                            <!-- if have not product -->
+                                            <div class="cart__inner-pro--not-have">
+                                                <div class="cart__inner-pro--mess">
+                                                    No products in the cart.
+                                                </div>
+                                            </div>
+                                        @endif
+                                    @endif
                                     <!-- end -->
 
                                     <div class="elementor-menu-cart__subtotal">
                                         <span>Total Money:&nbsp;</span>
-                                        <span>79,970,000 <u>đ</u></span>
+                                        @if (session('username') && session('password'))
+                                            <span>{{ number_format($totalPrice, 0, ',', ',') }}
+                                                <u>đ</u></span>
+                                        @else
+                                            <span>0 <u>đ</u></span>
+                                        @endif
+
                                     </div>
                                     <div class="elementor-menu-cart__footer-buttons">
-                                        <a href="cart" class="title__product-laptop-link">
+                                        <a href="{{ route('cart') }}" class="title__product-laptop-link">
                                             View Cart
                                         </a>
 
-                                        <a onclick="updating()" class="title__product-laptop-link">
+                                        <a href="##" onclick="updating()" class="title__product-laptop-link">
                                             Pay
                                         </a>
                                     </div>
@@ -494,9 +226,10 @@
 
                     <!-- modal sign in/up-->
                     <div id="myModal" class="modal">
-                        <div class="modal__main">
-                            <div class="modal__inner">
-                                @if (!session()->has('username') && !session()->has('password'))
+                        @if (!session()->has('username') && !session()->has('password'))
+                            <div class="modal__main">
+                                <div class="modal__inner">
+                                    {{-- @if (!session()->has('username') && !session()->has('password')) --}}
                                     <!-- signup -->
                                     <form method="POST" action="{{ route('signup') }}"
                                         class="modal__inner-signin modal__inner-signin">
@@ -631,7 +364,12 @@
                                             </div>
                                         </div>
                                     </form>
-                                @else
+
+                                </div>
+                            </div>
+                        @else
+                            <div class="modal__main modal__main-info">
+                                <div class="modal__inner">
                                     <!-- edit profile -->
                                     <form method="POST" action="{{ route('logout') }}"
                                         class="modal__inner-signin modal__inner-signin">
@@ -642,7 +380,7 @@
                                                 <a href="{{ route('logout') }}">Sign Out</a>
                                             </div>
 
-                                            <div class="inner__form">
+                                            {{-- <div class="inner__form">
                                                 <div class="profile__avatar">
                                                     <img src="{{ asset('images/avatar.png') }}" alt="">
                                                     <div class="profile__avatar-name">User: {{ session('username') }}
@@ -679,10 +417,79 @@
                                                     class="inner__terms-link" href="###">Privacy Policy</a> or <a
                                                     class="inner__terms-link" href="###">You forgot your
                                                     password</a>
+                                            </div> --}}
+
+                                            <div class="profile">
+                                                <div class="profile__main">
+                                                    <div class="profile__avatar">
+                                                        <img src="{{ asset('images/avatar.png') }}" alt="">
+                                                        <div class="profile__avatar-name">
+                                                            {{ session('username') }}
+                                                            @foreach ($accounts as $account)
+                                                                @if (session('id_user') == $account->id)
+                                                                    @if ($account->is_admin == 1)
+                                                                        (ADMIN)
+                                                                    @endif
+                                                                @endif
+                                                            @endforeach
+                                                        </div>
+                                                    </div>
+
+                                                    @foreach ($accounts as $account)
+                                                        @if ($account->id == session('id_user'))
+                                                            <div class="profile__main-config profile__main-position">
+                                                                Chairman of the board
+                                                            </div>
+                                                            <div class="profile__main-config profile__main-age">
+                                                                Age:
+                                                                @php
+                                                                    $dob = $account->dob;
+                                                                    $currentDate = date('Y-m-d');
+                                                                    $age = date_diff(date_create($dob), date_create($currentDate))->y;
+                                                                @endphp
+                                                                <span>{{ $age }}</span>
+
+                                                            </div>
+                                                            <div class="profile__main-config profile__main-edu">
+                                                                Address: 
+                                                                <span>
+                                                                    {{$account -> address}}
+                                                                </span>
+                                                            </div>
+                                                            <div class="profile__main-config profile__main-asset">
+                                                                Total Assets: <span>18.000.000 <u>đ</u></span>
+                                                            </div>
+                                                        @endif
+                                                    @endforeach
+                                                </div>
+
+                                                <div class="profile__info">
+                                                    <div class="profile__info-nav">
+                                                        <div class="btnProfile-first btnProfile" id="btn__info-1" onclick="showFormProfile(1)">Profile</div>
+                                                        <div class="btnProfile" id="btn__info-2" onclick="showFormProfile(2)">Deals</div>
+                                                        <div class="btnProfile" id="btn__info-3" onclick="showFormProfile(3)">News</div>
+                                                        <div class="btnProfile" id="btn__info-4" onclick="showFormProfile(4)">Community</div>
+                                                    </div>
+
+                                                    <div class="profile__info-details">
+                                                        <div id="profile__info-num profile__info-1" class="formProfile">
+                                                            441
+                                                        </div>
+                                                        <div id="profile__info-num profile__info-2" class="formProfile" style="display: none;">
+                                                            442
+                                                        </div>
+                                                        <div id="profile__info-num profile__info-3" class="formProfile" style="display: none;">
+                                                            443
+                                                        </div>
+                                                        <div id="profile__info-num profile__info-4" class="formProfile" style="display: none;">
+                                                            444
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
 
                                             <div class="inner__btn">
-                                                <div onclick="backModal()" class="inner__btn-main inner__btn-back">
+                                                <div style="cursor: pointer" onclick="backModal()" class="inner__btn-main inner__btn-back">
                                                     Back
                                                 </div>
                                                 <!--up-->
@@ -709,9 +516,9 @@
                                             </div>
                                         </div>
                                     </form>
-                                @endif
+                                </div>
                             </div>
-                        </div>
+                        @endif
                         <!-- backModal() -->
                         <div onclick="offModal()" class="modal__overlay"></div>
                     </div>
@@ -1144,7 +951,7 @@
         <div class="footer">
             <div class="footer__main footer--margin">
                 <div class=" footer__main-img">
-                    <img src="images/design logo.png" alt="">
+                    <img src="{{ asset('images/design logo.png') }}" alt="">
                 </div>
                 <div class="footer__main-des">
                     Known as the official authorized retailer in Vietnam,
@@ -1218,8 +1025,8 @@
                     </div>
 
                     <div>
-                        <a href="https://goo.gl/maps/qsnUm3LDEWWepuXm7" target="_blank"><img src="images/map.png"
-                                alt=""></a>
+                        <a href="https://goo.gl/maps/qsnUm3LDEWWepuXm7" target="_blank"><img
+                                src="{{ asset('images/map.png') }}" alt=""></a>
                         <a href="https://goo.gl/maps/qsnUm3LDEWWepuXm7" target="_blank" class="larger-map">View
                             larger
                             map</a>
@@ -1232,7 +1039,7 @@
                     </div>
 
                     <div>
-                        <a href=""> <img src="images/map.png" alt=""></a>
+                        <a href=""> <img src="{{ asset('images/map.png') }}" alt=""></a>
                         <a href="https://goo.gl/maps/qsnUm3LDEWWepuXm7" target="_blank" class="larger-map">View
                             larger
                             map</a>
@@ -1253,7 +1060,7 @@
     <div class="echbay-sms-messenger">
         <div class="phonering phonering-alo">
             <a target="_blank" href="tel:0787099745">
-                <img src="images/whatapp.png" alt="">
+                <img src="{{ asset('images/whatapp.png') }}" alt="">
 
                 <span class="phonering--hover">
                     Call Now
@@ -1263,7 +1070,7 @@
 
         <div class="phonering phonering-alo-zalo">
             <a target="_blank" href="https://zalo.me/0787099745">
-                <img src="images/zalo.png" alt="">
+                <img src="{{ asset('images/zalo.png') }}" alt="">
 
                 <span class="phonering--hover">
                     Message Now
@@ -1273,7 +1080,7 @@
 
         <div class="phonering phonering-alo-messenger">
             <a target="_blank" href="https://www.facebook.com/messages/t/100010290584323">
-                <img src="images/mess.png" alt="">
+                <img src="{{ asset('images/mess.png') }}" alt="">
 
                 <span class="phonering--hover">
                     Message Now
@@ -1310,45 +1117,42 @@
 
     @if (session('username') && session('password'))
         <div id="toast"></div>
-        {{-- 
-        <div style="visibility: hidden">
-            <div onclick="showSuccessToast();" class="btn btn--success">Show success toast</div>
-            <div onclick="showErrorToast();" class="btn btn--danger">Show error toast</div>
-        </div> --}}
+        @if (session('showToastLoginSS'))
+            <script>
+                var username = "{{ session('username') }}";
 
-        <script>
-            var username = "{{ session('username') }}";
-
-            toast({
-                title: "Success!",
-                message: "Welcome " + username + " to the world of ProTech!",
-                type: "success",
-                duration: 5000
-            });
-            notificationSound1.play();
-
-            function showSuccessToast() {
                 toast({
                     title: "Success!",
-                    message: "Welcome to the world of ProTech!",
+                    message: "Welcome " + username + " to the world of ProTech!",
                     type: "success",
                     duration: 5000
                 });
                 notificationSound1.play();
-            }
 
-            function showErrorToast() {
-                toast({
-                    title: "Error!",
-                    message: "An error has occurred, please contact the administrator.",
-                    type: "error",
-                    duration: 5000
-                });
-                notificationSound1.play();
-            }
-        </script>
+                function showSuccessToast() {
+                    toast({
+                        title: "Success!",
+                        message: "Welcome to the world of ProTech!",
+                        type: "success",
+                        duration: 5000
+                    });
+                    notificationSound1.play();
+                }
+
+                function showErrorToast() {
+                    toast({
+                        title: "Error!",
+                        message: "An error has occurred, please contact the administrator.",
+                        type: "error",
+                        duration: 5000
+                    });
+                    notificationSound1.play();
+                }
+            </script>
+        @endif
+
     @endif
-    {{-- @if (session('username') && session('password')) --}}
+
     <div id="toast"></div>
 
     {{-- <div>
@@ -1392,6 +1196,30 @@
     @endif
 
     @if (session('showToastSigninError'))
+        <script>
+            toast({
+                title: "Error!",
+                message: "An error has occurred, please contact the administrator.",
+                type: "error",
+                duration: 5000
+            });
+            notificationSound1.play();
+        </script>
+    @endif
+
+    @if (session('showToastAddCartSuccess'))
+        <script>
+            toast({
+                title: "Cart Updated!",
+                message: "You have added a product to your cart.",
+                type: "success",
+                duration: 5000
+            });
+            notificationSound1.play();
+        </script>
+    @endif
+
+    @if (session('showToastAddCartError'))
         <script>
             toast({
                 title: "Error!",

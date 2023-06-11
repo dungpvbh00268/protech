@@ -23,7 +23,12 @@ class authController extends Controller
             $request->session()->put('is_admin', $account->is_admin);
             $request->session()->put('id', $account->id);
 
-            return redirect()->intended('/');
+            // Lấy thông tin giỏ hàng của người dùng từ bảng cart (nếu có)
+            $cart = cartModel::where('id_user', $account->id)->first();
+            $request->session()->put('id_user', $cart->id_user);
+
+            return redirect()->intended('/')
+                ->with("showToastLoginSS", true);
 
         } else {
             return back()
