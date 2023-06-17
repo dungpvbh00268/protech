@@ -2531,6 +2531,8 @@ div.cart-product__coupon{
     background: #f5f5f5;
     height: 100%;
     position: relative;
+    border-radius: 5px;
+    overflow: hidden;
 }
 
 .profile__info-num{
@@ -2538,7 +2540,7 @@ div.cart-product__coupon{
 }
 
 .btnProfile{
-    transform: 0.3s;
+    /* transform: 0.3s; */
     border-bottom: 3px solid #fff;
 }
 
@@ -2561,4 +2563,101 @@ div.cart-product__coupon{
 .btnProfile:not(:active){
     transform: scale(1);
     transition: 0.2s;
+}
+
+.formProfile{
+    padding: 10px;
+}
+
+.formProfile:nth-child(3){
+    padding: 5px;
+}
+
+.profile__info-update div{
+    color: #333;
+    font-size: 1.3rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.profile__info-update--trans{
+    background: #f5f5f5;
+    box-shadow: none;
+    width: 92%;
+}
+
+.profile__info-update--trans:focus{
+    box-shadow: none;
+}
+
+.profile__info-update-title{
+    flex: 1;
+}
+
+.inner__form-row--flex{
+    flex: 2;
+}
+
+.form__row-select-info{
+    padding: 0 10px;
+}
+
+.form__row-select-info select{
+    outline: none;
+    border: none;
+    background: #f5f5f5;
+    width: 37%;
+}
+
+.form__row--padd{
+    padding: 8px 10px 8px;
+}
+
+.formProfile__txt{
+    color: #333;
+    font-size: 1.3rem;
+    display: block;
+}
+
+.formProfile__title{
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 1.5rem;
+    padding: 0;
+}
+
+.notify__wrapper{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.notify__wrapper-count{
+    color: #333;
+    font-size: 1.3rem;
+    letter-spacing: 0.7px;
+}
+
+.notify__wrapper-select select{
+    padding: 11px 9px;
+    border-radius: 3px;
+    outline: none;
+    border: 1px solid #ccc;
+    color: #333;
+    cursor: pointer;
+}
+
+.notify__wrapper-select select:focus{
+    box-shadow: 0 0 4px 0px #acacac;
+    transition: 0.3s;
+}
+
+.notify__wrapper-select select:not(:focus){
+    transition: 0.3s;
+}
+
+.notify__wrapper-select--option{
+    padding: 5px 0;
 }

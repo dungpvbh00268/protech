@@ -7,6 +7,7 @@ use App\Models\brandsModel;
 use App\Models\cart_proModel;
 use App\Models\cartModel;
 use App\Models\productsModel;
+use App\Models\type_productModel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -19,7 +20,8 @@ class detailsController extends Controller
         $carts = cartModel::all();
         $accounts = accountModel::all();
         $brands = brandsModel::all();
-        return view('pages/details', compact(['products', 'cart_pros', 'carts', 'accounts', 'brands', 'id']));
+        $type_products = type_productModel::all();
+        return view('pages/details', compact(['products', 'cart_pros', 'carts', 'accounts', 'brands', 'id', 'type_products']));
     }
 
     function addCart(Request $request, $id)

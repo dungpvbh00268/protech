@@ -13,6 +13,7 @@ class productsModel extends Model
     protected $primaryKey = 'id';
     protected $fillable = ['name', 'description', 'image', 'cost', 'cpu', 'gpu', 'ram', 'storage', 'screen_size', 'warranty_period', 'os', 'keyborad', 'pin', 'connector', 'id_category', 'id_brand', 'id_typeProduct'];
 
+    public $timestamps = true;
     public function brands()
     {
         return $this->belongsTo(brandsModel::class, 'id_brand', 'id');

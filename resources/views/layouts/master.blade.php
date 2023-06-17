@@ -451,13 +451,15 @@
 
                                                             </div>
                                                             <div class="profile__main-config profile__main-edu">
-                                                                Address: 
+                                                                Address:
                                                                 <span>
-                                                                    {{$account -> address}}
+                                                                    {{ $account->address }}
                                                                 </span>
                                                             </div>
                                                             <div class="profile__main-config profile__main-asset">
-                                                                Total Assets: <span>18.000.000 <u>đ</u></span>
+                                                                Total Assets:
+                                                                <span>{{ number_format($account->balance, 0, ',', ',') }}
+                                                                    <u>đ</u></span>
                                                             </div>
                                                         @endif
                                                     @endforeach
@@ -465,23 +467,181 @@
 
                                                 <div class="profile__info">
                                                     <div class="profile__info-nav">
-                                                        <div class="btnProfile-first btnProfile" id="btn__info-1" onclick="showFormProfile(1)">Profile</div>
-                                                        <div class="btnProfile" id="btn__info-2" onclick="showFormProfile(2)">Deals</div>
-                                                        <div class="btnProfile" id="btn__info-3" onclick="showFormProfile(3)">News</div>
-                                                        <div class="btnProfile" id="btn__info-4" onclick="showFormProfile(4)">Community</div>
+                                                        <div class="btnProfile-first btnProfile" id="btn__info-1"
+                                                            onclick="showFormProfile(1)">Profile</div>
+                                                        <div class="btnProfile" id="btn__info-2"
+                                                            onclick="showFormProfile(2)">Deals</div>
+                                                        <div class="btnProfile" id="btn__info-3"
+                                                            onclick="showFormProfile(3)">Info</div>
+                                                        <div class="btnProfile" id="btn__info-4"
+                                                            onclick="showFormProfile(4)">Community</div>
                                                     </div>
 
                                                     <div class="profile__info-details">
-                                                        <div id="profile__info-num profile__info-1" class="formProfile">
-                                                            441
+                                                        <div id="profile__info-num profile__info-1"
+                                                            class="formProfile">
+                                                            <span class="formProfile__title">Title:</span><br>
+                                                            <span class="formProfile__txt">
+                                                                Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
+                                                                Non consectetur veniam sed molestias commodi sunt exercitationem, 
+                                                                nesciunt dignissimos cupiditate. Et, dolor. Nemo quod distinctio enim, 
+                                                                impedit aperiam reprehenderit perferendis praesentium.
+                                                            </span><br>
+                                                            <span class="formProfile__title">Title:</span><br>
+                                                            <span class="formProfile__txt">
+                                                                Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
+                                                                Non consectetur veniam sed molestias commodi sunt exercitationem, 
+                                                                nesciunt dignissimos cupiditate. Et, dolor. Nemo quod distinctio enim, 
+                                                                impedit aperiam reprehenderit perferendis praesentium.
+                                                            </span>
                                                         </div>
-                                                        <div id="profile__info-num profile__info-2" class="formProfile" style="display: none;">
+                                                        <div id="profile__info-num profile__info-2"
+                                                            class="formProfile" style="display: none;">
                                                             442
                                                         </div>
-                                                        <div id="profile__info-num profile__info-3" class="formProfile" style="display: none;">
-                                                            443
+                                                        <div id="profile__info-num profile__info-3"
+                                                            class="formProfile" style="display: none;">
+                                                            <div class="profile__info-update">
+                                                                <div>
+                                                                    <div class="profile__info-update-title">
+                                                                        Name on invoice:
+                                                                    </div>
+
+                                                                    <div onclick="enbEffModal()"
+                                                                        class="inner__form-row inner__form-row--flex">
+                                                                        <input autocomplete="off" type="text"
+                                                                            class="profile__info-update--trans form__row"
+                                                                            title="Username" placeholder=""
+                                                                            name="usernameUpdate" class="phoneInput"
+                                                                            required>
+                                                                        <span class="form__row-label">
+                                                                            @foreach ($accounts as $account)
+                                                                                @if ($account->id == session('id_user'))
+                                                                                    {{ $account->username }}
+                                                                                @endif
+                                                                            @endforeach
+                                                                        </span>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div>
+                                                                    <div class="profile__info-update-title">
+                                                                        Password:
+                                                                    </div>
+
+                                                                    <div onclick="enbEffModal()"
+                                                                        class="inner__form-row inner__form-row--flex">
+                                                                        <input autocomplete="off" type="text"
+                                                                            class="profile__info-update--trans form__row"
+                                                                            title="Gender" placeholder=""
+                                                                            name="passwordUpdate" class="phoneInput"
+                                                                            required>
+                                                                        <span class="form__row-label">Change
+                                                                            Password</span>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div style="margin: 10px 0">
+                                                                    <div class="profile__info-update-title">
+                                                                        Gender:
+
+                                                                    </div>
+
+                                                                    <div onclick="enbEffModal()"
+                                                                        class="inner__form-row inner__form-row--flex">
+                                                                        {{-- <span autocomplete="off" type="text" class="profile__info-update--trans form__row" title="Username" placeholder="" name="username" class="phoneInput" required> --}}
+                                                                        <span
+                                                                            class="profile__info-update--trans form__row form__row-select-info">
+                                                                            <select name="genderUpdate" id="">
+                                                                                @foreach ($accounts as $account)
+                                                                                    @if ($account->id == session('id_user'))
+                                                                                        @if ($account->gender == '')
+                                                                                            <option value=""
+                                                                                                hidden>Select gender
+                                                                                            </option>
+                                                                                            <option value="male">
+                                                                                                male</option>
+                                                                                            <option value="female">
+                                                                                                female</option>
+                                                                                            <option value="other">
+                                                                                                other</option>
+                                                                                        @else
+                                                                                            <option
+                                                                                                value="{{ $account->gender }}"
+                                                                                                hidden>
+                                                                                                {{ $account->gender }}
+                                                                                            </option>
+                                                                                            <option value="male">
+                                                                                                male</option>
+                                                                                            <option value="female">
+                                                                                                female</option>
+                                                                                            <option value="other">
+                                                                                                other</option>
+                                                                                        @endif
+                                                                                    @endif
+                                                                                @endforeach
+                                                                            </select>
+                                                                        </span>
+                                                                        {{-- <span class="form__row-label">Change Password</span> --}}
+                                                                    </div>
+                                                                </div>
+
+                                                                <div>
+                                                                    <div class="profile__info-update-title">
+                                                                        Gmail:
+                                                                    </div>
+
+                                                                    <div onclick="enbEffModal()"
+                                                                        class="inner__form-row inner__form-row--flex">
+                                                                        <input autocomplete="off" type="text"
+                                                                            class="profile__info-update--trans form__row"
+                                                                            title="Gmail" placeholder=""
+                                                                            name="username" class="phoneInput"
+                                                                            required>
+                                                                        <span class="form__row-label">
+                                                                            @foreach ($accounts as $account)
+                                                                                @if ($account->id == session('id_user'))
+                                                                                    @if ($account->email == '')
+                                                                                        Add Gmail
+                                                                                    @else
+                                                                                        {{ $account->email }}
+                                                                                    @endif
+                                                                                @endif
+                                                                            @endforeach
+                                                                        </span>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div>
+                                                                    <div class="profile__info-update-title">
+                                                                        Date Of Birth:
+                                                                    </div>
+
+                                                                    <div onclick="enbEffModal()"
+                                                                        class="inner__form-row inner__form-row--flex">
+                                                                        @foreach ($accounts as $account)
+                                                                            @if ($account->id == session('id_user'))
+                                                                                <input value="{{ $account->dob }}"
+                                                                                    autocomplete="off" type="date"
+                                                                                    class="profile__info-update--trans form__row form__row--padd"
+                                                                                    title="Date Of Birth"
+                                                                                    placeholder="" name="dob"
+                                                                                    class="phoneInput" required>
+                                                                            @endif
+                                                                        @endforeach
+                                                                        {{-- <span class="form__row-label">
+                                                                            @foreach ($accounts as $account)
+                                                                                @if ($account->id == session('id_user'))
+                                                                                    {{$account -> dob}}
+                                                                                @endif
+                                                                            @endforeach
+                                                                        </span> --}}
+                                                                    </div>
+                                                                </div>
+                                                            </div>
                                                         </div>
-                                                        <div id="profile__info-num profile__info-4" class="formProfile" style="display: none;">
+                                                        <div id="profile__info-num profile__info-4"
+                                                            class="formProfile" style="display: none;">
                                                             444
                                                         </div>
                                                     </div>
@@ -489,13 +649,14 @@
                                             </div>
 
                                             <div class="inner__btn">
-                                                <div style="cursor: pointer" onclick="backModal()" class="inner__btn-main inner__btn-back">
+                                                <div style="cursor: pointer" onclick="backModal()"
+                                                    class="inner__btn-main inner__btn-back">
                                                     Back
                                                 </div>
                                                 <!--up-->
-                                                <button ondblclick="showToast()" onclick="validateInputsAndSubmit();"
-                                                    type="submit"
-                                                    class="inner__btn-main inner__btn-signup">Update</button>
+                                                <a href="{{route('updateInfo')}}" ondblclick="showToast()" onclick="validateInputsAndSubmit();"
+                                                    {{-- type="submit" --}}
+                                                    class="inner__btn-main inner__btn-signup">Update</a>
                                                 <!--up-->
                                             </div>
 

@@ -11,6 +11,19 @@ function showModal() {
     modal.style.visibility = "visible";
     const notificationSound = document.getElementById("notificationSound");
     notificationSound.play();
+
+    const btnProfile = document.querySelectorAll(".btnProfile");
+    for(let i = 0; i < btnProfile.length; i++){
+        btnProfile[i].addEventListener("mousedown", function () {
+            this.style.transform = "scale(0.9)";
+            this.style.transition = "0.001s";
+        });
+        
+        btnProfile[i].addEventListener("mouseup", function () {
+            this.style.transform = "scale(1)";
+            this.style.transition = "0.2s";
+        });
+    }
 }
 
 // function showCart() {
@@ -50,6 +63,11 @@ function offModal() {
     b.style.visibility = "hidden";
     document.querySelector(".cart__inner").classList.add("offEff");
     b.classList.remove("showEff");
+
+    const btnProfile = document.querySelectorAll(".btnProfile");
+    for(let i = 0; i < btnProfile.length; i++){
+        btnProfile[i].style.transition = "none";
+    }
 }
 
 function backModal() {
@@ -67,6 +85,11 @@ function backModal() {
     const labelInput = document.querySelectorAll(".form__row-label");
     for (let i = 0; i < labelInput.length; i++) {
         labelInput[i].style.transition = "none";
+    }
+
+    const btnProfile = document.querySelectorAll(".btnProfile");
+    for(let i = 0; i < btnProfile.length; i++){
+        btnProfile[i].style.transition = "none";
     }
 }
 

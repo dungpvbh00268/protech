@@ -79,4 +79,27 @@ class authController extends Controller
                 ->with('showToastSignup', true);
         }
     }
+
+    public function updateInfo(Request $request)
+    {
+        // Lấy thông tin người dùng từ session('id_user')
+        $user = accountModel::find(session('id_user'));
+
+        // Kiểm tra và cập nhật username
+        if ($request->has('usernameUpdate')) {
+            $user->username = $request->input('usernameUpdate');
+        }
+
+        // Kiểm tra và cập nhật password
+        if ($request->has('passwordUpdate') && $request->input('passwordUpdate') != 'Change Password') {
+            $user->password = bcrypt($request->input('passwordUpdate'));
+        }
+
+        // Lưu thay đổi vào cơ sở dữ liệu
+        $user->save();
+
+        // Redirect hoặc trả về response tùy theo logic của ứng dụng
+        // ...
+    }
+
 }

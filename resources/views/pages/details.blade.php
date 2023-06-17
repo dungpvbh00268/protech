@@ -5,12 +5,52 @@
     <main>
         <div class="main">
             <div class="nav__link">
+
                 <!-- categories -->
-                <a href="http://" target="_blank" rel="noopener noreferrer">Laptop</a>
+                <a href="LINK NÀY CHỨA VIRUS" rel="noopener noreferrer">
+                    @foreach ($products as $product)
+                        @foreach ($type_products as $type_product)
+                            @if ($product->id == $id)
+                                @if ($product->id_typeProduct == $type_product->id)
+                                    {{ $type_product->description }}
+                                @endif
+                            @endif
+                        @endforeach
+                    @endforeach
+                </a>
                 <span class="nav_separator"> » </span>
-                <a href="http://" target="_blank" rel="noopener noreferrer">Laptop Acer</a>
+                <a href="LINK NÀY CHỨA VIRUS" rel="noopener noreferrer">
+                    {{-- Laptop  --}}
+                    @foreach ($products as $product)
+                        @foreach ($type_products as $type_product)
+                            @if ($product->id == $id)
+                                @if ($product->id_typeProduct == $type_product->id)
+                                    {{ $type_product->description }}
+                                @endif
+                            @endif
+                        @endforeach
+                    @endforeach
+
+                    @foreach ($products as $product)
+                        @foreach ($brands as $brand)
+                            @if ($product->id == $id)
+                                @if ($product->id_brand == $brand->id)
+                                    <span style="text-transform: capitalize;">{{ $brand->name }}</span>
+                                @endif
+                            @endif
+                        @endforeach
+                    @endforeach
+                    {{-- Acer --}}
+                </a>
                 <span class="nav_separator"> » </span>
-                <a href="http://" target="_blank" rel="noopener noreferrer">Helios</a>
+                <a href="có virus nek" rel="noopener noreferrer">
+                    @foreach ($products as $product)
+                            @if ($product->id == $id)
+                                <span style="text-transform: capitalize;">{{ $product->description }}</span>
+                            @endif
+                    @endforeach
+                </a>
+
             </div>
 
             <div class="detail__product">
@@ -48,23 +88,17 @@
 
                         <div class="detail__brand nav__link">
                             <span style="color: #333;" class="">Brand: </span>
-                            <a href="33" class="detail__brand--color">
-                                @php
-                                    $previousBrand = null;
-                                @endphp
-
-                                @foreach ($products as $product)
-                                    @foreach ($brands as $brand)
-                                        @if ($product->id_brand == $brand->id && $brand->name != $previousBrand)
-                                            {{ $brand->name }}
-                                            @php
-                                                $previousBrand = $brand->name;
-                                            @endphp
+                            @foreach ($products as $product)
+                                @foreach ($brands as $brand)
+                                    @if ($product->id == $id)
+                                        @if ($product->id_brand == $brand->id)
+                                            <a href="{{ $brand->name }}" class="detail__brand--color">
+                                                <span style="text-transform: uppercase;">{{ $brand->name }}</span>
+                                            </a>
                                         @endif
-                                    @endforeach
+                                    @endif
                                 @endforeach
-
-                            </a>
+                            @endforeach
                         </div>
                     </div>
 

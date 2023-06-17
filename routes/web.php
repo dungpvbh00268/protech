@@ -4,6 +4,7 @@ use App\Http\Controllers\authController;
 use App\Http\Controllers\cartController;
 use App\Http\Controllers\detailsController;
 use App\Http\Controllers\productController;
+use App\Http\Controllers\searchController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -46,3 +47,7 @@ Route::post('/signup',[authController::class, 'signup'])->name('signup');
 
 Route::get('addCart/{id}', [detailsController::class, 'addCart'])->name('addCart');
 Route::get('removeProductFromCart/{id}', [detailsController::class, 'removeProductFromCart'])->name('removeProductFromCart');
+
+Route::get('/updateInfo', [authController::class, 'updateInfo'])->name('updateInfo');
+
+Route::get('/search for ',[searchController::class, 'index'])->name('search');
