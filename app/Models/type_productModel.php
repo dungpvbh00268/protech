@@ -11,7 +11,7 @@ class type_productModel extends Model
 
     protected $table = 'type_product';
     protected $primaryKey = 'id';
-    protected $fillable = ['laptop','pc'];
+    protected $fillable = ['type','description'];
 
     public function products(){
         return $this->hasMany(productsModel::class, 'id_typeProduct');

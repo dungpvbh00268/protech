@@ -45,9 +45,9 @@
                 <span class="nav_separator"> » </span>
                 <a href="có virus nek" rel="noopener noreferrer">
                     @foreach ($products as $product)
-                            @if ($product->id == $id)
-                                <span style="text-transform: capitalize;">{{ $product->description }}</span>
-                            @endif
+                        @if ($product->id == $id)
+                            <span style="text-transform: capitalize;">{{ $product->description }}</span>
+                        @endif
                     @endforeach
                 </a>
 
@@ -142,8 +142,22 @@
 
                 <div class="detail__pro-left">
                     <div class="pro-left-cost">
-                        <del class="element__product-costs--old pro-left-cost--old">30,490,000 <u>đ</u></del>
-                        <div class="element__product-costs--new pro-left-cost--new">26,890,000 <u>đ</u></div>
+                        <del class="element__product-costs--old pro-left-cost--old">
+                            @foreach ($products as $product)
+                                @if ($product->id == $id)
+                                    {{ number_format($product->cost_old, 0, ',', ',') }}
+                                @endif
+                            @endforeach
+                            <u>đ</u>
+                        </del>
+                        <div class="element__product-costs--new pro-left-cost--new">
+                            @foreach ($products as $product)
+                                @if ($product->id == $id)
+                                    {{ number_format($product->cost, 0, ',', ',') }}
+                                @endif
+                            @endforeach
+                            <u>đ</u>
+                        </div>
                     </div>
 
                     <span class="vat">*Prices above include VAT</span>

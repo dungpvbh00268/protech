@@ -6,15 +6,23 @@ use App\Models\accountModel;
 use App\Models\cart_proModel;
 use App\Models\cartModel;
 use App\Models\productsModel;
+use App\Models\type_productModel;
 use Illuminate\Http\Request;
 
 class searchController extends Controller
 {
-    function index(){
+    function index(Request $request){
         $accounts = accountModel::all();
         $products = productsModel::all();
         $cart_pros = cart_proModel::all();
         $carts = cartModel::all();
-        return view('pages.search', compact('accounts', 'products', 'cart_pros', 'carts'));
+        $type_products = type_productModel::all();
+
+        $header__search = $request->input('header__search');
+        $results = productsModel::where('name', 'like', '%' . $header__search . '%')
+        ->orWhere('description', 'like', '%' . $header__search . '%')
+        ->get();
+
+        return view('pages.search', compact('results', 'accounts', 'products', 'cart_pros', 'carts', 'header__search', 'type_products'));
     }
 }

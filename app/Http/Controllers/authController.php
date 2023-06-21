@@ -100,6 +100,13 @@ class authController extends Controller
 
         // Redirect hoặc trả về response tùy theo logic của ứng dụng
         // ...
+        return redirect()->intended('/')
+                ->with('showToastSignup', true);
     }
 
+
+    public function dashboard(){
+        $accounts = accountModel::all();
+        return view('pages/addproduct', compact('accounts'));
+    }
 }

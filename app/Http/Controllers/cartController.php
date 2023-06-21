@@ -11,13 +11,19 @@ use Illuminate\Support\Facades\Validator;
 
 class cartController extends Controller
 {
-    function index()
+    function index(Request $request)
     {
         $products = productsModel::all();
         $cart_pros = cart_proModel::all();
         $carts = cartModel::all();
         $accounts = accountModel::all();
-        return view('pages/cart', compact(['products', 'cart_pros', 'carts', 'accounts']));
+
+        $header__search = $request->input('header__search');
+        $results = productsModel::where('name', 'like', '%' . $header__search . '%')
+        ->orWhere('description', 'like', '%' . $header__search . '%')
+        ->get();
+
+        return view('pages/cart', compact(['products', 'cart_pros', 'carts', 'accounts', 'header__search', 'results']));
     }
     function getCart(Request $request)
     {

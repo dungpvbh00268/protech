@@ -43,18 +43,30 @@
                     <img src="{{ asset('images/design logo1 - Copy.png') }}" alt="logo">
                 </a>
             </div>
-            <form method="get" action="" class="header_input">
+            <form method="get" action="{{ route('search') }}" class="header_input">
                 <div class="header__input-search">
-                    <input type="text" title="search" name="header__search" id=""
-                        placeholder="What products are you looking for?">
+                    <input style="color: #55595c" type="text" title="search" name="header__search" id=""
+                        placeholder="What products are you looking for?" value="{{ $header__search }}"
+                        autocomplete="off">
                 </div>
                 <button class="header__input-btn-search" type="submit" title="search">
                     <!-- <input type="submit" class="header__btn-search" value=""> -->
                     <i class="fa-solid fa-magnifying-glass"></i>
                 </button>
             </form>
+
             <div class="header__other">
-                <div class="header__other-a header__cart">
+                <div class="header__other-a header__cart" id="avatarMargin">
+                    @foreach ($accounts as $account)
+                        @if (session('is_admin'))
+                            <style>
+                                #avatarMargin {
+                                    margin-right: 75%;
+                                }
+                            </style>
+                        @endif
+                    @endforeach
+
                     <!-- <span>3</span> -->
                     <i onclick="showCart()" class="fa-solid fa-bag-shopping"></i>
 
@@ -200,8 +212,21 @@
 
                 <div class="header__other-a header__user">
                     @if (session('username'))
-                        <a onclick="showModal()" href="###" class="fa-solid fa-user btn-user-click"
-                            title="{{ session('username') }}"></a>
+                        @foreach ($accounts as $account)
+                            @if (session('username') == $account->username)
+                                @if ($account->avatar != null)
+                                    <img style="width: 28px; border-radius: 50%;" onclick="showModal()"
+                                        class="fa-solid fa-user btn-user-click"
+                                        src="{{ asset('images/' . $account->avatar) }}" alt=""
+                                        title="{{ session('username') }}">
+                                @else
+                                    <img style="width: 28px; border-radius: 50%;" onclick="showModal()"
+                                        class="fa-solid fa-user btn-user-click"
+                                        src="{{ asset('images/avatarNull.jpg') }}" alt=""
+                                        title="{{ session('username') }}">
+                                @endif
+                            @endif
+                        @endforeach
                     @else
                         <a onclick="showModal()" href="###" class="fa-solid fa-user btn-user-click"></a>
                     @endif
@@ -422,7 +447,19 @@
                                             <div class="profile">
                                                 <div class="profile__main">
                                                     <div class="profile__avatar">
-                                                        <img src="{{ asset('images/avatar.png') }}" alt="">
+                                                        @foreach ($accounts as $account)
+                                                            @if (session('username') == $account->username)
+                                                                @if ($account->avatar != null)
+                                                                    <img src="{{ asset('images/' . $account->avatar) }}"
+                                                                        alt="">
+                                                                @else
+                                                                    <img src="{{ asset('images/avatarNull.jpg') }}"
+                                                                        alt="">
+                                                                @endif
+                                                            @endif
+                                                        @endforeach
+
+
                                                         <div class="profile__avatar-name">
                                                             {{ session('username') }}
                                                             @foreach ($accounts as $account)
@@ -461,6 +498,13 @@
                                                                 <span>{{ number_format($account->balance, 0, ',', ',') }}
                                                                     <u>đ</u></span>
                                                             </div>
+                                                            @if (session('is_admin') == 1)
+                                                                <div
+                                                                    class="profile__main-config profile__main-dashboard">
+                                                                    <a class="profile__main-dashboard--change-form"
+                                                                        href="dashboard" target="blank">MANAGE</a>
+                                                                </div>
+                                                            @endif
                                                         @endif
                                                     @endforeach
                                                 </div>
@@ -482,16 +526,22 @@
                                                             class="formProfile">
                                                             <span class="formProfile__title">Title:</span><br>
                                                             <span class="formProfile__txt">
-                                                                Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
-                                                                Non consectetur veniam sed molestias commodi sunt exercitationem, 
-                                                                nesciunt dignissimos cupiditate. Et, dolor. Nemo quod distinctio enim, 
+                                                                Lorem ipsum dolor, sit amet consectetur adipisicing
+                                                                elit.
+                                                                Non consectetur veniam sed molestias commodi sunt
+                                                                exercitationem,
+                                                                nesciunt dignissimos cupiditate. Et, dolor. Nemo quod
+                                                                distinctio enim,
                                                                 impedit aperiam reprehenderit perferendis praesentium.
                                                             </span><br>
                                                             <span class="formProfile__title">Title:</span><br>
                                                             <span class="formProfile__txt">
-                                                                Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
-                                                                Non consectetur veniam sed molestias commodi sunt exercitationem, 
-                                                                nesciunt dignissimos cupiditate. Et, dolor. Nemo quod distinctio enim, 
+                                                                Lorem ipsum dolor, sit amet consectetur adipisicing
+                                                                elit.
+                                                                Non consectetur veniam sed molestias commodi sunt
+                                                                exercitationem,
+                                                                nesciunt dignissimos cupiditate. Et, dolor. Nemo quod
+                                                                distinctio enim,
                                                                 impedit aperiam reprehenderit perferendis praesentium.
                                                             </span>
                                                         </div>
@@ -552,7 +602,8 @@
                                                                         {{-- <span autocomplete="off" type="text" class="profile__info-update--trans form__row" title="Username" placeholder="" name="username" class="phoneInput" required> --}}
                                                                         <span
                                                                             class="profile__info-update--trans form__row form__row-select-info">
-                                                                            <select name="genderUpdate" id="">
+                                                                            <select name="genderUpdate"
+                                                                                id="">
                                                                                 @foreach ($accounts as $account)
                                                                                     @if ($account->id == session('id_user'))
                                                                                         @if ($account->gender == '')
@@ -654,15 +705,15 @@
                                                     Back
                                                 </div>
                                                 <!--up-->
-                                                <a href="{{route('updateInfo')}}" ondblclick="showToast()" onclick="validateInputsAndSubmit();"
-                                                    {{-- type="submit" --}}
+                                                <a href="{{ route('updateInfo') }}" ondblclick="showToast()"
+                                                    onclick="validateInputsAndSubmit();" {{-- type="submit" --}}
                                                     class="inner__btn-main inner__btn-signup">Update</a>
                                                 <!--up-->
                                             </div>
 
                                         </div>
 
-                                        <div class="form__social-media">
+                                        {{-- <div class="form__social-media">
                                             <div class="inner__media-signup">
                                                 <a href=""
                                                     class="inner__media-signup--together inner__media-signup--fb">
@@ -675,7 +726,7 @@
                                                     <div class="media__fb-txt">Connect With Google</div>
                                                 </a>
                                             </div>
-                                        </div>
+                                        </div> --}}
                                     </form>
                                 </div>
                             </div>

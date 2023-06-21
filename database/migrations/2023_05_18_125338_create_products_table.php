@@ -17,6 +17,7 @@ return new class extends Migration
             $table->text('description');
             $table->string('image')->nullable();
             $table->integer('cost')->unsigned();
+            $table->integer('cost_old')->unsigned()->default(0)->nullable();
             $table->string('cpu')->nullable();
             $table->string('gpu')->nullable();
             $table->string('ram')->nullable();

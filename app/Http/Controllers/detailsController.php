@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Validator;
 
 class detailsController extends Controller
 {
-    function index($id)
+    function index($id, Request $request)
     {
         $products = productsModel::all();
         $cart_pros = cart_proModel::all();
@@ -21,7 +21,13 @@ class detailsController extends Controller
         $accounts = accountModel::all();
         $brands = brandsModel::all();
         $type_products = type_productModel::all();
-        return view('pages/details', compact(['products', 'cart_pros', 'carts', 'accounts', 'brands', 'id', 'type_products']));
+
+        $header__search = $request->input('header__search');
+        $results = productsModel::where('name', 'like', '%' . $header__search . '%')
+        ->orWhere('description', 'like', '%' . $header__search . '%')
+        ->get();
+
+        return view('pages.details', compact(['products', 'cart_pros', 'carts', 'accounts', 'brands', 'id', 'type_products', 'header__search', 'results']));
     }
 
     function addCart(Request $request, $id)

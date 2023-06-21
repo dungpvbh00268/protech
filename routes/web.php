@@ -50,4 +50,13 @@ Route::get('removeProductFromCart/{id}', [detailsController::class, 'removeProdu
 
 Route::get('/updateInfo', [authController::class, 'updateInfo'])->name('updateInfo');
 
-Route::get('/search for ',[searchController::class, 'index'])->name('search');
+Route::get('/search',[searchController::class, 'index'])->name('search');
+
+
+
+//dashborad
+// Route::get('dashboard/product-manage', function(){
+//     return view('pages/addproduct');
+// });
+
+Route::get('dashboard', [authController::class, 'dashboard'])->name('dashboard');
