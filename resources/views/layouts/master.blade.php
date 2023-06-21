@@ -58,7 +58,7 @@
             <div class="header__other">
                 <div class="header__other-a header__cart" id="avatarMargin">
                     @foreach ($accounts as $account)
-                        @if (session('is_admin'))
+                        @if (session('username'))
                             <style>
                                 #avatarMargin {
                                     margin-right: 75%;
@@ -502,7 +502,7 @@
                                                                 <div
                                                                     class="profile__main-config profile__main-dashboard">
                                                                     <a class="profile__main-dashboard--change-form"
-                                                                        href="dashboard" target="blank">MANAGE</a>
+                                                                        href="{{ route('dashboard') }}" target="blank">MANAGE</a>
                                                                 </div>
                                                             @endif
                                                         @endif
@@ -1442,6 +1442,31 @@
             notificationSound1.play();
         </script>
     @endif
+
+    @if(session('toastNotAssess'))
+        <script>
+            toast({
+                title: "Access is denied!",
+                message: "You are NOT authorized to access the dashboard.",
+                type: "error",
+                duration: 5000
+            });
+            notificationSound1.play();
+        </script>
+    @endif
+
+    @if (session('showToastSignupError'))
+        <script>
+            toast({
+                title: "Error!",
+                message: "The account or password is invalid, please enter the account and password with at least 6 digits.",
+                type: "error",
+                duration: 5000
+            });
+            notificationSound1.play();
+        </script>
+    @endif
+    
 
     <!--warning-->
     <!-- <div id="message" class="message message--warning">

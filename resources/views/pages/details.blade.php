@@ -246,7 +246,7 @@
                             </div>
                         </div>
                     </div>
-                    <button type="submit" class="elementor-button elementor-size-sm">
+                    <button onclick="updating()" type="submit" class="elementor-button elementor-size-sm">
                         <i class="fa-regular fa-bell"></i>
                         Sign up for installment purchase
                     </button>

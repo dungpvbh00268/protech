@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Validation\Validator as ValidationValidator;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\cartModel;
+use App\Models\productsModel;
 
 class authController extends Controller
 {
@@ -51,7 +52,8 @@ class authController extends Controller
             ]);
 
             if ($validator->fails()) {
-                return redirect()->back();
+                return redirect()->intended('/')
+                    ->with('showToastSignupError', true);
             }
 
 
@@ -101,12 +103,14 @@ class authController extends Controller
         // Redirect hoặc trả về response tùy theo logic của ứng dụng
         // ...
         return redirect()->intended('/')
-                ->with('showToastSignup', true);
+            ->with('showToastSignup', true);
     }
 
 
-    public function dashboard(){
+    public function dashboard()
+    {
         $accounts = accountModel::all();
-        return view('pages/addproduct', compact('accounts'));
+        $products = productsModel::all();
+        return view('pages/admin/products/manageProduct', compact('accounts', 'products'));
     }
 }

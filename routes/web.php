@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\admin\product\addProduct_controller;
 use App\Http\Controllers\authController;
 use App\Http\Controllers\cartController;
 use App\Http\Controllers\detailsController;
@@ -59,4 +60,10 @@ Route::get('/search',[searchController::class, 'index'])->name('search');
 //     return view('pages/addproduct');
 // });
 
-Route::get('dashboard', [authController::class, 'dashboard'])->name('dashboard');
+// Route::get('dashboard', [authController::class, 'dashboard'])->name('dashboard');
+
+Route::get('dashboard', [authController::class, 'dashboard'])
+    ->name('dashboard')
+    ->middleware('checkAdmin');
+
+Route::get('add-product', [addProduct_controller::class, 'index'])->name('add-Product');
