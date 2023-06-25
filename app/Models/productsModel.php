@@ -11,7 +11,7 @@ class productsModel extends Model
 
     protected $table = 'products';
     protected $primaryKey = 'id';
-    protected $fillable = ['name', 'description', 'image', 'cost', 'cpu', 'gpu', 'ram', 'storage', 'screen_size', 'warranty_period', 'os', 'keyborad', 'pin', 'connector', 'id_category', 'id_brand', 'id_typeProduct'];
+    protected $fillable = ['name', 'description', 'image', 'cost', 'cpu', 'gpu', 'ram', 'storage', 'screen_size', 'warranty_period', 'os', 'keyboard', 'pin', 'connector', 'id_category', 'id_brand', 'id_typeProduct'];
 
     public $timestamps = true;
     public function brands()

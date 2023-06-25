@@ -111,6 +111,6 @@ class authController extends Controller
     {
         $accounts = accountModel::all();
         $products = productsModel::all();
-        return view('pages/admin/products/manageProduct', compact('accounts', 'products'));
+        return view('pages/admin/product/manageProduct', compact('accounts', 'products'));
     }
 }

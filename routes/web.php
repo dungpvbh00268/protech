@@ -66,4 +66,9 @@ Route::get('dashboard', [authController::class, 'dashboard'])
     ->name('dashboard')
     ->middleware('checkAdmin');
 
-Route::get('add-product', [addProduct_controller::class, 'index'])->name('add-Product');
+Route::get('add-product', [addProduct_controller::class, 'index'])->name('add-Product')->middleware('checkAdmin');
+Route::post('addPro', [addProduct_controller::class, 'addPro'])->name('addPro');
+
+// eidt
+Route::get('update-product/{id}/{name}', [addProduct_controller::class, 'updateProduct'])->name('updateProduct');
+Route::post('edit/{id}', [addProduct_controller::class, 'edit'])->name('edit');

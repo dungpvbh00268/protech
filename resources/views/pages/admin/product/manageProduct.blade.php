@@ -9,7 +9,9 @@
                     <tr class="users-table-info">
                         <th>
                             <label class="users-table__checkbox ms-20">
-                                <input type="checkbox" class="check-all">Thumbnail
+                                {{-- <input type="checkbox" class="check-all"> --}}
+                                <a title="Add a product" style="margin-right: 20px;" class="check-all" href="{{ route('add-Product') }}"><i class="fa-solid fa-plus"></i></a>
+                                Thumbnail
                             </label>
                         </th>
                         <th style="min-width: 390px;">Name</th>
@@ -182,7 +184,7 @@
                                         </svg>
                                     </button>
                                     <ul class="users-item-dropdown dropdown">
-                                        <li><a href="/add-product">Edit</a></li>
+                                        <li><a href="update-product/{{ $product->id }}/{{ str_replace('/', '-', $product->name) }}">Edit</a></li>
                                         <li><a href="##">Quick edit</a></li>
                                         <li><a href="##">Trash</a></li>
                                     </ul>

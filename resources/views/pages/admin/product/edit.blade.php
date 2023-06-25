@@ -933,7 +933,8 @@
                         </div>
                     </div>
                     <div class="card-body">
-                        <form method="post" action="{{ route('addPro') }}" data-toggle="validator" novalidate="true" enctype="multipart/form-data">
+                        <form method="post" action="{{ route('edit', $id) }}" data-toggle="validator" novalidate="true"
+                            enctype="multipart/form-data">
                             @csrf
                             <div class="row">
                                 {{-- <div class="col-md-12">
@@ -943,135 +944,184 @@
                                             data-errors="Please Enter Name." required="">
                                     </div>
                                 </div> --}}
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label>Name *</label>
-                                        <input type="text" class="form-control" placeholder="Enter Name"
-                                            data-errors="Please Enter Name." required="" name="name">
-                                        <div class="help-block with-errors"></div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label>BRAND *</label>
-                                        {{-- <input type="text"  placeholder="Enter ID"> --}}
-                                        <select style="text-transform: capitalize;" class="form-control" required=""
-                                            name="id_brand" id="">
-                                            <option value="" hidden>Chose Brand</option>
+                                @foreach ($products as $product)
+                                    @if ($product->id == $id)
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Name *</label>
+                                                <input type="text" class="form-control" placeholder="Enter Name"
+                                                    data-errors="Please Enter Name." required="" name="name"
+                                                    value="{{ $product->name }}">
+                                                <div class="help-block with-errors"></div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>BRAND *</label>
+                                                {{-- <input type="text"  placeholder="Enter ID"> --}}
+                                                <select style="text-transform: capitalize;" class="form-control"
+                                                    required="" name="id_brand">
+                                                    @foreach ($brands as $brand)
+                                                        @if ($product->id_brand == $brand->id)
+                                                            <option value="{{ $brand->name }}" hidden>
+                                                                {{ $brand->name }}
+                                                            </option>
+                                                        @endif
+                                                    @endforeach
+                                                    @foreach ($brands as $brand)
+                                                        {{-- @foreach ($products as $product)
+                                                        @if ($product->brand == $brand->id) --}}
+                                                        <option style="text-transform: capitalize;"
+                                                            value="{{ $brand->id }}">
+                                                            {{ $brand->name }}</option>
+                                                        {{-- @endif
+                                                    @endforeach --}}
+                                                    @endforeach
+                                                </select>
 
-                                            @foreach ($brands as $brand)
-                                                {{-- @foreach ($products as $product)
-                                                    @if ($product->brand == $brand->id) --}}
-                                                <option style="text-transform: capitalize;" value="{{ $brand->id }}">
-                                                    {{ $brand->name }}</option>
-                                                {{-- @endif
-                                                @endforeach --}}
-                                            @endforeach
-                                        </select>
+                                                <div class="help-block with-errors"></div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Accessory *</label>
+                                                <input type="text" class="form-control" placeholder="Enter CPU"
+                                                    data-errors="Please Enter Name." required="" name="cpu"
+                                                    value="{{ $product->cpu }}">
+                                                <input type="text" class="form-control" placeholder="Enter GPU"
+                                                    data-errors="Please Enter Name." required="" name="gpu"
+                                                    value="{{ $product->gpu }}">
+                                                <input type="text" class="form-control" placeholder="Enter RAM"
+                                                    data-errors="Please Enter Name." required="" name="ram"
+                                                    value="{{ $product->ram }}">
+                                                <input type="text" class="form-control" placeholder="Enter Storage"
+                                                    data-errors="Please Enter Name." required="" name="storage"
+                                                    value="{{ $product->storage }}">
+                                                <input type="text" class="form-control"
+                                                    placeholder="Enter Screen size" data-errors="Please Enter Name."
+                                                    required="" name="screen_size"
+                                                    value="{{ $product->screen_size }}">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Category *</label>
+                                                <select class="form-control" required="" name="id_category"
+                                                    id="">
+                                                    @foreach ($categories as $category)
+                                                        @if ($category->id == $product->id_category)
+                                                            <option value="{{ $category->name }}" hidden>
+                                                                {{ $category->name }}
+                                                            </option>
+                                                        @endif
+                                                    @endforeach
+                                                    @foreach ($categories as $category)
+                                                        <option value="{{ $category->id }}">{{ $category->name }}
+                                                        </option>
+                                                    @endforeach
+                                                </select>
+                                                <div class="help-block with-errors"></div>
+                                                {{-- <input type="text" placeholder="Enter ID" data-errors=""> --}}
 
-                                        <div class="help-block with-errors"></div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label>Accessory *</label>
-                                        <input type="text" class="form-control" placeholder="Enter CPU"
-                                            data-errors="Please Enter Name." required="" name="cpu">
-                                        <input type="text" class="form-control" placeholder="Enter GPU"
-                                            data-errors="Please Enter Name." required="" name="gpu">
-                                        <input type="text" class="form-control" placeholder="Enter RAM"
-                                            data-errors="Please Enter Name." required="" name="ram">
-                                        <input type="text" class="form-control" placeholder="Enter Storage"
-                                            data-errors="Please Enter Name." required="" name="storage">
-                                        <input type="text" class="form-control" placeholder="Enter Screen size"
-                                            data-errors="Please Enter Name." required="" name="screen_size">
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label>Category *</label>
-                                        <select class="form-control" required="" name="id_category" id="">
-                                            @foreach ($categories as $category)
-                                                <option value="" hidden>Chose Category</option>
-                                                <option value="{{ $category->id }}">{{ $category->name }}</option>
-                                            @endforeach
-                                        </select>
-                                        <div class="help-block with-errors"></div>
-                                        {{-- <input type="text" placeholder="Enter ID" data-errors=""> --}}
 
+                                                <label>Type Product *</label>
+                                                {{-- <input type="text" class="form-control" placeholder=""
+                                                data-errors="Please Enter Name." required="" name="id_typeProduct"> --}}
 
-                                        <label>Type Product *</label>
-                                        {{-- <input type="text" class="form-control" placeholder=""
-                                            data-errors="Please Enter Name." required="" name="id_typeProduct"> --}}
+                                                <select class="form-control" required="" name="id_typeProduct"
+                                                    id="">
+                                                    @foreach ($type_products as $type_product)
+                                                        @if ($type_product->id == $product->id_typeProduct)
+                                                            <option value="{{ $type_product->description }}" hidden>
+                                                                {{ $type_product->description }}
+                                                            </option>
+                                                        @endif
+                                                    @endforeach
+                                                    @foreach ($type_products as $type_product)
+                                                        <option value="{{ $type_product->id }}">
+                                                            {{ $type_product->description }}
+                                                        </option>
+                                                    @endforeach
+                                                </select>
 
-                                        <select class="form-control" required="" name="id_typeProduct" id="">
-                                            @foreach ($type_products as $type_product)
-                                                <option value="" hidden>Chose Type Product</option>
-                                                <option value="{{ $type_product->id }}">{{ $type_product->description }}
-                                                </option>
-                                            @endforeach
-                                        </select>
-                                        
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label>Cost Old *</label>
-                                        <input type="text" class="form-control" placeholder="Enter Cost"
-                                            data-errors="Please Enter Cost." required="" name="cost_old">
-                                        <div class="help-block with-errors"></div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label>Cost *</label>
-                                        <input type="text" class="form-control" placeholder="Enter Cost"
-                                            data-errors="Please Enter Cost." required="" name="cost">
-                                        <div class="help-block with-errors"></div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label>Connector *</label>
-                                        <input type="text" class="form-control" placeholder="Enter Connector"
-                                            data-errors="Please Enter Price." required="" name="connector">
-                                        <div class="help-block with-errors"></div>
-                                    </div>
-                                </div>
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                        <label>Configuration *</label>
-                                        <input type="text" class="form-control" placeholder="Enter OS"
-                                            data-errors="Please Enter Price." required="" name="os">
-                                        <input type="text" class="form-control" placeholder="Enter Keyboard"
-                                            data-errors="Please Enter Price." required="" name="keyboard">
-                                        <input type="text" class="form-control" placeholder="Enter Pin"
-                                            data-errors="Please Enter Price." required="" name="pin">
-                                    </div>
-                                </div>
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                        <label>Warranty Period *</label>
-                                        <input type="text" class="form-control"
-                                            placeholder="Enter Warranty Period" required=""
-                                            name="warranty_period">
-                                        <div class="help-block with-errors"></div>
-                                    </div>
-                                </div>
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                        <label>Image</label>
-                                        <input type="file" class="form-control image-file" name="image">
-                                    </div>
-                                </div>
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                        <label>Description</label>
-                                        <textarea class="form-control" rows="4" name="description"></textarea>
-                                    </div>
-                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Cost Old *</label>
+                                                <input type="text" class="form-control" placeholder="Enter Cost"
+                                                    data-errors="Please Enter Cost." required=""
+                                                    value="{{ $product->cost_old }}" name="cost_old">
+                                                <div class="help-block with-errors"></div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Cost *</label>
+                                                <input type="text" class="form-control" placeholder="Enter Cost"
+                                                    data-errors="Please Enter Cost." required=""
+                                                    value="{{ $product->cost }}" name="cost">
+                                                <div class="help-block with-errors"></div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Connector *</label>
+                                                <input type="text" class="form-control"
+                                                    placeholder="Enter Connector" data-errors="Please Enter Price."
+                                                    required="" name="connector"
+                                                    value="{{ $product->connector }}">
+                                                <div class="help-block with-errors"></div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label>Configuration *</label>
+                                                <input type="text" class="form-control" placeholder="Enter OS"
+                                                    data-errors="Please Enter Price." required=""
+                                                    value="{{ $product->os }}" name="os">
+                                                <input type="text" class="form-control"
+                                                    placeholder="Enter Keyboard" data-errors="Please Enter Price."
+                                                    required="" value="{{ $product->keyboard }}" name="keyboard">
+                                                <input type="text" class="form-control" placeholder="Enter Pin"
+                                                    data-errors="Please Enter Price." required=""
+                                                    value="{{ $product->pin }}" name="pin">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label>Warranty Period *</label>
+                                                <input type="text" class="form-control"
+                                                    placeholder="Enter Warranty Period" required=""
+                                                    value="{{ $product->warranty_period }}" name="warranty_period">
+                                                <div class="help-block with-errors"></div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label>Image New</label>
+                                                <input type="file" class="form-control image-file" name="image">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                {{-- <label>Image</label> --}}
+                                                {{-- <input type="file" class="form-control image-file" name="image"> --}}
+                                                <img src="{{ asset('images/' . $product->image) }}" alt="">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label>Description Brand</label>
+                                                <input type="text" class="form-control" rows="4"
+                                                    name="description" value="{{ $product->description }}">
+                                            </div>
+                                        </div>
+                                    @endif
+                                @endforeach
+
                             </div>
-                            <button type="submit" class="btn btn-primary mr-2 disabled">Add Product</button>
+                            <button type="submit" class="btn btn-primary mr-2 disabled">Update Product</button>
                             <button type="reset" class="btn btn-danger">Reset</button>
                         </form>
                     </div>

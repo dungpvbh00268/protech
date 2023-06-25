@@ -107,12 +107,12 @@
                                                                             src="{{asset('images/' . $product -> image)}}" alt="">
                                                                     </td>
                                                                     <td id="cart-product__coupon--color">
-                                                                        <a href="details/{{ $product->id }}/{{$product -> name}}"
+                                                                        <a href="details/{{ $product->id }}/{{ str_replace('/', '-', $product->name) }}"
                                                                             class="cart__ịnner-title cart__ịnner-title--color">
                                                                             {{ $product->name }}
                                                                         </a>
                                                                         <a class="cart__ịnner-title cart__ịnner-title--color"
-                                                                            href="details/{{ $product->id }}/{{$product -> name}}"
+                                                                            href="details/{{ $product->id }}/{{ str_replace('/', '-', $product->name) }}"
                                                                             style="display: block;
                                                                 font-size: 0.7em;
                                                                 font-style: italic;
