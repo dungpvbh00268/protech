@@ -10,7 +10,11 @@
     <link rel="shortcut icon" href="{{ asset('img/svg/Logo.svg') }}" type="image/x-icon">
     <!-- Custom styles -->
     <link rel="stylesheet" href="{{ asset('css/style.min.css') }}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="{{ asset('js/a.js') }}"></script>
+    <script src="a.js"></script>
     <style>
         .show-cat-btn--pro::before {
             position: absolute;
@@ -38,9 +42,11 @@
         <aside class="sidebar">
             <div class="sidebar-start">
                 <div class="sidebar-head">
-                    <a href="{{ url('/dashboard') }}" class="logo-wrapper" title="Home">
+                    <a href="{{ route('dashboard') }}" class="logo-wrapper" title="Home">
                         <span class="sr-only">Home</span>
-                        <span class="icon logo" aria-hidden="true"></span>
+                        {{-- <span class="icon logo" aria-hidden="true"></span> --}}
+                        <img style="    width: 70px;" src="{{ asset('images/designlogo.png') }}" style=""
+                            aria-hidden="true">
                         <div class="logo-text">
                             <span class="logo-title">Protech</span>
                             <span class="logo-subtitle">Dashboard</span>
@@ -59,18 +65,16 @@
                                     aria-hidden="true"></span>Dashboard</a>
                         </li>
                         <li>
-                            <a class="show-cat-btn" href="##" style="opacity: 1;">
-                                <span class="icon document" aria-hidden="true"></span>Product
-                                <span class="category__btn transparent-btn " title="Open list">
+                            
+                            {{-- test --}}
+                            <a class="" href="{{ url('dashboard') }}">
+                                <span class="icon document" aria-hidden="true"></span>
+                                Products
+                                <span class="category__btn transparent-btn" title="Open list">
                                     <span class="sr-only ">Open list</span>
                                     <span  class="icon arrow-down " aria-hidden="true"></span>
                                 </span>
                             </a>
-                            <ul class="cat-sub-menu">
-                                <li>
-                                    <a href="{{ url('/home') }}">Page User</a>
-                                </li>
-                            </ul>
                         </li>
                         <li>
                             <a class="show-cat-btn" href="##">
@@ -88,17 +92,17 @@
                         </li>
                         <li>
                             <a class="show-cat-btn" href="##">
-                                <span class="icon folder" aria-hidden="true"></span>Songs
+                                <span class="icon folder" aria-hidden="true"></span>Carts
                                 <span class="category__btn transparent-btn" title="Open list">
                                     <span class="sr-only">Open list</span>
                                     <span class="icon arrow-down" aria-hidden="true"></span>
                                 </span>
                             </a>
-                            <ul class="cat-sub-menu">
+                            {{-- <ul class="cat-sub-menu">
                                 <li>
                                     <a href="">All songs</a>
                                 </li>
-                            </ul>
+                            </ul> --}}
                         </li>
 
                         <li>
@@ -386,6 +390,103 @@
     <script src="{{ asset('js/script.js') }}"></script>
 
     <script src="{{ asset('plugins/feather.min.js.map') }}"></script>
+
+    <!-- test audio -->
+    <audio id="notificationSound">
+        <source src="{{ asset('audio/notify.mp3') }}" type="audio/mpeg">
+    </audio>
+
+    <audio id="notificationSound1">
+        <source src="{{ asset('audio/notify1.mp3') }}" type="audio/mpeg">
+    </audio>
+
+    <audio id="notificationSound2">
+        <source src="{{ asset('audio/notify2.mp3') }}" type="audio/mpeg">
+    </audio>
+
+    <audio id="notificationSound3">
+        <source src="{{ asset('audio/click.mp3') }}" type="audio/mpeg">
+    </audio>
+
+    @if (session('username') && session('password'))
+        <div id="toast"></div>
+        @if (session('showToastLoginSS'))
+            <script>
+                var username = "{{ session('username') }}";
+
+                toast({
+                    title: "Success!",
+                    message: "Welcome " + username + " to the world of ProTech!",
+                    type: "success",
+                    duration: 5000
+                });
+                notificationSound1.play();
+
+                function showSuccessToast() {
+                    toast({
+                        title: "Success!",
+                        message: "Welcome to the world of ProTech!",
+                        type: "success",
+                        duration: 5000
+                    });
+                    notificationSound1.play();
+                }
+
+                function showErrorToast() {
+                    toast({
+                        title: "Error!",
+                        message: "An error has occurred, please contact the administrator.",
+                        type: "error",
+                        duration: 5000
+                    });
+                    notificationSound1.play();
+                }
+            </script>
+        @endif
+
+    @endif
+
+    <div id="toast"></div>
+
+    {{-- <div>
+            <div onclick="showSuccessToast();" class="btn btn--success">Show success toast</div>
+            <div onclick="showErrorToast();" class="btn btn--danger">Show error toast</div>
+        </div> --}}
+
+    <script>
+        function showSuccessToast() {
+            toast({
+                title: "Success!",
+                message: "Welcome to the world of ProTech!",
+                type: "success",
+                duration: 5000
+            });
+            notificationSound1.play();
+        }
+
+        function showErrorToast() {
+            toast({
+                title: "Error!",
+                message: "An error has occurred, please contact the administrator.",
+                type: "error",
+                duration: 5000
+            });
+            notificationSound1.play();
+        }
+    </script>
+
+    {{-- @endif --}}
+    @if (session('showToastAddProSS'))
+        <script>
+            toast({
+                title: "Product Added!",
+                message: "You have successfully added a product.",
+                type: "success",
+                duration: 5000
+            });
+            notificationSound1.play();
+        </script>
+    @endif
 </body>
 
 </html>

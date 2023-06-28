@@ -933,7 +933,7 @@
                         </div>
                     </div>
                     <div class="card-body">
-                        <form method="post" action="{{ route('edit', $id) }}" data-toggle="validator" novalidate="true"
+                        <form method="post" action="{{ route('quickCopy') }}" data-toggle="validator" novalidate="true"
                             enctype="multipart/form-data">
                             @csrf
                             <div class="row">
@@ -1101,13 +1101,6 @@
                                             <div class="form-group">
                                                 <label>Image New</label>
                                                 <input type="file" class="form-control image-file" name="image">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-12">
-                                            <div class="form-group">
-                                                {{-- <label>Image</label> --}}
-                                                {{-- <input type="file" class="form-control image-file" name="image"> --}}
-                                                <img src="{{ asset('images/' . $product->image) }}" alt="">
                                             </div>
                                         </div>
                                         <div class="col-md-12">
