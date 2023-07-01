@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Dashboard | Dashboard</title>
+    <title>Admin Protech | Dashboard</title>
     <!-- Favicon -->
-    <link rel="shortcut icon" href="{{ asset('img/svg/Logo.svg') }}" type="image/x-icon">
+    <link rel="shortcut icon" href="{{ asset('images/designlogo.png') }}" type="image/x-icon">
     <!-- Custom styles -->
     <link rel="stylesheet" href="{{ asset('css/style.min.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -67,42 +67,22 @@
                         <li>
                             
                             {{-- test --}}
-                            <a class="" href="{{ url('dashboard') }}">
+                            <a class="" href="{{ route('dashboard') }}">
                                 <span class="icon document" aria-hidden="true"></span>
                                 Products
-                                <span class="category__btn transparent-btn" title="Open list">
-                                    <span class="sr-only ">Open list</span>
-                                    <span  class="icon arrow-down " aria-hidden="true"></span>
-                                </span>
                             </a>
                         </li>
                         <li>
-                            <a class="show-cat-btn" href="##">
-                                <span class="icon folder" aria-hidden="true"></span>Categories
-                                <span class="category__btn transparent-btn" title="Open list">
-                                    <span class="sr-only">Open list</span>
-                                    <span class="icon arrow-down" aria-hidden="true"></span>
-                                </span>
+                            <a class="" href="{{ route('manageCategories') }}">
+                                <span class="icon document" aria-hidden="true"></span>
+                                Categories
                             </a>
-                            <ul class="cat-sub-menu">
-                                <li>
-                                    <a href="">All categories</a>
-                                </li>
-                            </ul>
                         </li>
                         <li>
-                            <a class="show-cat-btn" href="##">
-                                <span class="icon folder" aria-hidden="true"></span>Carts
-                                <span class="category__btn transparent-btn" title="Open list">
-                                    <span class="sr-only">Open list</span>
-                                    <span class="icon arrow-down" aria-hidden="true"></span>
-                                </span>
+                            <a class="" href="{{ route('manageCarts') }}">
+                                <span class="icon document" aria-hidden="true"></span>
+                                Cart
                             </a>
-                            {{-- <ul class="cat-sub-menu">
-                                <li>
-                                    <a href="">All songs</a>
-                                </li>
-                            </ul> --}}
                         </li>
 
                         <li>

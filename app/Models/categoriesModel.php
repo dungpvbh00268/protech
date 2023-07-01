@@ -11,5 +11,5 @@ class categoriesModel extends Model
     protected $table = 'categories';
     protected $primaryKey = 'id';
     protected $fillable = ['name', 'description'];
-    public $timestamps;
+    public $timestamps = true;
 }

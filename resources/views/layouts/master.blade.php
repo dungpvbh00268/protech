@@ -502,7 +502,8 @@
                                                                 <div
                                                                     class="profile__main-config profile__main-dashboard">
                                                                     <a class="profile__main-dashboard--change-form"
-                                                                        href="{{ route('dashboard') }}" target="blank">MANAGE</a>
+                                                                        href="{{ route('dashboard') }}"
+                                                                        target="blank">MANAGE</a>
                                                                 </div>
                                                             @endif
                                                         @endif
@@ -1301,11 +1302,36 @@
         </div>
     </div>
 
+    {{-- <div class="ontop">
+        <a href="" style="scroll-behavior: smooth;">
+            <i class="fa-solid fa-angle-up"></i>
+        </a>
+    </div> --}}
+    <!-- Thêm thư viện jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- HTML -->
     <div class="ontop">
-        <a href="">
+        <a href="" class="scroll-to-top">
             <i class="fa-solid fa-angle-up"></i>
         </a>
     </div>
+
+    <!-- JavaScript -->
+    <script>
+        $(document).ready(function() {
+            // Bắt sự kiện click vào nút
+            $('.scroll-to-top').click(function(event) {
+                event.preventDefault();
+
+                // Cuộn mượt lên đầu trang
+                $('html, body').animate({
+                    scrollTop: 0
+                }, 'slow');
+            });
+        });
+    </script>
+
 
     <!-- toast message -->
     <!--succesed-->
@@ -1443,7 +1469,7 @@
         </script>
     @endif
 
-    @if(session('toastNotAssess'))
+    @if (session('toastNotAssess'))
         <script>
             toast({
                 title: "Access is denied!",
@@ -1466,7 +1492,7 @@
             notificationSound1.play();
         </script>
     @endif
-    
+
 
     <!--warning-->
     <!-- <div id="message" class="message message--warning">

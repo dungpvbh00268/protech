@@ -17,6 +17,7 @@ html {
     font-family: 'Roboto', sans-serif;
     font-size: 62.5%;
     user-select: none;
+    scroll-behavior: smooth;
 }
 
 body {

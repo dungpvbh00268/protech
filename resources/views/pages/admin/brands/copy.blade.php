@@ -4,15 +4,15 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Admin Protech | Dashboard</title>
+    <title>POS Dash | Responsive Bootstrap 4 Admin Dashboard Template</title>
 
     <!-- Favicon -->
-    <link rel="shortcut icon" href="{{ asset('images/designlogo.png') }}" type="image/x-icon">
-    <link rel="stylesheet" href="{{ asset('css/backend-plugin.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/backend.css?v=1.0.0') }}">
-    <link rel="stylesheet" href="{{ asset('vendor/@fortawesome/fontawesome-free/css/all.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('vendor/line-awesome/dist/line-awesome/css/line-awesome.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('vendor/remixicon/fonts/remixicon.css') }}">
+
+    <link rel="stylesheet" href="{{ asset('/css/backend-plugin.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('/css/backend.css?v=1.0.0') }}">
+    <link rel="stylesheet" href="{{ asset('/vendor/@fortawesome/fontawesome-free/css/all.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('/vendor/line-awesome/dist/line-awesome/css/line-awesome.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('/vendor/remixicon/fonts/remixicon.css') }}">
     <style type="text/css">
         .apexcharts-canvas {
             position: relative;
@@ -933,32 +933,26 @@
                         </div>
                     </div>
                     <div class="card-body">
-                        <form method="post" action="{{ route('edit', $id) }}" data-toggle="validator" novalidate="true" enctype="multipart/form-data">
+                        <form method="get" action="{{ route('addBrand') }}" data-toggle="validator"
+                            novalidate="true">
                             @csrf
-                            <div class="row">
-                                @foreach ($categories as $category)
-                                    @if ($category->id == $id)
+                            @foreach ($brands as $brand)
+                                @if ($brand->id == $id)
+                                    <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>Name *</label>
                                                 <input type="text" class="form-control" placeholder="Enter name"
                                                     data-errors="Please Enter Name." required="" name="name"
-                                                    value="{{$category->name}}">
+                                                    value="{{ $brand->name }}">
                                                 <div class="help-block with-errors"></div>
                                             </div>
                                         </div>
-                                        <div class="col-md-12">
-                                            <div class="form-group">
-                                                <label>Description</label>
-                                                <textarea class="form-control" rows="4" name="description">{{$category->description}}</textarea>
-                                            </div>
-                                        </div>
-                                    @endif
-                                @endforeach
+                                    </div>
+                                @endif
+                            @endforeach
 
-
-                            </div>
-                            <button type="submit" class="btn btn-primary mr-2 disabled">Update Category</button>
+                            <button type="submit" class="btn btn-primary mr-2 disabled">Add Brand</button>
                             <button type="reset" class="btn btn-danger">Reset</button>
                         </form>
                     </div>
@@ -967,11 +961,11 @@
         </div>
         <!-- Page end  -->
     </div>
-    <script src="{{ asset('js/backend-bundle.min.js') }}"></script>
-    <script src="{{ asset('js/table-treeview.js') }}"></script>
-    <script src="{{ asset('js/customizer.js') }}"></script>
-    <script src="{{ asset('js/customizer.js') }}"></script>
-    <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ asset('/js/backend-bundle.min.js') }}"></script>
+    <script src="{{ asset('/js/table-treeview.js') }}"></script>
+    <script src="{{ asset('/js/customizer.js') }}"></script>
+    <script src="{{ asset('/js/customizer.js') }}"></script>
+    <script src="{{ asset('/js/app.js') }}"></script>
 </body>
 
 </html>

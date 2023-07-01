@@ -94,7 +94,7 @@ class addProduct_controller extends Controller
         return view('pages/admin/product/edit', compact('brands', 'products', 'categories', 'type_products', 'id'));
     }
 
-    public function edit($id, Request $request)
+    public function editPro($id, Request $request)
     {
         $validator = Validator::make($request->all(), [
             'name' => 'required',
@@ -175,7 +175,7 @@ class addProduct_controller extends Controller
         }
     }
 
-    public function delete($id)
+    public function deletePro($id)
     {
         $product = productsModel::find($id);
 
@@ -211,7 +211,7 @@ class addProduct_controller extends Controller
         return view('pages/admin/product/copy', compact('brands', 'products', 'categories', 'type_products', 'id'));
     }
 
-    public function quickCopy(Request $request)
+    public function quickCopyPro(Request $request)
     {
         $validator = Validator::make($request->all(), [
             'name' => 'required',
@@ -268,7 +268,7 @@ class addProduct_controller extends Controller
 
             $newPro->save();
 
-            return redirect()->intended('/manage-products')
+            return redirect()->intended('manage-products')
                 ->with('showToastAddProSS', true);
         }
     }

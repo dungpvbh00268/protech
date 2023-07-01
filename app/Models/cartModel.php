@@ -11,7 +11,7 @@ class cartModel extends Model
     protected $table = "cart";
     protected $primaryKey = "id";
     protected $fillable = ['quantity', 'id_user'];
-    public $timestamps;
+    public $timestamps = true;
     public function cart_pro(){
         return $this->hasMany(cart_proModel::class, "id_cart", "id");
     }
