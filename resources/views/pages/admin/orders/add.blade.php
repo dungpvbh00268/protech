@@ -7,11 +7,11 @@
           
           <!-- Favicon -->
        
-          <link rel="stylesheet" href="{{asset('/css/backend-plugin.min.css')}}">
-          <link rel="stylesheet" href="{{asset('/css/backend.css?v=1.0.0')}}">
-          <link rel="stylesheet" href="{{asset('/vendor/@fortawesome/fontawesome-free/css/all.min.css')}}">
-          <link rel="stylesheet" href="{{asset('/vendor/line-awesome/dist/line-awesome/css/line-awesome.min.css')}}">
-          <link rel="stylesheet" href="{{asset('/vendor/remixicon/fonts/remixicon.css')}}">  <style type="text/css">.apexcharts-canvas {
+          <link rel="stylesheet" href="assets/css/backend-plugin.min.css">
+          <link rel="stylesheet" href="assets/css/backend.css?v=1.0.0">
+          <link rel="stylesheet" href="assets/vendor/@fortawesome/fontawesome-free/css/all.min.css">
+          <link rel="stylesheet" href="assets/vendor/line-awesome/dist/line-awesome/css/line-awesome.min.css">
+          <link rel="stylesheet" href="assets/vendor/remixicon/fonts/remixicon.css">  <style type="text/css">.apexcharts-canvas {
       position: relative;
       user-select: none;
       /* cannot give overflow: hidden as it will crop tooltips which overflow outside chart area */
@@ -818,33 +818,60 @@
                 <div class="card">
                     <div class="card-header d-flex justify-content-between">
                         <div class="header-title">
-                            <h4 class="card-title">Add Cart</h4>
+                            <h4 class="card-title">Add Order</h4>
                         </div>
                     </div>
                     <div class="card-body">
                         <form action="page-list-product.html" data-toggle="validator" novalidate="true">
                             <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>ID *</label>
+                                        <input type="text" class="form-control" placeholder="Enter ID" data-errors="Please Enter Name." required="">
+                                    </div> 
+                                </div>  
                                 <div class="col-md-6">                      
                                     <div class="form-group">
-                                        <label>Code *</label>
-                                        <input type="text" class="form-control" placeholder="Enter code" data-errors="Please Enter Name." required="">
+                                        <label>ID User *</label>
+                                        <input type="text" class="form-control" placeholder="Enter ID" data-errors="Please Enter Name." required="">
                                         <div class="help-block with-errors"></div>
                                     </div>
                                 </div> 
                                 <div class="col-md-6">                      
                                     <div class="form-group">
-                                        <label>Detail *</label>
-                                        <input type="text" class="form-control" placeholder="Enter detail" data-errors="Please Enter Name." required="">
+                                        <label>Quantity *</label>
+                                        <input type="text" class="form-control" placeholder="Enter quantity" data-errors="Please Enter Name." required="">
                                         <div class="help-block with-errors"></div>
                                     </div>
                                 </div>  
                                 <div class="col-md-6">                      
                                     <div class="form-group">
-                                        <label>Expired *</label>
-                                        <input type="date" class="form-control" placeholder="" data-errors="Please Enter Name." required="">
+                                        <label>Address *</label>
+                                        <input type="text" class="form-control" placeholder="Enter address" data-errors="Please Enter Name." required="">
                                         <div class="help-block with-errors"></div>
                                     </div>
-                                </div>    
+                                </div>
+                                <div class="col-md-6">                      
+                                    <div class="form-group">
+                                        <label>Bill info *</label>
+                                        <input type="text" class="form-control" placeholder="Enter bill" data-errors="Please Enter Name." required="">
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                </div> 
+                                <div class="col-md-6">                      
+                                    <div class="form-group">
+                                        <label>Status *</label>
+                                        <input type="text" class="form-control" placeholder="Enter status" data-errors="Please Enter Name." required="">
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                </div>   
+                                <div class="col-md-6">                      
+                                    <div class="form-group">
+                                        <label>ID Cart *</label>
+                                        <input type="text" class="form-control" placeholder="Enter ID" data-errors="Please Enter Name." required="">
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                </div>           
                                 
                             </div>                       
                             <button type="submit" class="btn btn-primary mr-2 disabled">Add Product</button>
@@ -856,10 +883,10 @@
         </div>
         <!-- Page end  -->
     </div>
-    <script src="{{asset('js/backend-bundle.min.js')}}"></script>
-    <script src="{{asset('/js/table-treeview.js')}}"></script>
-    <script src="{{asset('/js/customizer.js')}}"></script>
-    <script src="{{asset('/js/customizer.js')}}"></script>
-    <script src="{{asset('/js/app.js')}}"></script>
+    <script src="assets/js/backend-bundle.min.js"></script>
+    <script src="assets/js/table-treeview.js"></script>
+    <script src="assets/js/customizer.js"></script>
+    <script src="assets/js/customizer.js"></script>
+    <script src="assets/js/app.js"></script>
 </body>
 </html>

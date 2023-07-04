@@ -93,52 +93,22 @@
                         </li>
 
                         <li>
-                            <a class="show-cat-btn" href="##">
-                                <span class="icon folder" aria-hidden="true"></span>Genres
-                                <span class="category__btn transparent-btn" title="Open list">
-                                    <span class="sr-only">Open list</span>
-                                    <span class="icon arrow-down" aria-hidden="true"></span>
-                                </span>
+                            <a class="" href="{{ route('manageGiftcodes') }}">
+                                <span class="icon document" aria-hidden="true"></span>
+                                Giftcode
                             </a>
-                            <ul class="cat-sub-menu">
-                                <li>
-                                    <a href="">All Genres</a>
-                                </li>
-                            </ul>
                         </li>
                         <li>
-                            <a class="show-cat-btn" href="##">
-                                <span class="icon image" aria-hidden="true"></span>Media
-                                <span class="category__btn transparent-btn" title="Open list">
-                                    <span class="sr-only">Open list</span>
-                                    <span class="icon arrow-down" aria-hidden="true"></span>
-                                </span>
+                            <a class="" href="{{ route('manageImages') }}">
+                                <span class="icon document" aria-hidden="true"></span>
+                                Images
                             </a>
-                            <ul class="cat-sub-menu">
-                                <li>
-                                    <a href="media-01.html">Media-01</a>
-                                </li>
-                                <li>
-                                    <a href="media-02.html">Media-02</a>
-                                </li>
-                            </ul>
                         </li>
                         <li>
-                            <a class="show-cat-btn" href="##">
-                                <span class="icon paper" aria-hidden="true"></span>Pages
-                                <span class="category__btn transparent-btn" title="Open list">
-                                    <span class="sr-only">Open list</span>
-                                    <span class="icon arrow-down" aria-hidden="true"></span>
-                                </span>
+                            <a class="" href="{{ route('manageOrders') }}">
+                                <span class="icon document" aria-hidden="true"></span>
+                                Orders
                             </a>
-                            <ul class="cat-sub-menu">
-                                <li>
-                                    <a href="pages.html">All pages</a>
-                                </li>
-                                <li>
-                                    <a href="new-page.html">Add new page</a>
-                                </li>
-                            </ul>
                         </li>
                         <li>
                             <a href="comments.html">

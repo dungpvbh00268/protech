@@ -61,11 +61,11 @@
                 <div class="sidebar-body">
                     <ul class="sidebar-body-menu">
                         <li>
-                            <a class="active" href="{{ url('dashboard') }}"><span class="icon home"
+                            <a class="" href="{{ url('dashboard') }}"><span class="icon home"
                                     aria-hidden="true"></span>Dashboard</a>
                         </li>
                         <li>
-                            
+
                             {{-- test --}}
                             <a class="" href="{{ route('dashboard') }}">
                                 <span class="icon document" aria-hidden="true"></span>
@@ -99,7 +99,7 @@
                             </a>
                         </li>
                         <li>
-                            <a class="" href="{{ route('manageImages') }}">
+                            <a class="active" href="{{ route('manageImages') }}">
                                 <span class="icon document" aria-hidden="true"></span>
                                 Images
                             </a>
@@ -304,7 +304,120 @@
             <!-- ! Main -->
             <main class="main users chart-page" id="skip-target">
                 <div class="container">
-                    @yield('contentDashboard')
+                    <div class="col-lg-9">
+
+                        <div class="users-table table-wrapper">
+                            <table class="posts-table">
+                                <thead>
+                                    <tr class="users-table-info">
+                                        <th>
+                                            <label class="users-table__checkbox ms-20">
+                                                <a title="Add a gift code" style="margin-right: 20px;" class="check-all"
+                                                    href="{{ route('add-image') }}"><i
+                                                        class="fa-solid fa-plus"></i></a>
+                                            </label>
+                                        </th>
+                                        <th style="    min-width: 120px;">Name</th>
+                                        <th style="    min-width: 120px;">filePath</th>
+                                        <th style="    min-width: 120px;">description</th>
+                                        <th style="    min-width: 120px;">id_product</th>
+                                        <th style="    min-width: 120px;">Created_at</th>
+                                        <th style="    min-width: 100px;">Updated_at</th>
+                                        <th style="    min-width: 100px;">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($images as $image)
+                                        <tr>
+                                            <td>
+                                                <label class="users-table__checkbox">
+                                                    <div style="margin-right: 27px;" class="check">
+                                                        {{ $image->id }}</div>
+                                                    <div class="categories-table-img">
+                                                        @if ($image->fileName == null)
+                                                            <i>NULL</i>
+                                                        @else
+                                                            {{$image->fileName}}
+                                                        @endif
+                                                    </div>
+                                                </label>
+                                            </td>
+                                            <td>
+                                                @if ($image->filePath == null)
+                                                    <i>NULL</i>
+                                                @else
+                                                    {{ $image->filePath }}
+                                                @endif
+                                            </td>
+                                            <td>
+                                                @if ($image->description == null)
+                                                    <i>NULL</i>
+                                                @else
+                                                    {{ $image->description }}
+                                                @endif
+                                            </td>
+                                            <td>
+                                                @if ($image->id_product == null)
+                                                    <i>NULL</i>
+                                                @else
+                                                    {{$image->id_product}}
+                                                @endif
+                                            </td>
+                                            <td>
+                                                @if ($image->created_at == null)
+                                                    <i>NULL</i>
+                                                @else
+                                                    {{ $image->created_at }}
+                                                @endif
+                                            </td>
+                                            <td>
+                                                @if ($image->updated_at == null)
+                                                    <i>NULL</i>
+                                                @else
+                                                    {{ $image->updated_at }}
+                                                @endif
+                                            </td>
+
+                                            <td>
+                                                <span class="p-relative">
+                                                    <button class="dropdown-btn transparent-btn" type="button"
+                                                        title="More info">
+                                                        <div class="sr-only">More info</div>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24"
+                                                            height="24" viewBox="0 0 24 24" fill="none"
+                                                            stroke="currentColor" stroke-width="2"
+                                                            stroke-linecap="round" stroke-linejoin="round"
+                                                            class="feather feather-more-horizontal"
+                                                            aria-hidden="true">
+                                                            <circle cx="12" cy="12" r="1">
+                                                            </circle>
+                                                            <circle cx="19" cy="12" r="1">
+                                                            </circle>
+                                                            <circle cx="5" cy="12" r="1">
+                                                            </circle>
+                                                        </svg>
+                                                    </button>
+                                                    <ul class="users-item-dropdown dropdown">
+                                                        <li><a
+                                                                href="update-image/{{ $image->id }}/{{ str_replace('/', '-', $image->name) }}">Edit</a>
+                                                        </li>
+                                                        <li><a
+                                                                href="{{ route('copyImage', [$image->id, str_replace('/', '-', $image->name)]) }}">Quick
+                                                                Copy</a></li>
+                                                        <li><a
+                                                                href="{{ route('deleteImage', ['id' => $image->id]) }}">Trash</a>
+                                                        </li>
+                                                    </ul>
+                                                </span>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+
                 </div>
             </main>
             <!-- ! Footer -->
@@ -423,6 +536,30 @@
             toast({
                 title: "Product Added!",
                 message: "You have successfully added a product.",
+                type: "success",
+                duration: 5000
+            });
+            notificationSound1.play();
+        </script>
+    @endif
+
+    @if (session('toastDeleteSS'))
+        <script>
+            toast({
+                title: "Product Deleted!",
+                message: "You have successfully deleted a product.",
+                type: "success",
+                duration: 5000
+            });
+            notificationSound1.play();
+        </script>
+    @endif
+
+    @if (session('toastUpdateSS'))
+        <script>
+            toast({
+                title: "Product Updated!",
+                message: "You have successfully updated a product.",
                 type: "success",
                 duration: 5000
             });

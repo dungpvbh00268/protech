@@ -4,6 +4,8 @@ use App\Http\Controllers\admin\brand\manageBrand_controller;
 use App\Http\Controllers\admin\cart\manageCart_controller;
 use App\Http\Controllers\admin\category\manageCategory as CategoryManageCategory;
 use App\Http\Controllers\admin\giftcode\manageGiftcode_controller;
+use App\Http\Controllers\admin\images\manageImage_controller;
+use App\Http\Controllers\admin\order\manageOrrder_controller;
 use App\Http\Controllers\admin\product\addProduct_controller;
 use App\Http\Controllers\authController;
 use App\Http\Controllers\cartController;
@@ -154,8 +156,8 @@ Route::get('manage-giftcode', [manageGiftcode_controller::class, 'index'])
     ->name('manageGiftcodes')
     ->middleware('checkAdmin');
 
-Route::get('add-giftcode', [manageGiftcode_controller::class, 'addGiftcodeView'])->name('add-giftcode')->middleware('checkAdmin');
-Route::get('addGiftcode', [manageGiftcode_controller::class, 'addGiftcode'])->name('addGiftcode')->middleware('checkAdmin');
+Route::get('add-giftCode', [manageGiftcode_controller::class, 'addGiftCodeView'])->name('add-giftCode')->middleware('checkAdmin');
+Route::get('addGiftCode', [manageGiftcode_controller::class, 'addGiftCode'])->name('addGiftCode')->middleware('checkAdmin');
 
 Route::get('update-giftcode/{id}/{name}', [manageGiftcode_controller::class, 'updateGiftcode'])->name('updateGiftcode')->middleware('checkAdmin');
 Route::post('editGiftcode/{id}', [manageGiftcode_controller::class, 'editGiftcode'])->name('editGiftcode')->middleware('checkAdmin');
@@ -163,3 +165,39 @@ Route::get('deleteGiftcode/{id}', [manageGiftcode_controller::class, 'deleteGift
 
 Route::get('add-giftcode-copy/{id}/{name}', [manageGiftcode_controller::class, 'copyGiftcode'])->name('copyGiftcode')->middleware('checkAdmin');
 Route::post('quickCopyGiftcode', [manageGiftcode_controller::class, 'quickCopyGiftcode'])->name('quickCopyGiftcode')->middleware('checkAdmin');
+
+
+// 6. Images
+
+Route::get('manage-image', [manageImage_controller::class, 'index'])
+    ->name('manageImages')
+    ->middleware('checkAdmin');
+
+Route::get('add-image', [manageImage_controller::class, 'addImageView'])->name('add-image')->middleware('checkAdmin');
+Route::get('addImage', [manageImage_controller::class, 'addImage'])->name('addImage')->middleware('checkAdmin');
+
+Route::get('update-image/{id}/{name}', [manageImage_controller::class, 'updateImage'])->name('updateImage')->middleware('checkAdmin');
+Route::post('editImage/{id}', [manageImage_controller::class, 'editImage'])->name('editImage')->middleware('checkAdmin');
+Route::get('deleteImage/{id}', [manageImage_controller::class, 'deleteImage'])->name('deleteImage')->middleware('checkAdmin');
+
+Route::get('add-image-copy/{id}/{name}', [manageImage_controller::class, 'copyImage'])->name('copyImage')->middleware('checkAdmin');
+Route::post('quickCopyImage', [manageImage_controller::class, 'quickCopyImage'])->name('quickCopyImage')->middleware('checkAdmin');
+
+
+// 7. order
+
+Route::get('manage-order', [manageOrrder_controller::class, 'index'])
+    ->name('manageOrders')
+    ->middleware('checkAdmin');
+
+Route::get('add-order', [manageOrrder_controller::class, 'addImageView'])->name('add-order')->middleware('checkAdmin');
+Route::get('addOrder', [manageOrrder_controller::class, 'addOrder'])->name('addOrder')->middleware('checkAdmin');
+
+Route::get('update-order/{id}/{name}', [manageOrrder_controller::class, 'updateOrder'])->name('updateOrder')->middleware('checkAdmin');
+Route::post('editOrder/{id}', [manageOrrder_controller::class, 'editOrder'])->name('editOrder')->middleware('checkAdmin');
+Route::get('deleteOrder/{id}', [manageOrrder_controller::class, 'deleteOrder'])->name('deleteOrder')->middleware('checkAdmin');
+
+Route::get('add-order-copy/{id}/{name}', [manageOrrder_controller::class, 'copyOrder'])->name('copyOrder')->middleware('checkAdmin');
+Route::post('quickCopyOrder', [manageOrrder_controller::class, 'quickCopyOrder'])->name('quickCopyOrder')->middleware('checkAdmin');
+
+
