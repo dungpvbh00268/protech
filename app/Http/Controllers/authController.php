@@ -24,7 +24,6 @@ class authController extends Controller
             $request->session()->put('is_admin', $account->is_admin);
             $request->session()->put('id', $account->id);
 
-            // Lấy thông tin giỏ hàng của người dùng từ bảng cart (nếu có)
             $cart = cartModel::where('id_user', $account->id)->first();
             $request->session()->put('id_user', $cart->id_user);
 
@@ -63,16 +62,10 @@ class authController extends Controller
 
             $newAccount->save();
 
-            // Lấy ID của tài khoản mới đăng ký
+            // create cart -> account
             $userId = $newAccount->id;
-
-            // Tạo bản ghi mới trong bảng cart
             $newCart = new cartModel();
             $newCart->id_user = $userId;
-            // Gán các trường khác trong bảng cart
-            // $newCart->field1 = 'value1';
-            // $newCart->field2 = 'value2';
-            // ...
 
             $newCart->save();
 
@@ -84,23 +77,18 @@ class authController extends Controller
 
     public function updateInfo(Request $request)
     {
-        // Lấy thông tin người dùng từ session('id_user')
         $user = accountModel::find(session('id_user'));
 
-        // Kiểm tra và cập nhật username
         if ($request->has('usernameUpdate')) {
             $user->username = $request->input('usernameUpdate');
         }
 
-        // Kiểm tra và cập nhật password
         if ($request->has('passwordUpdate') && $request->input('passwordUpdate') != 'Change Password') {
             $user->password = bcrypt($request->input('passwordUpdate'));
         }
-
-        // Lưu thay đổi vào cơ sở dữ liệu
         $user->save();
 
-        // Redirect hoặc trả về response tùy theo logic của ứng dụng
+        // Redirect 
         // ...
         return redirect()->intended('/')
             ->with('showToastSignup', true);
