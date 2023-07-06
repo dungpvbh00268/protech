@@ -124,7 +124,7 @@ Route::get('manage-carts', [manageCart_controller::class, 'index'])
     ->middleware('checkAdmin');
 
 Route::get('add-cart', [manageCart_controller::class, 'addCartView'])->name('add-cart')->middleware('checkAdmin');
-Route::get('addCart', [manageCart_controller::class, 'addCart'])->name('addCart')->middleware('checkAdmin');
+Route::get('addCartAdmin', [manageCart_controller::class, 'addCartAdmin'])->name('addCartAdmin')->middleware('checkAdmin');
 
 Route::get('update-category/{id}/{name}', [manageCart_controller::class, 'updateCategory'])->name('updateCategory')->middleware('checkAdmin');
 Route::post('editCart/{id}', [manageCart_controller::class, 'editCart'])->name('editCart')->middleware('checkAdmin');
