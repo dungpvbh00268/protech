@@ -19,6 +19,9 @@ class manageOrrder_controller extends Controller
     }
 
     public function addOrderView(){
-        return view('pages.admin.orders.add');
+        $accounts = accountModel::all();
+        $products = productsModel::all();
+        $orders = orderModel::all();
+        return view('pages.admin.orders.add', compact('accounts', 'products', 'orders'));
     }
 }

@@ -304,6 +304,7 @@
             <!-- ! Main -->
             <main class="main users chart-page" id="skip-target">
                 <div class="container">
+                    <h2 class="main-title">Manage Giftcodes</h2>
                     <div class="col-lg-9">
 
                         <div class="users-table table-wrapper">

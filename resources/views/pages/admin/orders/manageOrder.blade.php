@@ -29,6 +29,26 @@
             -o-transition: .3s all;
             transition: .3s all
         }
+
+        .table--padding {
+            padding: 0 10px;
+        }
+
+        .bill {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .bill_info {
+            display: flex;
+            align-items: center;
+            /* justify-content: space-between; */
+        }
+
+        .bill_info i {
+            color: chartreuse;
+            width: 120px;
+        }
     </style>
 </head>
 
@@ -121,8 +141,7 @@
                     <span class="system-menu__title">system</span>
                     <ul class="sidebar-body-menu">
                         <li>
-                            <a href="appearance.html"><span class="icon edit"
-                                    aria-hidden="true"></span>Appearance</a>
+                            <a href="appearance.html"><span class="icon edit" aria-hidden="true"></span>Appearance</a>
                         </li>
                         <li>
                             <a class="show-cat-btn" href="##">
@@ -168,7 +187,8 @@
                 <a href="##" class="sidebar-user">
                     <span class="sidebar-user-img">
                         <picture>
-                            <source srcset="{{ asset('./img/avatar/avatar-illustrated-01.webp') }}" type="image/webp">
+                            <source srcset="{{ asset('./img/avatar/avatar-illustrated-01.webp') }}"
+                                type="image/webp">
                             <img src="{{ asset('./img/avatar/avatar-illustrated-01.png') }}" alt="User name">
                         </picture>
                     </span>
@@ -304,6 +324,7 @@
             <!-- ! Main -->
             <main class="main users chart-page" id="skip-target">
                 <div class="container">
+                    <h2 class="main-title">Manage Orders</h2>
                     <div class="col-lg-9">
 
                         <div class="users-table table-wrapper">
@@ -312,14 +333,14 @@
                                     <tr class="users-table-info">
                                         <th>
                                             <label class="users-table__checkbox ms-20">
-                                                <a title="Add a gift code" style="margin-right: 20px;" class="check-all"
-                                                    href="{{ route('add-image') }}"><i
+                                                <a title="Add a gift code" style="margin-right: 20px;"
+                                                    class="check-all" href="{{ route('add-order') }}"><i
                                                         class="fa-solid fa-plus"></i></a>
                                             </label>
                                         </th>
                                         <th style="    min-width: 120px;">quantity</th>
                                         <th style="    min-width: 120px;">address</th>
-                                        <th style="    min-width: 120px;">bill-info</th>
+                                        <th style="    min-width: 320px;">bill-info</th>
                                         <th style="    min-width: 120px;">status</th>
                                         <th style="    min-width: 120px;">id_user</th>
                                         <th style="    min-width: 120px;">Created_at</th>
@@ -330,55 +351,106 @@
                                 <tbody>
                                     @foreach ($orders as $order)
                                         <tr>
-                                            <td>
+                                            <td class="table--padding">
                                                 <label class="users-table__checkbox">
                                                     <div style="margin-right: 27px;" class="check">
                                                         {{ $order->id }}</div>
                                                     <div class="categories-table-img">
-                                                        @if ($order->quantity == null)
+                                                        {{-- @if ($order->quantity == null)
                                                             <i>NULL</i>
                                                         @else
                                                             {{$order->quantity}}
-                                                        @endif
+                                                        @endif --}}
                                                     </div>
                                                 </label>
                                             </td>
-                                            <td>
+                                            <td class="table--padding">
+                                                @if ($order->quantity == null)
+                                                    <i>NULL</i>
+                                                @else
+                                                    {{ $order->quantity }}
+                                                @endif
+                                            </td>
+                                            <td class="table--padding">
                                                 @if ($order->address == null)
                                                     <i>NULL</i>
                                                 @else
                                                     {{ $order->address }}
                                                 @endif
                                             </td>
-                                            <td>
-                                                @if ($order->bill-info == null)
+                                            <td class="table--padding">
+                                                @if ($order->bill_info == null)
                                                     <i>NULL</i>
                                                 @else
-                                                    {{ $order->bill-info }}
+                                                    {{-- {{ Str::limit($order->bill_info, $limit = 50, $end = '...') }} --}}
+                                                    @php
+                                                        $billInfo = json_decode($order->bill_info, true);
+                                                        $name = $billInfo[0];
+                                                        $phoneNumber = $billInfo[1];
+                                                        $totalMoney = $billInfo[2];
+                                                        $code = $billInfo[3];
+                                                        $proName = $billInfo[4];
+                                                        $proId = $billInfo[5];
+                                                    @endphp
+
+                                                    <div class="bill">
+                                                        <span class="bill_info">
+                                                            <i>Name:</i>
+                                                            <span>{{ $name }}</span>
+                                                        </span>
+                                                        <span class="bill_info">
+                                                            <i>Phone Number:</i>
+                                                            <span>{{ $phoneNumber }}</span>
+                                                        </span>
+                                                        <span class="bill_info">
+                                                            <i>Total Money:</i>
+                                                            <span>{{ number_format($totalMoney, 0, ',', ',') }}
+                                                                <u>đ</u></span>
+                                                        </span>
+                                                        <span class="bill_info">
+                                                            <i>Code:</i>
+                                                            <span>{{ $code }}</span>
+                                                        </span>
+                                                        <span class="bill_info">
+                                                            <i>Product:</i>
+                                                            <span>{{ $proName }}</span>
+                                                        </span>
+                                                        <span class="bill_info">
+                                                            <i>Product ID:</i>
+                                                            <span>{{ $proId }}</span>
+                                                        </span>
+                                                    </div>
                                                 @endif
                                             </td>
-                                            <td>
+                                            <td class="table--padding">
                                                 @if ($order->status == null)
                                                     <i>NULL</i>
                                                 @else
-                                                    {{$order->status}}
+                                                    @if ($order->status == 'pending')
+                                                        <div style="color: #ff4848">
+                                                            {{ $order->status }}
+                                                        </div>
+                                                    @else
+                                                        {{ $order->status }}
+                                                    @endif
                                                 @endif
+
                                             </td>
-                                            <td>
+                                            <td class="table--padding">
                                                 @if ($order->id_user == null)
                                                     <i>NULL</i>
                                                 @else
-                                                    {{$order->id_user}}
+                                                    {{ $order->id_user }}
                                                 @endif
                                             </td>
-                                            <td>
+                                            <td class="table--padding">
                                                 @if ($order->created_at == null)
                                                     <i>NULL</i>
                                                 @else
                                                     {{ $order->created_at }}
                                                 @endif
                                             </td>
-                                            <td>
+                                            <td class="table--padding">
                                                 @if ($order->updated_at == null)
                                                     <i>NULL</i>
                                                 @else
@@ -386,7 +458,7 @@
                                                 @endif
                                             </td>
 
-                                            <td>
+                                            <td class="table--padding">
                                                 <span class="p-relative">
                                                     <button class="dropdown-btn transparent-btn" type="button"
                                                         title="More info">

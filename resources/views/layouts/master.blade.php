@@ -109,7 +109,7 @@
                                                                         @endphp
 
                                                                         <div class="cart__inner-pro--have">
-                                                                            <a href="details/{{ $product->id }}/{{ str_replace('/', '-', $product->name) }}"
+                                                                            <a href="{{ route('details', [$product->id, str_replace('/', '-', $product->name)]) }}"
                                                                                 class="cart__inner-pro--mess">
                                                                                 <div class="cart__inner-pro-img">
                                                                                     <img src="{{ asset('images/' . $product->image) }}"
@@ -502,7 +502,7 @@
                                                                 <div
                                                                     class="profile__main-config profile__main-dashboard">
                                                                     <a class="profile__main-dashboard--change-form"
-                                                                        href="{{ route('dashboard') }}"
+                                                                        href="{{ route('dashboard.home') }}"
                                                                         target="blank">MANAGE</a>
                                                                 </div>
                                                             @endif

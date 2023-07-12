@@ -190,7 +190,7 @@ Route::get('manage-order', [manageOrrder_controller::class, 'index'])
     ->name('manageOrders')
     ->middleware('checkAdmin');
 
-Route::get('add-order', [manageOrrder_controller::class, 'addImageView'])->name('add-order')->middleware('checkAdmin');
+Route::get('add-order', [manageOrrder_controller::class, 'addOrderView'])->name('add-order')->middleware('checkAdmin');
 Route::get('addOrder', [manageOrrder_controller::class, 'addOrder'])->name('addOrder')->middleware('checkAdmin');
 
 Route::get('update-order/{id}/{name}', [manageOrrder_controller::class, 'updateOrder'])->name('updateOrder')->middleware('checkAdmin');
