@@ -427,11 +427,21 @@
                                                     <i>NULL</i>
                                                 @else
                                                     @if ($order->status == 'pending')
-                                                        <div style="color: #ff4848">
+                                                        <div style="color: #FFC107">
                                                             {{ $order->status }}
                                                         </div>
-                                                    @else
-                                                        {{ $order->status }}
+                                                    @elseif ($order->status == 'processing')
+                                                        <div style="color: #17A2B8">
+                                                            {{ $order->status }}
+                                                        </div>
+                                                    @elseif ($order->status == 'shipped')
+                                                        <div style="color: #28A745">
+                                                            {{ $order->status }}
+                                                        </div>
+                                                    @elseif ($order->status == 'delivered')
+                                                        <div style="color: #007BFF">
+                                                            {{ $order->status }}
+                                                        </div>
                                                     @endif
                                                 @endif
 

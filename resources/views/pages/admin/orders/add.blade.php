@@ -933,7 +933,8 @@
                         </div>
                     </div>
                     <div class="card-body">
-                        <form action="page-list-product.html" data-toggle="validator" novalidate="true">
+                        <form action="{{route('addOrder')}}" data-toggle="validator" novalidate="true">
+                            @csrf
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
@@ -966,49 +967,49 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label>Bill info *</label>
-                                        <input type="text" class="form-control" placeholder="Enter bill"
-                                            data-errors="Please Enter Name." required="">
+                                        <label>Name *</label>
+                                        <input type="text" class="form-control" placeholder="Enter Name User"
+                                            data-errors="Please Enter Name." required="" name="name">
                                         <div class="help-block with-errors"></div>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label>Bill info *</label>
-                                        <input type="text" class="form-control" placeholder="Enter bill"
-                                            data-errors="Please Enter Name." required="">
+                                        <label>Phone Number *</label>
+                                        <input type="text" class="form-control" placeholder="Enter Phone Number"
+                                            data-errors="Please Enter Name." required="" name="phoneNumber">
                                         <div class="help-block with-errors"></div>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label>Bill info *</label>
-                                        <input type="text" class="form-control" placeholder="Enter bill"
-                                            data-errors="Please Enter Name." required="">
+                                        <label>Total Money *</label>
+                                        <input type="text" class="form-control" placeholder="Enter Total Money"
+                                            data-errors="Please Enter Name." required="" name="totalMoney">
                                         <div class="help-block with-errors"></div>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label>Bill info *</label>
+                                        <label>Product Name *</label>
                                         <input type="text" class="form-control" placeholder="Enter bill"
-                                            data-errors="Please Enter Name." required="">
+                                            data-errors="Please Enter Name." required="" name="productName">
                                         <div class="help-block with-errors"></div>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label>Bill info *</label>
+                                        <label>Product ID *</label>
                                         <input type="text" class="form-control" placeholder="Enter bill"
-                                            data-errors="Please Enter Name." required="">
+                                            data-errors="Please Enter Name." required="" name="productId">
                                         <div class="help-block with-errors"></div>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label>Bill info *</label>
+                                        <label>Code *</label>
                                         <input type="text" class="form-control" placeholder="Enter bill"
-                                            data-errors="Please Enter Name." required="">
+                                            data-errors="Please Enter Name." required="" name="code">
                                         <div class="help-block with-errors"></div>
                                     </div>
                                 </div>
