@@ -93,7 +93,7 @@
                         </li>
 
                         <li>
-                            <a class="active" href="{{ route('manageGiftcodes') }}">
+                            <a class="" href="{{ route('manageGiftcodes') }}">
                                 <span class="icon document" aria-hidden="true"></span>
                                 Giftcode
                             </a>
@@ -111,7 +111,7 @@
                             </a>
                         </li>
                         <li>
-                            <a class="" href="{{ route('manageAccounts') }}">
+                            <a class="active" href="{{ route('manageAccounts') }}">
                                 <span class="icon document" aria-hidden="true"></span>
                                 Accounts
                             </a>
@@ -127,8 +127,7 @@
                     <span class="system-menu__title">system</span>
                     <ul class="sidebar-body-menu">
                         <li>
-                            <a href="appearance.html"><span class="icon edit"
-                                    aria-hidden="true"></span>Appearance</a>
+                            <a href="appearance.html"><span class="icon edit" aria-hidden="true"></span>Appearance</a>
                         </li>
                         <li>
                             <a class="show-cat-btn" href="##">
@@ -174,7 +173,8 @@
                 <a href="##" class="sidebar-user">
                     <span class="sidebar-user-img">
                         <picture>
-                            <source srcset="{{ asset('./img/avatar/avatar-illustrated-01.webp') }}" type="image/webp">
+                            <source srcset="{{ asset('./img/avatar/avatar-illustrated-01.webp') }}"
+                                type="image/webp">
                             <img src="{{ asset('./img/avatar/avatar-illustrated-01.png') }}" alt="User name">
                         </picture>
                     </span>
@@ -310,7 +310,7 @@
             <!-- ! Main -->
             <main class="main users chart-page" id="skip-target">
                 <div class="container">
-                    <h2 class="main-title">Manage Giftcodes</h2>
+                    <h2 class="main-title">Manage Carts</h2>
                     <div class="col-lg-9">
 
                         <div class="users-table table-wrapper">
@@ -319,61 +319,138 @@
                                     <tr class="users-table-info">
                                         <th>
                                             <label class="users-table__checkbox ms-20">
-                                                <a title="Add a gift code" style="margin-right: 20px;" class="check-all"
-                                                    href="{{ route('add-giftCode') }}"><i
+                                                <a title="Add a cart" style="margin-right: 20px;" class="check-all"
+                                                    href="{{ route('add-account') }}"><i
                                                         class="fa-solid fa-plus"></i></a>
-                                                code
+                                                username
                                             </label>
                                         </th>
-                                        <th style="    min-width: 120px;">detail</th>
-                                        <th style="    min-width: 120px;">expired</th>
+                                        <th style="    min-width: 120px;">password</th>
+                                        <th style="    min-width: 120px;">is_admin</th>
+                                        <th style="    min-width: 120px;">gender</th>
+                                        <th style="    min-width: 120px;">email</th>
+                                        <th style="    min-width: 120px;">address</th>
+                                        <th style="    min-width: 120px;">phone_number</th>
+                                        <th style="    min-width: 120px;">ban</th>
+                                        <th style="    min-width: 120px;">dob</th>
+                                        <th style="    min-width: 120px;">avatar</th>
+                                        <th style="    min-width: 120px;">description</th>
+                                        <th style="    min-width: 120px;">balance</th>
+                                        <th style="    min-width: 120px;">id_giftcode</th>
                                         <th style="    min-width: 120px;">Created_at</th>
                                         <th style="    min-width: 100px;">Updated_at</th>
                                         <th style="    min-width: 100px;">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($giftCodes as $giftCode)
+                                    @foreach ($accounts as $account)
                                         <tr>
                                             <td>
                                                 <label class="users-table__checkbox">
                                                     <div style="margin-right: 27px;" class="check">
-                                                        {{ $giftCode->id }}</div>
-                                                    <div class="categories-table-img">
-                                                        @if ($giftCode->code == null)
-                                                            <i>NULL</i>
-                                                        @else
-                                                            {{$giftCode->code}}
-                                                        @endif
+                                                        {{ $account->id }}</div>
+                                                    <div class="categories-table-img"
+                                                        style="text-transform: uppercase">
+                                                        {{ $account->username }}
                                                     </div>
                                                 </label>
                                             </td>
                                             <td>
-                                                @if ($giftCode->detail == null)
+                                                @if ($account->password == null)
                                                     <i>NULL</i>
                                                 @else
-                                                    {{ $giftCode->detail }}
+                                                    {{ $account->password }}
                                                 @endif
                                             </td>
                                             <td>
-                                                @if ($giftCode->expired == null)
+                                                @if ($account->is_admin == null)
                                                     <i>NULL</i>
                                                 @else
-                                                    {{ $giftCode->expired }}
+                                                    {{ $account->is_admin }}
                                                 @endif
                                             </td>
                                             <td>
-                                                @if ($giftCode->created_at == null)
+                                                @if ($account->gender == null)
                                                     <i>NULL</i>
                                                 @else
-                                                    {{ $giftCode->created_at }}
+                                                    {{ $account->gender }}
                                                 @endif
                                             </td>
                                             <td>
-                                                @if ($giftCode->updated_at == null)
+                                                @if ($account->email == null)
                                                     <i>NULL</i>
                                                 @else
-                                                    {{ $giftCode->updated_at }}
+                                                    {{ $account->email }}
+                                                @endif
+                                            </td>
+                                            <td>
+                                                @if ($account->address == null)
+                                                    <i>NULL</i>
+                                                @else
+                                                    {{ $account->address }}
+                                                @endif
+                                            </td>
+                                            <td>
+                                                @if ($account->phone_number == null)
+                                                    <i>NULL</i>
+                                                @else
+                                                    {{ $account->phone_number }}
+                                                @endif
+                                            </td>
+                                            <td>
+                                                @if ($account->ban == null)
+                                                    <i>NULL</i>
+                                                @else
+                                                    {{ $account->ban }}
+                                                @endif
+                                            </td>
+                                            <td>
+                                                @if ($account->dob == null)
+                                                    <i>NULL</i>
+                                                @else
+                                                    {{ $account->dob }}
+                                                @endif
+                                            </td>
+                                            <td>
+                                                @if ($account->avatar == null)
+                                                    <i>NULL</i>
+                                                @else
+                                                    {{ $account->avatar }}
+                                                @endif
+                                            </td>
+                                            <td>
+                                                @if ($account->description == null)
+                                                    <i>NULL</i>
+                                                @else
+                                                    {{ $account->description }}
+                                                @endif
+                                            </td>
+                                            <td>
+                                                @if ($account->balance == null)
+                                                    <i>NULL</i>
+                                                @else
+                                                    {{ $account->balance }}
+                                                @endif
+                                            </td>
+                                            <td>
+                                                @if ($account->id_giftcode == null)
+                                                    <i>NULL</i>
+                                                @else
+                                                    {{ $account->id_giftcode }}
+                                                @endif
+                                            </td>
+                                            <td>
+                                                @if ($account->created_at == null)
+                                                    <i>NULL</i>
+                                                @else
+                                                    {{ $account->created_at }}
+                                                @endif
+                                            </td>
+                                            <td>
+                                                @if ($account->updated_at == null)
+                                                    <i>NULL</i>
+                                                @else
+                                                    {{ $account->updated_at }}
                                                 @endif
                                             </td>
 
@@ -398,13 +475,13 @@
                                                     </button>
                                                     <ul class="users-item-dropdown dropdown">
                                                         <li><a
-                                                                href="update-giftCode/{{ $giftCode->id }}/{{ str_replace('/', '-', $giftCode->name) }}">Edit</a>
+                                                                href="update-account/{{ $account->id }}/{{ str_replace('/', '-', $account->name) }}">Edit</a>
                                                         </li>
                                                         <li><a
-                                                                href="{{ route('copyCart', [$giftCode->id, str_replace('/', '-', $giftCode->name)]) }}">Quick
+                                                                href="{{ route('copyAccount', [$account->id, str_replace('/', '-', $account->name)]) }}">Quick
                                                                 Copy</a></li>
                                                         <li><a
-                                                                href="{{ route('deleteCart', ['id' => $giftCode->id]) }}">Trash</a>
+                                                                href="{{ route('deleteAccount', ['id' => $account->id]) }}">Trash</a>
                                                         </li>
                                                     </ul>
                                                 </span>

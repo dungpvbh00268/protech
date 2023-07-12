@@ -308,6 +308,12 @@
                             </a>
                         </li>
                         <li>
+                            <a class="" href="{{ route('manageAccounts') }}">
+                                <span class="icon document" aria-hidden="true"></span>
+                                Accounts
+                            </a>
+                        </li>
+                        <li>
                             <a href="comments.html">
                                 <span class="icon message" aria-hidden="true"></span>
                                 Comments

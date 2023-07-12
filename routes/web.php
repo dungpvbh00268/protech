@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\admin\account\manageAccount_controller;
 use App\Http\Controllers\admin\brand\manageBrand_controller;
 use App\Http\Controllers\admin\cart\manageCart_controller;
 use App\Http\Controllers\admin\category\manageCategory as CategoryManageCategory;
@@ -199,5 +200,22 @@ Route::get('deleteOrder/{id}', [manageOrrder_controller::class, 'deleteOrder'])-
 
 Route::get('add-order-copy/{id}/{name}', [manageOrrder_controller::class, 'copyOrder'])->name('copyOrder')->middleware('checkAdmin');
 Route::post('quickCopyOrder', [manageOrrder_controller::class, 'quickCopyOrder'])->name('quickCopyOrder')->middleware('checkAdmin');
+
+
+// 8. account
+
+Route::get('manage-account', [manageAccount_controller::class, 'index'])
+    ->name('manageAccounts')
+    ->middleware('checkAdmin');
+
+Route::get('add-account', [manageAccount_controller::class, 'addAccountView'])->name('add-account')->middleware('checkAdmin');
+Route::get('addAccount', [manageAccount_controller::class, 'addAccount'])->name('addAccount')->middleware('checkAdmin');
+
+Route::get('update-account/{id}/{name}', [manageAccount_controller::class, 'updateAccount'])->name('updateAccount')->middleware('checkAdmin');
+Route::post('editAccount/{id}', [manageAccount_controller::class, 'editAccount'])->name('editAccount')->middleware('checkAdmin');
+Route::get('deleteAccount/{id}', [manageAccount_controller::class, 'deleteAccount'])->name('deleteAccount')->middleware('checkAdmin');
+
+Route::get('add-account-copy/{id}/{name}', [manageAccount_controller::class, 'copyAccount'])->name('copyAccount')->middleware('checkAdmin');
+Route::post('quickCopyAccount', [manageAccount_controller::class, 'quickCopyAccount'])->name('quickCopyAccount')->middleware('checkAdmin');
 
 
