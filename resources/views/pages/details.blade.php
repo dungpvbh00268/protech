@@ -120,23 +120,46 @@
                         @endforeach
 
                     </div>
-
+                    @php
+                        $countImage = 0;
+                    @endphp
                     <div class="pro-right-img-nav">
-                        <div class="pro-right-img-nav--a">
-                            <img src="{{ asset('images/laptop main.png') }}" alt="">
-                        </div>
+                        @foreach ($products as $product)
+                            @foreach ($images as $image)
+                                @if ($product->id == $id)
+                                    @if ($image->id_product == $id && $countImage < 4)
+                                        @php
+                                            $filePath = json_decode($image->filePath, true);
+                                            // $imgDes = $filePath[1];
+                                            $imgNav = $filePath[0];
+                                        @endphp
+                                        <div class="pro-right-img-nav--a">
+                                            <img src="{{ asset('images/' . $imgNav) }}" alt="">
+                                        </div>
+                                        @php
+                                            $countImage++;
+                                        @endphp
+                                    @endif
+                                @endif
+                            @endforeach
+                        @endforeach
+                        @if ($countImage === 0)
+                            <div class="pro-right-img-nav--a">
+                                <img src="{{ asset('images/laptop main.png') }}" alt="">
+                            </div>
 
-                        <div class="pro-right-img-nav--a">
-                            <img src="{{ asset('images/laptop main.png') }}" alt="">
-                        </div>
+                            <div class="pro-right-img-nav--a">
+                                <img src="{{ asset('images/laptop main.png') }}" alt="">
+                            </div>
 
-                        <div class="pro-right-img-nav--a">
-                            <img src="{{ asset('images/laptop main.png') }}" alt="">
-                        </div>
+                            <div class="pro-right-img-nav--a">
+                                <img src="{{ asset('images/laptop main.png') }}" alt="">
+                            </div>
 
-                        <div class="pro-right-img-nav--a">
-                            <img src="{{ asset('images/laptop main.png') }}" alt="">
-                        </div>
+                            <div class="pro-right-img-nav--a">
+                                <img src="{{ asset('images/laptop main.png') }}" alt="">
+                            </div>
+                        @endif
                     </div>
                 </div>
 
@@ -261,7 +284,7 @@
                 </div>
 
                 <div class="element__product">
-                    <a href="###" class="list__product">
+                    {{-- <a href="###" class="list__product">
                         <span class="inner__text">-14%</span>
                         <span class="excerpt">Refund 1,000,000 VND</span>
                         <div class="element__product-info">
@@ -281,8 +304,6 @@
                             </div>
 
                             <div class="element__product-costs">
-                                <!-- format cost -->
-                                {{-- <!-- {{ number_format($number, 0, ',', '.') }} --> --}}
                                 <del class="element__product-costs--old">30,490,000 <u>đ</u></del>
                                 <div class="element__product-costs--new">{{ number_format($product->cost, 0, ',', ',') }}
                                     <u>đ</u>
@@ -495,7 +516,95 @@
                                 <span>16" 2K+ 165Hz</span>
                             </div>
                         </div>
-                    </a>
+                    </a> --}}
+                    @php
+                        $counter = 0;
+                    @endphp
+                    @foreach ($products as $product)
+                        @if ($counter < 4)
+                            <a href="{{ route('details', [$product->id, str_replace('/', '-', $product->name)]) }}"
+                                class="list__product">
+                                @if ($product->cost_old - $product->cost < 1000000)
+                                    <span class="excerpt">FREE 8GB DDR5 RAM</span>
+                                @elseif ($product->cost_old - $product->cost > 1000000 && $product->cost_old - $product->cost < 3000000)
+                                    <span class="excerpt">Refund 1,000,000 VND</span>
+                                @elseif ($product->cost_old - $product->cost > 3000000 && $product->cost_old - $product->cost < 4000000)
+                                    <span class="excerpt">VOUCHER 1.000.000 VNĐ</span>
+                                @else
+                                    {{-- <span class="excerpt"></span> --}}
+                                @endif
+
+                                {{-- <span class="inner__text">
+                                    {{(($product->cost_old - $product->cost) / $product->cost_old) * 100}}%
+                                </span> --}}
+                                <span class="inner__text">
+                                    -{{ number_format((($product->cost_old - $product->cost) / $product->cost_old) * 100, 0) }}%
+                                </span>
+
+                                <div class="element__product-info">
+                                    <div class="element__product-info--img">
+                                        <img src="{{ asset('images/' . $product->image) }}" alt=""
+                                            class="element__product-img">
+                                    </div>
+                                    <div class="element__product-title">
+                                        {{ Str::limit($product->name, $limit = 51, $end = '...') }}
+                                    </div>
+
+                                    <div class="star-rating">
+                                        <i class="fa-sharp fa-solid fa-star"></i>
+                                        <i class="fa-sharp fa-solid fa-star"></i>
+                                        <i class="fa-sharp fa-solid fa-star"></i>
+                                        <i class="fa-sharp fa-solid fa-star"></i>
+                                        <i class="fa-sharp fa-solid fa-star"></i>
+                                    </div>
+
+                                    <div class="element__product-costs">
+                                        <del class="element__product-costs--old">{{ number_format($product->cost_old, 0, ',', ',') }}
+                                            <u>đ</u></del>
+                                        <div class="element__product-costs--new">
+                                            {{ number_format($product->cost, 0, ',', ',') }}
+                                            <u>đ</u>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="element__product-details">
+                                    <div>
+                                        <img src="{{ asset('images/cpu.png') }}" alt="">
+                                        <span>{{ $product->cpu }}</span>
+                                    </div>
+
+                                    <div>
+                                        <img src="{{ asset('images/vga.png') }}" alt="">
+                                        <span>{{ $product->gpu }}</span>
+                                    </div>
+
+                                    <div>
+                                        <img src="{{ asset('images/ram.png') }}" alt="">
+                                        <span>{{ $product->ram }}</span>
+                                    </div>
+
+                                    <div>
+                                        <img src="{{ asset('images/storage.png') }}" alt="">
+                                        <span>{{ $product->storage }}</span>
+                                    </div>
+
+                                    <div>
+                                        <img src="{{ asset('images/baohanh.png') }}" alt="">
+                                        <span>{{ $product->warranty_period }}</span>
+                                    </div>
+
+                                    <div>
+                                        <img src="{{ asset('images/screen.png') }}" alt="">
+                                        <span>{{ $product->screen_size }}</span>
+                                    </div>
+                                </div>
+                            </a>
+                            @php
+                                $counter++;
+                            @endphp
+                        @endif
+                    @endforeach
                 </div>
 
                 <div class="view__all-products">
@@ -598,50 +707,138 @@
                                 <a href="##">Reviews (0)</a>
                             </div>
                         </div>
-
+                        @php
+                            $countDes = 0;
+                        @endphp
                         <div class="spec-des__bottom">
                             <h1>Description</h1>
-                            <h2>
-                                Acer Predator Helios Neo 16 PHN16-71-59TN
-                            </h2>
+                            @foreach ($products as $product)
+                                @foreach ($images as $image)
+                                    @if ($product->id == $id)
+                                        @if ($image->id_product && $image->id_product == $id)
+                                            <h2 style="text-transform: uppercase;">
+                                                {{ $image->fileName }}
+                                            </h2>
+                                            @php
+                                                $filePath = json_decode($image->filePath, true);
+                                                $imgDes = $filePath[1];
+                                                // $imgNav = $filePath[0];
+                                            @endphp
+                                            <!--1 start -->
+                                            <img src="{{ asset('images/' . $imgDes) }}" alt="">
+                                            <p style="text-align: center; margin-bottom: 10px;">
+                                                <span
+                                                    style="font-size: 16px; color: #000000; font-family: tahoma, arial, helvetica, sans-serif;">
+                                                    {{ $image->description }}
+                                                </span>
+                                            </p>
+                                            @php
+                                                $countDes++;
+                                            @endphp
+                                            {{-- @elseif (!$image->id_product || $image->id_product != $id)
+                                            
+                                            @php
+                                                $countDes ++;
+                                            @endphp --}}
+                                            <!-- end -->
+                                            {{-- @break --}}
+                                        @endif
+                                    @endif
+                                @endforeach
+                            @endforeach
 
-                            <!--1 start -->
-                            <img src="{{ asset('images/info-lap.png') }}" alt="">
-                            <h2>
-                                MIXED WITH THE BEST
-                            </h2>
-                            <p style="text-align: center; margin-bottom: 10px;">
-                                <span
-                                    style="font-size: 16px; color: #000000; font-family: tahoma, arial, helvetica, sans-serif;">
-                                    The perfect gaming experience with the all-new Acer Predator Helios Neo 16
-                                    PHN16-71-59TN 2023. The ultra-fast 16″ WQXGA 240Hz display puts victory in your
-                                    hands and kills your opponents with ease. Equipped with NVIDIA® GeForce RTX™ 4060
-                                    graphics, 13th Gen Intel® Core™ i5, and exclusive 5th Gen AeroBlade™ 3D Technology.
-                                </span>
-                            </p>
-                            <!-- end -->
+                            @if ($countDes === 0)
+                                <h2 style="text-transform: uppercase;">
+                                    MIXED WITH THE BEST
+                                </h2>
+                                <!--2 start -->
+                                <img src="{{ asset('images/info-lap.png') }}" alt="">
+                                <h2 style="text-transform: uppercase;">
+                                    MIXED WITH THE BEST
+                                </h2>
+                                <p style="text-align: center; margin-bottom: 10px;">
+                                    <span
+                                        style="font-size: 16px; color: #000000; font-family: tahoma, arial, helvetica, sans-serif;">
+                                        The perfect gaming experience with the all-new Acer Predator Helios Neo
+                                        16
+                                        PHN16-71-59TN 2023.
+                                        The ultra-fast 16″ WQXGA 240Hz display puts victory in your hands and
+                                        kills
+                                        your
+                                        opponents with ease.
+                                        Equipped with NVIDIA® GeForce RTX™ 4060 graphics, 13th Gen Intel® Core™
+                                        i5,
+                                        and
+                                        exclusive 5th Gen AeroBlade™
+                                        3D Technology.
+                                    </span>
+                                </p>
+                                <!--3 start -->
+                                <img src="{{ asset('images/info-lap.png') }}" alt="">
+                                <h2>
+                                    PERFORMANCE EXPLOSION
+                                </h2>
+                                <p style="text-align: center; margin-bottom: 10px;">
+                                    <span
+                                        style="font-size: 16px; color: #000000; font-family: tahoma, arial, helvetica, sans-serif;">
+                                        Acer Predator Helios Neo 16 PHN16-71-59TN is powered by a 13th
+                                        generation Intel®
+                                        Core™ i5 processor that delivers
+                                        blazing fast processing speeds with high clock speeds. Combined with the
+                                        built-in
+                                        super-speed 16GB DDR5 Ram for
+                                        the purpose of optimizing the user's usage process, it always happens
+                                        smoothly even
+                                        when opening many tasks at
+                                        the same time.
+                                    </span>
+                                </p>
+                                <!-- end -->
 
-                            <!--2 start -->
-                            <img src="{{ asset('images/info-lap.png') }}" alt="">
-                            <h2>
-                                MIXED WITH THE BEST
-                            </h2>
-                            <p style="text-align: center; margin-bottom: 10px;">
-                                <span
-                                    style="font-size: 16px; color: #000000; font-family: tahoma, arial, helvetica, sans-serif;">
-                                    The perfect gaming experience with the all-new Acer Predator Helios Neo 16
-                                    PHN16-71-59TN 2023.
-                                    The ultra-fast 16″ WQXGA 240Hz display puts victory in your hands and kills your
-                                    opponents with ease.
-                                    Equipped with NVIDIA® GeForce RTX™ 4060 graphics, 13th Gen Intel® Core™ i5, and
-                                    exclusive 5th Gen AeroBlade™
-                                    3D Technology.
-                                </span>
-                            </p>
+                                <!--4 start -->
+                                <img src="{{ asset('images/info-lap.png') }}" alt="">
+                                <h2>
+                                    NVIDIA® GEFORCE RTX™ 40 SERIES
+                                </h2>
+                                <p style="text-align: center; margin-bottom: 10px;">
+                                    <span
+                                        style="font-size: 16px; color: #000000; font-family: tahoma, arial, helvetica, sans-serif;">
+                                        Acer Predator Helios Neo 16 PHN16-71-59TN features an RTX 40 Series GPU
+                                        that
+                                        delivers ultimate
+                                        performance for gamers and creators. Powered by NVIDIA's 3rd generation
+                                        RTX Ampere
+                                        architecture –
+                                        with new Ray Tracing Cores, Tensor Cores, and streaming multiprocessors
+                                        for a
+                                        performance leap.
+                                    </span>
+                                </p>
+                                <!-- end -->
+
+
+                                <!--5 start -->
+                                <img src="{{ asset('images/info-lap.png') }}" alt="">
+                                <h2>
+                                    AMAZING PHOTO
+                                </h2>
+                                <p style="text-align: center; margin-bottom: 10px;">
+                                    <span
+                                        style="font-size: 16px; color: #000000; font-family: tahoma, arial, helvetica, sans-serif;">
+                                        Lock your eyes on the Acer Predator Helios Neo 16 PHN16-71-59TN monitor.
+                                        Measuring
+                                        16 inches with a
+                                        16:10 aspect ratio and 165Hz refresh rate, the WQXGA1 panel works at
+                                        full power and
+                                        includes NVIDIA®
+                                        G-SYNC® and Advanced Optimus for maximum graphics power.
+                                    </span>
+                                </p>
+                            @endif
                             <!-- end -->
 
                             <!--3 start -->
-                            <img src="{{ asset('images/info-lap.png') }}" alt="">
+                            {{-- <img src="{{ asset('images/info-lap.png') }}" alt="">
                             <h2>
                                 PERFORMANCE EXPLOSION
                             </h2>
@@ -656,11 +853,11 @@
                                     when opening many tasks at
                                     the same time.
                                 </span>
-                            </p>
+                            </p> --}}
                             <!-- end -->
 
                             <!--4 start -->
-                            <img src="{{ asset('images/info-lap.png') }}" alt="">
+                            {{-- <img src="{{ asset('images/info-lap.png') }}" alt="">
                             <h2>
                                 NVIDIA® GEFORCE RTX™ 40 SERIES
                             </h2>
@@ -674,12 +871,12 @@
                                     with new Ray Tracing Cores, Tensor Cores, and streaming multiprocessors for a
                                     performance leap.
                                 </span>
-                            </p>
+                            </p> --}}
                             <!-- end -->
 
 
                             <!--5 start -->
-                            <img src="{{ asset('images/info-lap.png') }}" alt="">
+                            {{-- <img src="{{ asset('images/info-lap.png') }}" alt="">
                             <h2>
                                 AMAZING PHOTO
                             </h2>
@@ -692,7 +889,7 @@
                                     includes NVIDIA®
                                     G-SYNC® and Advanced Optimus for maximum graphics power.
                                 </span>
-                            </p>
+                            </p> --}}
                             <!-- end -->
                         </div>
                     </div>

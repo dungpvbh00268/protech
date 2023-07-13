@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\accountModel;
 use App\Models\cart_proModel;
 use App\Models\cartModel;
+use App\Models\imagesModel;
 use App\Models\productsModel;
 use App\Models\type_productModel;
 use Illuminate\Http\Request;
@@ -18,12 +19,13 @@ class productController extends Controller
         $cart_pros = cart_proModel::all();
         $carts = cartModel::all();
         $accounts = accountModel::all();
+        $images = imagesModel::all();
 
         $header__search = $request->input(('header__search'));
         $results = productsModel::where('name', 'like', '%' . $header__search . '%')
         ->orWhere('description', 'like', '%' . $header__search . '%')
         ->get();
 
-        return view('pages.home', compact(['products', 'cart_pros', 'carts', 'accounts', 'header__search', 'results']));
+        return view('pages.home', compact(['products', 'cart_pros', 'carts', 'accounts', 'header__search', 'results', 'images']));
     }
 }

@@ -175,7 +175,7 @@ Route::get('manage-image', [manageImage_controller::class, 'index'])
     ->middleware('checkAdmin');
 
 Route::get('add-image', [manageImage_controller::class, 'addImageView'])->name('add-image')->middleware('checkAdmin');
-Route::get('addImage', [manageImage_controller::class, 'addImage'])->name('addImage')->middleware('checkAdmin');
+Route::post('addImage', [manageImage_controller::class, 'addImage'])->name('addImage')->middleware('checkAdmin');
 
 Route::get('update-image/{id}/{name}', [manageImage_controller::class, 'updateImage'])->name('updateImage')->middleware('checkAdmin');
 Route::post('editImage/{id}', [manageImage_controller::class, 'editImage'])->name('editImage')->middleware('checkAdmin');

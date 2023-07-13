@@ -6,6 +6,7 @@ use App\Models\accountModel;
 use App\Models\brandsModel;
 use App\Models\cart_proModel;
 use App\Models\cartModel;
+use App\Models\imagesModel;
 use App\Models\productsModel;
 use App\Models\type_productModel;
 use Illuminate\Http\Request;
@@ -21,13 +22,14 @@ class detailsController extends Controller
         $accounts = accountModel::all();
         $brands = brandsModel::all();
         $type_products = type_productModel::all();
+        $images = imagesModel::all();
 
         $header__search = $request->input('header__search');
         $results = productsModel::where('name', 'like', '%' . $header__search . '%')
         ->orWhere('description', 'like', '%' . $header__search . '%')
         ->get();
 
-        return view('pages.details', compact(['products', 'cart_pros', 'carts', 'accounts', 'brands', 'id', 'type_products', 'header__search', 'results']));
+        return view('pages.details', compact(['products', 'cart_pros', 'carts', 'accounts', 'brands', 'id', 'type_products', 'header__search', 'results', 'images']));
     }
 
     function addCart(Request $request, $id)

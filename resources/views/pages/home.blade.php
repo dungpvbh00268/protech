@@ -9,35 +9,35 @@
                     <!-- test slide -->
                     <!-- <div id="myCarousel" class="carousel slide" data-ride="carousel">
 
-                                <ol class="carousel-indicators">
-                                    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                                    <li data-target="#myCarousel" data-slide-to="1"></li>
-                                    <li data-target="#myCarousel" data-slide-to="2"></li>
-                                </ol>
-                                
-                                <div class="carousel-inner">
-                                    <div class="item active">
-                                    <img src="{{ asset('images/banner-Slide1.png') }}" alt="Los Angeles">
-                                    </div>
-                                
-                                    <div class="item">
-                                    <img src="{{ asset('images/banner-Slide1.png') }}" alt="Chicago">
-                                    </div>
-                                
-                                    <div class="item">
-                                    <img src="{{ asset('images/banner-Slide1.png') }}" alt="New York">
-                                    </div>
-                                </div>
-                                
-                                <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-                                    <span class="glyphicon glyphicon-chevron-left"></span>
-                                    <span class="sr-only">Previous</span>
-                                </a>
-                                <a class="right carousel-control" href="#myCarousel" data-slide="next">
-                                    <span class="glyphicon glyphicon-chevron-right"></span>
-                                    <span class="sr-only">Next</span>
-                                </a>
-                            </div> -->
+                                                <ol class="carousel-indicators">
+                                                    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                                                    <li data-target="#myCarousel" data-slide-to="1"></li>
+                                                    <li data-target="#myCarousel" data-slide-to="2"></li>
+                                                </ol>
+                                                
+                                                <div class="carousel-inner">
+                                                    <div class="item active">
+                                                    <img src="{{ asset('images/banner-Slide1.png') }}" alt="Los Angeles">
+                                                    </div>
+                                                
+                                                    <div class="item">
+                                                    <img src="{{ asset('images/banner-Slide1.png') }}" alt="Chicago">
+                                                    </div>
+                                                
+                                                    <div class="item">
+                                                    <img src="{{ asset('images/banner-Slide1.png') }}" alt="New York">
+                                                    </div>
+                                                </div>
+                                                
+                                                <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                                                    <span class="glyphicon glyphicon-chevron-left"></span>
+                                                    <span class="sr-only">Previous</span>
+                                                </a>
+                                                <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                                                    <span class="glyphicon glyphicon-chevron-right"></span>
+                                                    <span class="sr-only">Next</span>
+                                                </a>
+                                            </div> -->
                     <img src="{{ asset('images/banner-Slide1.png') }}" alt="">
                     <!-- end -->
 
@@ -89,7 +89,7 @@
 
                 <!-- element product -->
                 <div class="element__product">
-                    <a href="details" class="list__product">
+                    {{-- <a href="details" class="list__product">
                         <span class="inner__text">-14%</span>
                         <span class="excerpt">Refund 1,000,000 VND</span>
                         <div class="element__product-info">
@@ -109,8 +109,6 @@
                             </div>
 
                             <div class="element__product-costs">
-                                <!-- format cost -->
-                                {{-- <!-- {{ number_format($number, 0, ',', '.') }} --> --}}
                                 <del class="element__product-costs--old">30,490,000 <u>đ</u></del>
                                 <div class="element__product-costs--new">26,890,000 <u>đ</u></div>
                             </div>
@@ -440,13 +438,29 @@
                                 <span>16" 2K+ 165Hz</span>
                             </div>
                         </div>
-                    </a>
+                    </a> --}}
 
                     @foreach ($products as $product)
                         @if ($product->id_typeProduct == 1)
-                            <a href="details/{{ $product->id }}/{{ $product->name }}" class="list__product">
-                                <span class="excerpt">FREE 8GB DDR5 RAM</span>
-                                <span class="inner__text">-10%</span>
+                            {{-- <a href="details/{{ $product->id }}/{{ $product->name }}" class="list__product"> --}}
+                            <a href="{{ route('details', [$product->id, str_replace('/', '-', $product->name)]) }}" class="list__product">
+                                @if ($product->cost_old - $product->cost < 1000000)
+                                    <span class="excerpt">FREE 8GB DDR5 RAM</span>
+                                @elseif ($product->cost_old - $product->cost >= 1000000 && $product->cost_old - $product->cost < 3000000)
+                                    <span class="excerpt">Refund 1,000,000 VND</span>
+                                @elseif ($product->cost_old - $product->cost >= 3000000 && $product->cost_old - $product->cost < 4000000)
+                                    <span class="excerpt">VOUCHER 1.000.000 VNĐ</span>
+                                @else
+                                    {{-- <span class="excerpt"></span> --}}
+                                @endif
+
+                                {{-- <span class="inner__text">
+                                    {{(($product->cost_old - $product->cost) / $product->cost_old) * 100}}%
+                                </span> --}}
+                                <span class="inner__text">
+                                    -{{ number_format((($product->cost_old - $product->cost) / $product->cost_old) * 100, 0) }}%
+                                </span>
+
                                 <div class="element__product-info">
                                     <div class="element__product-info--img">
                                         <img src="{{ asset('images/' . $product->image) }}" alt=""
@@ -465,7 +479,8 @@
                                     </div>
 
                                     <div class="element__product-costs">
-                                        <del class="element__product-costs--old">{{ number_format($product->cost_old, 0, ',', ',') }} <u>đ</u></del>
+                                        <del class="element__product-costs--old">{{ number_format($product->cost_old, 0, ',', ',') }}
+                                            <u>đ</u></del>
                                         <div class="element__product-costs--new">
                                             {{ number_format($product->cost, 0, ',', ',') }}
                                             <u>đ</u>
@@ -547,8 +562,8 @@
                         </a>
 
                         <!-- <a href="" class="title__product-laptop-link">
-                                    Strix G
-                                </a> -->
+                                                    Strix G
+                                                </a> -->
                     </div>
                 </div>
 
@@ -964,10 +979,26 @@
                         </div>
                     </a>
                     @foreach ($products as $product)
-                        @if ($product->id_typeProduct == 2 || $product->id_typeProduct == 3)
-                            <a href="details/{{ $product->id }}/{{ str_replace('/', '-', $product->name) }}" class="list__product">
-                                <span class="inner__text">-14%</span>
-                                <span class="excerpt">VOUCHER 1.000.000 VNĐ</span>
+                        @if ($product->id_typeProduct == 2 || $product->id_typeProduct == 3 || $product->id_typeProduct == 5)
+                            <a href="{{ route('details', [$product->id, str_replace('/', '-', $product->name)]) }}"
+                                class="list__product">
+                                <span class="inner__text">
+                                    {{-- -14% --}}
+                                    -{{ number_format((($product->cost_old - $product->cost) / $product->cost_old) * 100, 0) }}%
+                                </span>
+                                
+                                @if ($product->cost_old - $product->cost < 500000)
+                                    <span class="excerpt">FREE 8GB DDR5 RAM</span>
+                                @elseif ($product->cost_old - $product->cost >= 500000 && $product->cost_old - $product->cost < 1000000)
+                                    <span class="excerpt">Refund 1,000,000 VND</span>
+                                @elseif ($product->cost_old - $product->cost >= 1000000 && $product->cost_old - $product->cost < 2000000)
+                                    <span class="excerpt">VOUCHER 1.000.000 VNĐ</span>
+                                @else
+                                
+                                @endif
+
+                                
+                                {{-- <span class="excerpt">VOUCHER 1.000.000 VNĐ</span> --}}
                                 <div class="element__product-info">
                                     <div class="element__product-info--img">
                                         <img src="{{ asset('images/' . $product->image) }}" alt=""
@@ -987,8 +1018,10 @@
                                     </div>
 
                                     <div class="element__product-costs">
-                                        <del class="element__product-costs--old">{{ number_format($product->cost_old, 0, ',', ',') }}<u>đ</u></del>
-                                        <div class="element__product-costs--new">{{ number_format($product->cost, 0, ',', ',') }} <u>đ</u></div>
+                                        <del
+                                            class="element__product-costs--old">{{ number_format($product->cost_old, 0, ',', ',') }}<u>đ</u></del>
+                                        <div class="element__product-costs--new">
+                                            {{ number_format($product->cost, 0, ',', ',') }} <u>đ</u></div>
                                     </div>
                                 </div>
 
@@ -1068,8 +1101,8 @@
                         </a>
 
                         <!-- <a href="" class="title__product-laptop-link">
-                                    Strix G
-                                </a> -->
+                                                    Strix G
+                                                </a> -->
                     </div>
                 </div>
 

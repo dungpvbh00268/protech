@@ -127,8 +127,7 @@
                     <span class="system-menu__title">system</span>
                     <ul class="sidebar-body-menu">
                         <li>
-                            <a href="appearance.html"><span class="icon edit"
-                                    aria-hidden="true"></span>Appearance</a>
+                            <a href="appearance.html"><span class="icon edit" aria-hidden="true"></span>Appearance</a>
                         </li>
                         <li>
                             <a class="show-cat-btn" href="##">
@@ -174,7 +173,8 @@
                 <a href="##" class="sidebar-user">
                     <span class="sidebar-user-img">
                         <picture>
-                            <source srcset="{{ asset('./img/avatar/avatar-illustrated-01.webp') }}" type="image/webp">
+                            <source srcset="{{ asset('./img/avatar/avatar-illustrated-01.webp') }}"
+                                type="image/webp">
                             <img src="{{ asset('./img/avatar/avatar-illustrated-01.png') }}" alt="User name">
                         </picture>
                     </span>
@@ -319,14 +319,15 @@
                                     <tr class="users-table-info">
                                         <th>
                                             <label class="users-table__checkbox ms-20">
-                                                <a title="Add a gift code" style="margin-right: 20px;" class="check-all"
-                                                    href="{{ route('add-image') }}"><i
-                                                        class="fa-solid fa-plus"></i></a>
+                                                <a title="Add a gift code" style="margin-right: 20px;"
+                                                    class="check-all" href="{{ route('add-image') }}"><i
+                                                        class="fa-solid fa-plus"></i>
+                                                </a>
                                             </label>
                                         </th>
                                         <th style="    min-width: 120px;">Name</th>
-                                        <th style="    min-width: 120px;">filePath</th>
-                                        <th style="    min-width: 120px;">description</th>
+                                        <th style="    min-width: 420px;">filePath</th>
+                                        <th style="    min-width: 320px;">description</th>
                                         <th style="    min-width: 120px;">id_product</th>
                                         <th style="    min-width: 120px;">Created_at</th>
                                         <th style="    min-width: 100px;">Updated_at</th>
@@ -341,20 +342,46 @@
                                                     <div style="margin-right: 27px;" class="check">
                                                         {{ $image->id }}</div>
                                                     <div class="categories-table-img">
-                                                        @if ($image->fileName == null)
-                                                            <i>NULL</i>
-                                                        @else
-                                                            {{$image->fileName}}
-                                                        @endif
                                                     </div>
                                                 </label>
                                             </td>
                                             <td>
-                                                @if ($image->filePath == null)
+                                                @if ($image->fileName == null)
                                                     <i>NULL</i>
                                                 @else
-                                                    {{ $image->filePath }}
+                                                    {{ $image->fileName }}
                                                 @endif
+                                            </td>
+                                            <td>
+                                                @php
+                                                    $filePath = json_decode($image->filePath, true);
+                                                    $imgNav = $filePath[0];
+                                                    $imgDes = $filePath[1];
+                                                @endphp
+                                                <div style="display: flex">
+                                                    <div>
+                                                        Image Nav:&nbsp;
+                                                    </div>
+                                                    <div>
+                                                        @if ($imgNav == null)
+                                                            <i>NULL</i>
+                                                        @else
+                                                            {{ $imgNav }}
+                                                        @endif
+                                                    </div>
+                                                </div> <br>
+                                                <div style="display: flex"> 
+                                                    <div>
+                                                        Image Des: &nbsp;
+                                                    </div>
+                                                    <div>
+                                                        @if ($imgDes == null)
+                                                            <i>NULL</i>
+                                                        @else
+                                                            {{ $imgDes }}
+                                                        @endif
+                                                    </div>
+                                                </div>
                                             </td>
                                             <td>
                                                 @if ($image->description == null)
@@ -363,11 +390,11 @@
                                                     {{ $image->description }}
                                                 @endif
                                             </td>
-                                            <td>
+                                            <td style="text-align: center">
                                                 @if ($image->id_product == null)
                                                     <i>NULL</i>
                                                 @else
-                                                    {{$image->id_product}}
+                                                    {{ $image->id_product }}
                                                 @endif
                                             </td>
                                             <td>
