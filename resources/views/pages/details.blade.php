@@ -534,9 +534,6 @@
                                     {{-- <span class="excerpt"></span> --}}
                                 @endif
 
-                                {{-- <span class="inner__text">
-                                    {{(($product->cost_old - $product->cost) / $product->cost_old) * 100}}%
-                                </span> --}}
                                 <span class="inner__text">
                                     -{{ number_format((($product->cost_old - $product->cost) / $product->cost_old) * 100, 0) }}%
                                 </span>

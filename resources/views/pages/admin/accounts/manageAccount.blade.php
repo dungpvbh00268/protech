@@ -42,7 +42,7 @@
         <aside class="sidebar">
             <div class="sidebar-start">
                 <div class="sidebar-head">
-                    <a href="{{ route('dashboard') }}" class="logo-wrapper" title="Home">
+                    <a href="{{ route('dashboard.home') }}" class="logo-wrapper" title="Home">
                         <span class="sr-only">Home</span>
                         {{-- <span class="icon logo" aria-hidden="true"></span> --}}
                         <img style="    width: 70px;" src="{{ asset('images/designlogo.png') }}" style=""
@@ -171,17 +171,20 @@
             </div>
             <div class="sidebar-footer">
                 <a href="##" class="sidebar-user">
-                    <span class="sidebar-user-img">
-                        <picture>
-                            <source srcset="{{ asset('./img/avatar/avatar-illustrated-01.webp') }}"
-                                type="image/webp">
-                            <img src="{{ asset('./img/avatar/avatar-illustrated-01.png') }}" alt="User name">
-                        </picture>
-                    </span>
-                    <div class="sidebar-user-info">
-                        <span class="sidebar-user__title">Nafisa Sh.</span>
-                        <span class="sidebar-user__subtitle">Support manager</span>
-                    </div>
+                    @foreach ($accounts as $account)
+                        @if ($account->id == 10)
+                            <span class="sidebar-user-img">
+                                <picture>
+                                    <source srcset="{{ asset('images/' . $account->avatar) }}" type="image/webp">
+                                    <img src="{{ asset('images/' . $account->avatar) }}" alt="User name">
+                                </picture>
+                            </span>
+                            <div class="sidebar-user-info">
+                                <span class="sidebar-user__title">{{ $account->username }}</span>
+                                <span class="sidebar-user__subtitle">Support manager</span>
+                            </div>
+                        @endif
+                    @endforeach
                 </a>
             </div>
         </aside>
@@ -310,9 +313,8 @@
             <!-- ! Main -->
             <main class="main users chart-page" id="skip-target">
                 <div class="container">
-                    <h2 class="main-title">Manage Carts</h2>
+                    <h2 class="main-title">Manage Accounts</h2>
                     <div class="col-lg-9">
-
                         <div class="users-table table-wrapper">
                             <table class="posts-table">
                                 <thead>
@@ -349,8 +351,7 @@
                                                 <label class="users-table__checkbox">
                                                     <div style="margin-right: 27px;" class="check">
                                                         {{ $account->id }}</div>
-                                                    <div class="categories-table-img"
-                                                        style="text-transform: uppercase">
+                                                    <div class="categories-table-img">
                                                         {{ $account->username }}
                                                     </div>
                                                 </label>
@@ -637,6 +638,66 @@
                 title: "Product Updated!",
                 message: "You have successfully updated a product.",
                 type: "success",
+                duration: 5000
+            });
+            notificationSound1.play();
+        </script>
+    @endif
+
+    @if (session('showToastErrorAdmin'))
+        <script>
+            toast({
+                title: "Error!",
+                message: "'Super Admin' account cannot be deleted, please contact the administrator!",
+                type: "error",
+                duration: 5000
+            });
+            notificationSound1.play();
+        </script>
+    @endif
+
+    @if (session('showToastDeleteAdmin'))
+        <script>
+            toast({
+                title: "Succesed!",
+                message: "You have successfully deleted 1 account.",
+                type: "success",
+                duration: 5000
+            });
+            notificationSound1.play();
+        </script>
+    @endif
+
+    @if (session('showToastErrorDeny'))
+        <script>
+            toast({
+                title: "Error!",
+                message: "You can only delete user accounts, please contact the administrator!",
+                type: "error",
+                duration: 5000
+            });
+            notificationSound1.play();
+        </script>
+    @endif
+
+    @if (session('showtoastAccountSucces'))
+        <script>
+            toast({
+                title: "Succesed!",
+                message: "You have successfully created an account.",
+                type: "success",
+                duration: 5000
+            });
+            notificationSound1.play();
+        </script>
+    @endif
+
+    @if (session('showToastAccError'))
+        <script>
+            toast({
+                title: "Error!",
+                message: "An error has occurred, please contact the administrator.",
+                type: "error",
                 duration: 5000
             });
             notificationSound1.play();

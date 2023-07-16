@@ -612,7 +612,7 @@ footer {
 }
 
 .echbay-sms-messenger {
-    animation: callnowsz 2s infinite
+    animation: callnowsz 2s infinite;
 }
 
 .phonering a img {
@@ -1097,9 +1097,9 @@ main {
     /* width: 95%;
     height: 85%; */
     width: 97%;
-    height: 270px;
+    /* height: 270px; */
     display: flex;
-    padding: 27px 0;
+    /* padding: 27px 0; */
     margin: 0 auto;
     border-radius: 5px;
 }
@@ -1223,9 +1223,15 @@ main {
     }
 }
 
+/* test */
 .element__product-info--img {
-    /* height: 30%; */
+    height: 323px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
+/* end */
+
 
 .view__all-products {
     display: flex;
@@ -2447,6 +2453,11 @@ div.cart-product__coupon{
     font-size: 1.2rem;
     margin-top: 15px;
     font-weight: 500;
+}
+
+.profile__id-admin{
+    font-size: 1rem;
+    color: #E9502C;
 }
 
 /* effect loader */

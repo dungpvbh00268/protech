@@ -453,10 +453,7 @@
                                 @else
                                     {{-- <span class="excerpt"></span> --}}
                                 @endif
-
-                                {{-- <span class="inner__text">
-                                    {{(($product->cost_old - $product->cost) / $product->cost_old) * 100}}%
-                                </span> --}}
+                                
                                 <span class="inner__text">
                                     -{{ number_format((($product->cost_old - $product->cost) / $product->cost_old) * 100, 0) }}%
                                 </span>
@@ -569,7 +566,7 @@
 
                 <!-- element product -->
                 <div class="element__product">
-                    <a href="details.html" class="list__product">
+                    {{-- <a href="details.html" class="list__product">
                         <span class="inner__text">-14%</span>
                         <span class="excerpt">Refund 1,000,000 VND</span>
                         <div class="element__product-info">
@@ -977,7 +974,7 @@
                                 <span>95% DCI-P3</span>
                             </div>
                         </div>
-                    </a>
+                    </a> --}}
                     @foreach ($products as $product)
                         @if ($product->id_typeProduct == 2 || $product->id_typeProduct == 3 || $product->id_typeProduct == 5)
                             <a href="{{ route('details', [$product->id, str_replace('/', '-', $product->name)]) }}"

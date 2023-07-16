@@ -465,7 +465,9 @@
                                                             @foreach ($accounts as $account)
                                                                 @if (session('id_user') == $account->id)
                                                                     @if ($account->is_admin == 1)
-                                                                        (ADMIN)
+                                                                        <span class="profile__id-admin">(ADMIN)</span>
+                                                                    @elseif ($account->is_admin == 2)
+                                                                        <span class="profile__id-admin">(Super Admin)</span>
                                                                     @endif
                                                                 @endif
                                                             @endforeach
@@ -498,7 +500,7 @@
                                                                 <span>{{ number_format($account->balance, 0, ',', ',') }}
                                                                     <u>đ</u></span>
                                                             </div>
-                                                            @if (session('is_admin') == 1)
+                                                            @if (session('is_admin') == 1 || session('is_admin') == 2)
                                                                 <div
                                                                     class="profile__main-config profile__main-dashboard">
                                                                     <a class="profile__main-dashboard--change-form"

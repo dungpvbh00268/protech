@@ -42,7 +42,7 @@
         <aside class="sidebar">
             <div class="sidebar-start">
                 <div class="sidebar-head">
-                    <a href="{{ route('dashboard') }}" class="logo-wrapper" title="Home">
+                    <a href="{{ route('dashboard.home') }}" class="logo-wrapper" title="Home">
                         <span class="sr-only">Home</span>
                         {{-- <span class="icon logo" aria-hidden="true"></span> --}}
                         <img style="    width: 70px;" src="{{ asset('images/designlogo.png') }}" style=""
@@ -65,7 +65,7 @@
                                     aria-hidden="true"></span>Dashboard</a>
                         </li>
                         <li>
-                            
+
                             {{-- test --}}
                             <a class="" href="{{ route('dashboard') }}">
                                 <span class="icon document" aria-hidden="true"></span>
@@ -127,8 +127,7 @@
                     <span class="system-menu__title">system</span>
                     <ul class="sidebar-body-menu">
                         <li>
-                            <a href="appearance.html"><span class="icon edit"
-                                    aria-hidden="true"></span>Appearance</a>
+                            <a href="appearance.html"><span class="icon edit" aria-hidden="true"></span>Appearance</a>
                         </li>
                         <li>
                             <a class="show-cat-btn" href="##">
@@ -172,16 +171,20 @@
             </div>
             <div class="sidebar-footer">
                 <a href="##" class="sidebar-user">
-                    <span class="sidebar-user-img">
-                        <picture>
-                            <source srcset="{{ asset('./img/avatar/avatar-illustrated-01.webp') }}" type="image/webp">
-                            <img src="{{ asset('./img/avatar/avatar-illustrated-01.png') }}" alt="User name">
-                        </picture>
-                    </span>
-                    <div class="sidebar-user-info">
-                        <span class="sidebar-user__title">Nafisa Sh.</span>
-                        <span class="sidebar-user__subtitle">Support manager</span>
-                    </div>
+                    @foreach ($accounts as $account)
+                        @if ($account->id == 10)
+                            <span class="sidebar-user-img">
+                                <picture>
+                                    <source srcset="{{ asset('images/' . $account->avatar) }}" type="image/webp">
+                                    <img src="{{ asset('images/' . $account->avatar) }}" alt="User name">
+                                </picture>
+                            </span>
+                            <div class="sidebar-user-info">
+                                <span class="sidebar-user__title">{{ $account->username }}</span>
+                                <span class="sidebar-user__subtitle">Support manager</span>
+                            </div>
+                        @endif
+                    @endforeach
                 </a>
             </div>
         </aside>

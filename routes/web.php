@@ -209,7 +209,7 @@ Route::get('manage-account', [manageAccount_controller::class, 'index'])
     ->middleware('checkAdmin');
 
 Route::get('add-account', [manageAccount_controller::class, 'addAccountView'])->name('add-account')->middleware('checkAdmin');
-Route::get('addAccount', [manageAccount_controller::class, 'addAccount'])->name('addAccount')->middleware('checkAdmin');
+Route::post('addAccount', [manageAccount_controller::class, 'addAccount'])->name('addAccount')->middleware('checkAdmin');
 
 Route::get('update-account/{id}/{name}', [manageAccount_controller::class, 'updateAccount'])->name('updateAccount')->middleware('checkAdmin');
 Route::post('editAccount/{id}', [manageAccount_controller::class, 'editAccount'])->name('editAccount')->middleware('checkAdmin');

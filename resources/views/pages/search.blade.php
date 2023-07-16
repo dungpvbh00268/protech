@@ -68,8 +68,21 @@
                             @if ($result->id_typeProduct == 1)
                                 {{-- @if (str_contains(strtolower($product->name), strtolower($result))) --}}
                                 <a href="details/{{ $result->id }}/{{ $result->name }}" class="list__product">
-                                    <span class="excerpt">FREE 8GB DDR5 RAM</span>
-                                    <span class="inner__text">-10%</span>
+                                    {{-- <span class="excerpt">FREE 8GB DDR5 RAM</span>
+                                    <span class="inner__text">-10%</span> --}}
+                                    @if ($result->cost_old - $result->cost < 1000000)
+                                        <span class="excerpt">FREE 8GB DDR5 RAM</span>
+                                    @elseif ($result->cost_old - $result->cost >= 1000000 && $result->cost_old - $result->cost < 3000000)
+                                        <span class="excerpt">Refund 1,000,000 VND</span>
+                                    @elseif ($result->cost_old - $result->cost >= 3000000 && $result->cost_old - $result->cost < 4000000)
+                                        <span class="excerpt">VOUCHER 1.000.000 VNĐ</span>
+                                    @else
+                                        {{-- <span class="excerpt"></span> --}}
+                                    @endif
+
+                                    <span class="inner__text">
+                                        -{{ number_format((($result->cost_old - $result->cost) / $result->cost_old) * 100, 0) }}%
+                                    </span>
                                     <div class="element__product-info">
                                         <div class="element__product-info--img">
                                             <img src="{{ asset('images/' . $result->image) }}" alt=""
@@ -130,11 +143,26 @@
                                     </div>
                                 </a>
                                 {{-- @endif --}}
-                            @elseif ($result->id_typeProduct == 2 || $result->id_typeProduct == 3)
+                            @elseif ($result->id_typeProduct == 2 || $result->id_typeProduct == 3 || $result->id_typeProduct == 5)
                                 <a href="details/{{ $result->id }}/{{ str_replace('/', '-', $result->name) }}"
                                     class="list__product">
-                                    <span class="inner__text">-14%</span>
-                                    <span class="excerpt">VOUCHER 1.000.000 VNĐ</span>
+                                    {{-- <span class="inner__text">-14%</span>
+                                    <span class="excerpt">VOUCHER 1.000.000 VNĐ</span> --}}
+
+                                    <span class="inner__text">
+                                        {{-- -14% --}}
+                                        -{{ number_format((($result->cost_old - $result->cost) / $result->cost_old) * 100, 0) }}%
+                                    </span>
+
+                                    @if ($result->cost_old - $result->cost < 500000)
+                                        <span class="excerpt">FREE 8GB DDR5 RAM</span>
+                                    @elseif ($result->cost_old - $result->cost >= 500000 && $result->cost_old - $result->cost < 1000000)
+                                        <span class="excerpt">Refund 1,000,000 VND</span>
+                                    @elseif ($result->cost_old - $result->cost >= 1000000 && $result->cost_old - $result->cost < 2000000)
+                                        <span class="excerpt">VOUCHER 1.000.000 VNĐ</span>
+                                    @else
+                                    @endif
+
                                     <div class="element__product-info">
                                         <div class="element__product-info--img">
                                             <img src="{{ asset('images/' . $result->image) }}" alt=""

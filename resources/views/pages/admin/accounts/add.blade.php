@@ -933,7 +933,8 @@
                         </div>
                     </div>
                     <div class="card-body">
-                        <form action="page-list-product.html" data-toggle="validator" novalidate="true">
+                        <form method="post" action="{{route('addAccount')}}" data-toggle="validator" novalidate="true" enctype="multipart/form-data">
+                            @csrf
                             <div class="row">
                                 {{-- <div class="col-md-12">
                                     <div class="form-group">
@@ -945,7 +946,7 @@
                                     <div class="form-group">
                                         <label>Username *</label>
                                         <input type="text" class="form-control" placeholder="Enter Name"
-                                            data-errors="Please Enter Name." required="">
+                                            data-errors="Please Enter Name." required="" name = "username">
                                         <div class="help-block with-errors"></div>
                                     </div>
                                 </div>
@@ -953,7 +954,7 @@
                                     <div class="form-group">
                                         <label>PASSWORD *</label>
                                         <input type="text" class="form-control" placeholder="Enter password"
-                                            data-errors="Please Enter Code." required="">
+                                            data-errors="Please Enter Code." required="" name="password">
                                         <div class="help-block with-errors"></div>
                                     </div>
                                 </div>
@@ -961,51 +962,56 @@
                                     <div class="form-group">
                                         <label>Is Admin *</label>
                                         {{-- <input type="text" class="form-control" placeholder="" data-errors="Please Enter Name." required=""> --}}
-                                        <select class="form-control" name="" id="">
-                                            <option value="" hidden>Decentralization</option>
-                                            <option value="0">user</option>
-                                            <option value="1">admin</option>
-                                            <option value="2">super admin</option>
+                                        <select class="form-control" name="is_admin" id="">
+                                            <option value="0" hidden>Decentralization</option>
+                                            @if (session('is_admin') == 2)
+                                                <option value="0">User</option>
+                                                <option value="1">Admin</option>
+                                            @elseif (session('is_admin') == 1)
+                                                <option value="0">User</option>
+                                            @endif
+
                                         </select>
                                     </div>
                                 </div>
-                                <div class="col-md-6">
+                                {{-- <div class="col-md-6">
                                     <div class="form-group">
                                         <label>ID Giftcode *</label>
                                         <input type="text" class="form-control" placeholder="Enter ID"
                                             data-errors="Please Enter Name." required="">
                                     </div>
-                                </div>
+                                </div> --}}
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Gender *</label>
-                                        <br>
-                                        <input type="radio" id="boy" name="g6">
-                                        <label for="boy">Boy</label> <br>
-                                        <input type="radio" id="girl" name="g6">
-                                        <label for="girl">Girl</label>
+                                        <select class="form-control" name="gender" id="">
+                                            <option value="" hidden>Chose Gender</option>
+                                            <option value="male">Male</option>
+                                            <option value="female">Female</option>
+                                            <option value="other">Other</option>
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <label>Email *</label>
+                                        <label>Gmail *</label>
                                         <input type="email" class="form-control" placeholder="Enter email"
-                                            data-errors="Please Enter Price." required="">
+                                            data-errors="Please Enter Price." required="" name="email">
                                     </div>
                                 </div>
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label>Address *</label>
                                         <input type="text" class="form-control" placeholder="Enter address"
-                                            required="">
+                                            required="" name="address">
                                         <div class="help-block with-errors"></div>
                                     </div>
                                 </div>
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label>Dob *</label>
-                                        <input type="text" class="form-control" placeholder="Enter dob"
-                                            required="">
+                                        <input type="date" class="form-control" placeholder="Enter dob"
+                                            required="" name="dob">
                                         <div class="help-block with-errors"></div>
                                     </div>
                                 </div>
@@ -1013,15 +1019,15 @@
                                     <div class="form-group">
                                         <label>Ban *</label>
                                         <input type="text" class="form-control" placeholder="Enter ban"
-                                            required="">
+                                            required="" name="ban">
                                         <div class="help-block with-errors"></div>
                                     </div>
                                 </div>
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <label>Phone number *</label>
-                                        <input type="text" class="form-control" placeholder="Enter phone number"
-                                            required="">
+                                        <label>Phone Number *</label>
+                                        <input type="number" class="form-control" placeholder="Enter phone number"
+                                            required="" name="phone_number">
                                         <div class="help-block with-errors"></div>
                                     </div>
                                 </div>
@@ -1029,8 +1035,8 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label>balance *</label>
-                                        <input type="text" class="form-control" placeholder="Enter balance"
-                                            required="">
+                                        <input type="number" class="form-control" placeholder="Enter balance"
+                                            required="" name="balance">
                                         <div class="help-block with-errors"></div>
                                     </div>
                                 </div>
@@ -1038,18 +1044,17 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label>Avatar</label>
-                                        <input type="file" class="form-control image-file" name="pic"
-                                            accept="image/*">
+                                        <input type="file" class="form-control image-file" name="avatar">
                                     </div>
                                 </div>
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label>Description</label>
-                                        <textarea class="form-control" rows="4"></textarea>
+                                        <textarea class="form-control" rows="4" name="description"></textarea>
                                     </div>
                                 </div>
                             </div>
-                            <button type="submit" class="btn btn-primary mr-2 disabled">Add Product</button>
+                            <button type="submit" class="btn btn-primary mr-2 disabled">Add Account</button>
                             <button type="reset" class="btn btn-danger">Reset</button>
                         </form>
                     </div>

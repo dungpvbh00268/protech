@@ -21,7 +21,7 @@ class adminMiddleWare
     {
         $account = accountModel::find(session('id_user'));
 
-        if ($account && $account->is_admin == 1) {
+        if ($account && session('username') && ($account->is_admin == 1 || $account->is_admin == 2)) {
             return $next($request);
         } else {
             return redirect()->intended('/')
