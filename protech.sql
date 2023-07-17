@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 12, 2023 at 03:00 PM
+-- Generation Time: Jul 17, 2023 at 02:58 AM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 8.1.10
 
@@ -53,13 +53,13 @@ CREATE TABLE `account` (
 INSERT INTO `account` (`id`, `username`, `password`, `is_admin`, `gender`, `email`, `address`, `phone_number`, `ban`, `dob`, `avatar`, `description`, `balance`, `id_giftcode`, `created_at`, `updated_at`) VALUES
 (8, '1', '1', 1, 'male', NULL, NULL, NULL, 0, '2023-06-05', 'avatar1.png', NULL, 0, NULL, '2023-06-05 08:25:45', '2023-06-05 08:25:45'),
 (9, '2', '2', 0, 'male', NULL, NULL, NULL, 0, NULL, NULL, NULL, 0, NULL, '2023-06-07 03:30:10', '2023-06-07 03:30:10'),
-(10, 'phamdung2209', 'phamdung2209', 1, 'male', 'phamdung.22092003@gmail.com', 'Ha Noi', NULL, 0, '2003-09-22', 'avatar.png', NULL, 30000000, NULL, '2023-06-07 03:34:34', '2023-06-07 03:34:34'),
+(10, 'phamdung2209', 'phamdung2209', 2, 'male', 'phamdung.22092003@gmail.com', 'Ha Noi', NULL, 0, '2003-09-22', 'avatar.png', NULL, 30000000, NULL, '2023-06-07 03:34:34', '2023-06-07 03:34:34'),
 (11, 'zzzzzz', 'zzzzzz', 0, NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL, 0, NULL, '2023-06-07 10:16:15', '2023-06-07 10:16:15'),
 (12, 'qqqqqq', 'qqqqqq', 0, NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL, 0, NULL, '2023-06-07 10:59:03', '2023-06-07 10:59:03'),
 (13, '222222', '222222', 0, NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL, 0, NULL, '2023-06-07 11:26:48', '2023-06-07 11:26:48'),
-(14, 'cccccc', 'cccccc', 0, NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL, 0, NULL, '2023-06-07 12:16:30', '2023-06-07 12:16:30'),
-(15, 'ssssss', 'ssssss', 0, NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL, 0, NULL, '2023-06-08 01:32:05', '2023-06-08 01:32:05'),
-(17, 'user', 'user', 0, 'male', 'phamdung.22092003@gmail.com', 'Ha Noi', 787099745, 0, '2003-09-22', 'avatar1.png', NULL, 20000, NULL, '2023-06-21 00:27:37', '2023-06-21 00:27:37');
+(17, 'user', 'user', 0, 'male', 'phamdung.22092003@gmail.com', 'Ha Noi', 787099745, 0, '2003-09-22', 'avatar1.png', NULL, 20000, NULL, '2023-06-21 00:27:37', '2023-06-21 00:27:37'),
+(26, 'phamdung22092003', 'phamdung22092003', 1, 'male', 'phamdung.22092003@gmail.com', 'Ha Noi', 787099745, 0, '2003-09-22', 'null.png', 'abc', 20000, NULL, '2023-07-16 03:52:37', '2023-07-16 03:52:37'),
+(29, 'phamdung22091', 'phamdung22091', 0, 'male', 'phamdung.22092003@gmail.com', 'Ha Noi', 787099745, 0, '2023-07-16', 'null.png', 'abc', 20000, NULL, '2023-07-16 06:40:02', '2023-07-16 06:40:02');
 
 -- --------------------------------------------------------
 
@@ -113,9 +113,8 @@ INSERT INTO `cart` (`id`, `id_user`, `created_at`, `updated_at`) VALUES
 (4, 11, NULL, NULL),
 (5, 12, NULL, NULL),
 (6, 13, NULL, NULL),
-(7, 14, NULL, NULL),
-(8, 15, NULL, NULL),
-(9, 17, NULL, NULL);
+(9, 17, NULL, NULL),
+(19, 29, '2023-07-16 06:40:02', '2023-07-16 06:40:02');
 
 -- --------------------------------------------------------
 
@@ -142,7 +141,6 @@ INSERT INTO `cart_pro` (`id`, `id_cart`, `id_product`, `quantity`, `created_at`,
 (22, 2, 3, 2, '2023-06-08 01:09:12', '2023-06-08 01:10:04'),
 (23, 2, 1, 2, '2023-06-08 01:09:24', '2023-06-08 01:10:28'),
 (24, 2, 2, 3, '2023-06-08 01:09:42', '2023-06-08 01:10:18'),
-(31, 8, 1, 1, '2023-06-08 03:13:13', '2023-06-08 03:13:13'),
 (41, 1, 4, 2, '2023-06-10 00:40:00', '2023-06-10 00:44:52'),
 (42, 1, 3, 1, '2023-06-10 00:40:19', '2023-06-10 00:40:19'),
 (43, 1, 2, 1, '2023-06-10 00:40:29', '2023-06-10 00:40:29'),
@@ -151,9 +149,10 @@ INSERT INTO `cart_pro` (`id`, `id_cart`, `id_product`, `quantity`, `created_at`,
 (57, 9, 1, 4, '2023-06-21 00:46:59', '2023-06-21 00:46:59'),
 (66, 9, 4, 1, '2023-06-28 04:37:38', '2023-06-28 04:37:38'),
 (67, 3, 52, 2, '2023-06-28 23:46:12', '2023-07-12 03:14:38'),
-(68, 3, 5, 3, '2023-07-05 00:48:05', '2023-07-05 00:52:23'),
 (69, 3, 3, 2, '2023-07-05 00:49:18', '2023-07-11 22:17:18'),
-(71, 3, 56, 1, '2023-07-11 22:13:58', '2023-07-11 22:13:58');
+(72, 3, 2, 1, '2023-07-12 10:48:10', '2023-07-12 10:48:10'),
+(73, 3, 1, 2, '2023-07-12 12:13:13', '2023-07-13 00:52:56'),
+(74, 3, 62, 2, '2023-07-13 07:51:50', '2023-07-13 09:29:45');
 
 -- --------------------------------------------------------
 
@@ -251,6 +250,31 @@ CREATE TABLE `images` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `images`
+--
+
+INSERT INTO `images` (`id`, `fileName`, `filePath`, `description`, `id_product`, `created_at`, `updated_at`) VALUES
+(1, 'Acer Predator Helios Neo 16 PHN16-71-59TN', '[\"1689182209_laptop2.png\",\"info-lap.png\"]', 'The perfect gaming experience with the all-new Acer Predator Helios Neo\n                                                    16\n                                                    PHN16-71-59TN 2023. The ultra-fast 16″ WQXGA 240Hz display puts victory\n                                                    in\n                                                    your\n                                                    hands and kills your opponents with ease. Equipped with NVIDIA® GeForce\n                                                    RTX™\n                                                    4060\n                                                    graphics, 13th Gen Intel® Core™ i5, and exclusive 5th Gen AeroBlade™ 3D\n                                                    Technology.', 1, '2023-07-12 17:50:53', '2023-07-12 17:50:53'),
+(2, 'PERFORMANCE EXPLOSION', '[\"1687954864_laptop4.png\",\"predator-laptop-helios-16-full-range-of-ports-1.png\"]', 'Acer Predator Helios Neo 16 PHN16-71-59TN is powered by a 13th generation Intel®\r\n                                    Core™ i5 processor that delivers\r\n                                    blazing fast processing speeds with high clock speeds. Combined with the built-in\r\n                                    super-speed 16GB DDR5 Ram for\r\n                                    the purpose of optimizing the user\'s usage process, it always happens smoothly even\r\n                                    when opening many tasks at\r\n                                    the same time.', 1, '2023-07-12 17:50:53', '2023-07-12 17:50:53'),
+(3, 'NVIDIA® GEFORCE RTX™ 40 SERIES', '[\"laptop.png\",\"predator-laptop-helios-16-beyond-performance-1-scaled-1.png\"]', 'Acer Predator Helios Neo 16 PHN16-71-59TN features an RTX 40 Series GPU that\r\n                                    delivers ultimate\r\n                                    performance for gamers and creators. Powered by NVIDIA\'s 3rd generation RTX Ampere\r\n                                    architecture –\r\n                                    with new Ray Tracing Cores, Tensor Cores, and streaming multiprocessors for a\r\n                                    performance leap.', 1, NULL, NULL),
+(4, 'AMAZING PHOTO', '[\"Laptop-ASUS-ROG-Zephyrus-G14-GA402NJ-L4056W-768x768.jpg\",\"laptop-acer-predator-helios-16-ph16-71-72bv-geforce-rtx-4070-8gb-intel-core-i7-13700hx-16gb-512gb-16e280b3-wqxga-ips-240hz-rgb-per-keys-win11-n9-qjsww-002-26848.jpg\"]', 'Lock your eyes on the Acer Predator Helios Neo 16 PHN16-71-59TN monitor. Measuring\r\n                                    16 inches with a\r\n                                    16:10 aspect ratio and 165Hz refresh rate, the WQXGA1 panel works at full power and\r\n                                    includes NVIDIA®\r\n                                    G-SYNC® and Advanced Optimus for maximum graphics power.', 1, '2023-07-12 17:50:53', '2023-07-12 17:50:53'),
+(5, 'AMAZING PHOTO', '[\"Laptop-ASUS-ROG-Zephyrus-G14-GA402NJ-L4056W-768x768.jpg\",\"laptop-acer-predator-helios-16-ph16-71-72bv-geforce-rtx-4070-8gb-intel-core-i7-13700hx-16gb-512gb-16e280b3-wqxga-ips-240hz-rgb-per-keys-win11-n9-qjsww-002-26848.jpg\"]', 'Lock your eyes on the Acer Predator Helios Neo 16 PHN16-71-59TN monitor. Measuring\r\n                                    16 inches with a\r\n                                    16:10 aspect ratio and 165Hz refresh rate, the WQXGA1 panel works at full power and\r\n                                    includes NVIDIA®\r\n                                    G-SYNC® and Advanced Optimus for maximum graphics power.', 1, '2023-07-12 17:50:53', '2023-07-12 17:50:53'),
+(6, 'AMAZING PHOTO 1', '[\"Laptop-ASUS-ROG-Zephyrus-G14-GA402NJ-L4056W-768x768.jpg\",\"laptop-acer-predator-helios-16-ph16-71-72bv-geforce-rtx-4070-8gb-intel-core-i7-13700hx-16gb-512gb-16e280b3-wqxga-ips-240hz-rgb-per-keys-win11-n9-qjsww-002-26848.jpg\"]', 'Lock your eyes on the Acer Predator Helios Neo 16 PHN16-71-59TN monitor. Measuring\n                                    16 inches with a\n                                    16:10 aspect ratio and 165Hz refresh rate, the WQXGA1 panel works at full power and\n                                    includes NVIDIA®\n                                    G-SYNC® and Advanced Optimus for maximum graphics power.', 1, '2023-07-12 17:50:53', '2023-07-12 17:50:53'),
+(7, 'Laptop Gaming MSI Vector GP68 HX 12VH-070VN', '[\"th (1).jpg\",\"gp68-d9-scaled.jpg\"]', '', 62, '2023-07-12 17:50:53', '2023-07-12 17:50:53'),
+(8, 'BORN FOR PERFORMANCE', '[\"th (2).jpg\",\"gp68-d9-scaled.jpg\"]', 'Series Vector GP sử dụng “Vector” làm khởi nguồn cảm hứng, tạo thành cấu trúc lập thể thứ 2 và thứ 3 và mở rộng đến vô hạn. Laptop Gaming MSI Vector GP68 HX 12VH-070VN chắc chắn là người tiên phong trong lĩnh vực khoa học', 62, '2023-07-12 17:50:53', '2023-07-12 17:50:53'),
+(9, '', '[\"th.jpg\",\"gp68-d8-scaled.jpg\"]', 'Laptop Gaming MSI Vector GP68 HX 12VH-070VN có thể được trang bị lên đến bộ xử lý Intel® Core™ i9 thế hệ thứ 12, xây dựng trên kiến trúc lõi lai cải tiến, 8 lõi Hiệu suất và 8 lõi Hiệu quả, giúp xử lý đa nhiệm tốt hơn và chạy các trò chơi đòi hỏi khắt khe.', 62, '2023-07-12 17:50:53', '2023-07-12 17:50:53'),
+(10, 'Trang bị RTX 40 Series mới nhất', '[\"OIP.jpg\",\"gp77-13th-d8-scaled.jpg\"]', 'Laptop Gaming MSI Vector GP68 HX 12VH-070VN trang bị GPU NVIDIA® GeForce RTX™ 40 Series có tốc độ vượt trội dành cho các game thủ và người sáng tạo. Chúng được hỗ trợ bởi kiến trúc NVIDIA Ada Lovelace cực kỳ hiệu quả, mang lại bước nhảy vọt về cả hiệu suất và đồ họa do AI hỗ trợ. Trải nghiệm thế giới ảo sống động như thật với tính năng dò tia và chơi game FPS cực cao với độ trễ thấp nhất. Ngoài ra, bộ công nghệ Max-Q tối ưu hóa hiệu suất hệ thống, năng lượng, tuổi thọ pin và âm thanh để đạt hiệu quả cao nhất.', 62, '2023-07-12 17:50:53', '2023-07-12 17:50:53'),
+(11, 'Công nghệ MSI Overboost', '[\"Laptop-ASUS-ROG-Zephyrus-G14-GA402NJ-L4056W-768x768.jpg\",\"gp68-d7-scaled.jpg\"]', 'Trải nghiệm toàn bộ công suất 230W* trên Laptop Gaming MSI Vector GP68 HX 12VH-070VN. Với Laptop Gaming MSI Vector GP68 HX 12VH-070VN, khả năng của CPU và GPU sẽ vượt qua các giới hạn mà không làm giảm tần suất hoặc sự ổn định.', 62, '2023-07-12 17:50:53', '2023-07-12 17:50:53'),
+(12, '', '[\"Laptop-ASUS-ROG-Zephyrus-G14-GA402NJ-L4056W-768x768.jpg\",\"gp68-d4-scaled.jpg\"]', 'Laptop Gaming MSI Vector GP68 HX 12VH-070VN được thiết kế riêng cho game thủ. Với màn 16\" độ phân giải FHD+ (1920*1200) và tốc độ làm mới nhanh 144Hz, trải nghiệm chơi game sống động như thật và chơi game mượt mà.', 62, '2023-07-12 17:50:53', '2023-07-12 17:50:53'),
+(13, 'Tản nhiệt Cooler Boost 5 độc quyền', '[\"Laptop-ASUS-ROG-Zephyrus-G14-GA402NJ-L4056W-768x768.jpg\",\"gp68-d6-scaled.jpg\"]', 'Thiết kế Shared-Pipe mới, ống dẫn nhiệt gắn trên cả CPU và GPU. Shared-Pipe có thể cải thiện khả năng tản nhiệt nhanh chóng, đặc biệt là giải phóng hiệu năng của CPU. Với MSI Cooler Boost 5, game thủ có thể tự do khám phá thế giới trò chơi ngày càng phức tạp trên Laptop Gaming MSI Vector GP68 HX 12VH-070VN.', 62, '2023-07-12 17:50:53', '2023-07-12 17:50:53'),
+(14, 'Truyền dữ liệu tốc độ cao', '[\"Laptop-ASUS-ROG-Zephyrus-G14-GA402NJ-L4056W-768x768.jpg\",\"gp68-d3-scaled.jpg\"]', 'Laptop Gaming MSI Vector GP68 HX 12VH-070VN trang bị ram DDR5 và SSD Gen 4x4 cho sự kết hợp hoàn hảo giữa giao diện truyền dữ liệu và băng thông rộng nhất cho trải nghiệm vô song.', 62, '2023-07-12 17:50:53', '2023-07-12 17:50:53'),
+(15, 'Bàn phím Led Per-keys đến từ Steelseries', '[\"Laptop-ASUS-ROG-Zephyrus-G14-GA402NJ-L4056W-768x768.jpg\",\"gp68-d9-scaled.jpg\"]', 'Laptop Gaming MSI Vector GP68 HX 12VH-070VN có thể tùy chỉnh từng phím theo ý thích của bạn và cảm nhận trạng thái trong trò chơi theo thời gian thực thông qua ánh sáng bàn phím hoặc thậm chí cảm nhận led nhảy theo giai điệu yêu thích của bạn.', 62, '2023-07-12 17:50:53', '2023-07-12 17:50:53'),
+(16, 'Âm thanh như phòng thu', '[\"Laptop-ASUS-ROG-Zephyrus-G14-GA402NJ-L4056W-768x768.jpg\",\"gp68-d2-scaled.jpg\"]', 'Đắm chìm trong các bản nhạc lossless và tận hưởng chất lượng âm thanh cao cấp với Laptop Gaming MSI Vector GP68 HX 12VH-070VN nhờ trang bị loa Nahimic đến từ Steelseries.', 62, '2023-07-12 17:50:53', '2023-07-12 17:50:53'),
+(17, 'TRẢI NGHIỆM KHÔNG DÂY HOÀN HẢO', '[\"Laptop-ASUS-ROG-Zephyrus-G14-GA402NJ-L4056W-768x768.jpg\",\"gp-d3.png\"]', 'Laptop Gaming MSI Vector GP68 HX 12VH-070VN được trang bị Wi-Fi 6E mới nhất mang đến tốc độ tuyệt vời đồng thời giữ cho mạng mượt mà và ổn định ngay cả khi chia sẻ mạng với nhiều người dùng. Với thông lượng vượt trội và độ trễ thấp, bạn có thể đánh bại những người khác.', 62, '2023-07-12 17:50:53', '2023-07-12 17:50:53'),
+(18, 'Cổng kết nối', '[\"Laptop-ASUS-ROG-Zephyrus-G14-GA402NJ-L4056W-768x768.jpg\",\"gp68-d1-scaled.jpg\"]', 'Laptop Gaming MSI Vector GP68 HX 12VH-070VN trang bị đầy đủ cổng kết nối với các cổng Thunder Bolt 4, 2x USB-A, 2x USB-C (w PD and DP), HDMI 2.1, cổng LAN, jack 3.5mm, SD-card.', 62, '2023-07-12 17:50:53', '2023-07-12 17:50:53'),
+(34, 'title', '[\"1689518880_OIP.jpg\",\"1689518880_predator-laptop-helios-16-full-range-of-ports-1.png\"]', 'Case PC', 65, '2023-07-16 07:48:00', '2023-07-16 07:48:00');
 
 -- --------------------------------------------------------
 
@@ -380,7 +404,7 @@ CREATE TABLE `products` (
   `os` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `keyboard` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `pin` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `connector` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `connector` varchar(2550) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `id_typeProduct` bigint(20) UNSIGNED DEFAULT NULL,
   `id_category` bigint(20) UNSIGNED DEFAULT NULL,
   `id_brand` bigint(20) UNSIGNED DEFAULT NULL,
@@ -394,15 +418,21 @@ CREATE TABLE `products` (
 
 INSERT INTO `products` (`id`, `name`, `description`, `image`, `cost`, `cost_old`, `cpu`, `gpu`, `ram`, `storage`, `screen_size`, `warranty_period`, `os`, `keyboard`, `pin`, `connector`, `id_typeProduct`, `id_category`, `id_brand`, `created_at`, `updated_at`) VALUES
 (1, 'Laptop Acer Predator Helios Neo 16 PHN16-71-59TN Geforce RTX 4060 8GB Intel Core i5 13500HX 16GB 512GB 16″ WQXGA IPS 165Hz RGB 4-Zone Win11 N9.QJSWW.002\n                ', 'Helios', 'laptop1.png', 26890000, 30490000, 'i5 13500HXA', 'RTX 4060', 'DDR5 16GB', '512GB', '16\" 2K+ 165Hz', '12 months 3s1', '	Windows 11 64 Bit', '4-Zone RGB Gaming Keyboard', '3 Cell 53.5 Battery (Whr)', '1x Mic-in/Headphone-out Combo Jack I/O PORTS 1x Type-C (USB3.2 Gen1 / DP) 2x Type-A USB3.2 Gen1 1x Type-A USB2.0 1x HDMI™ 2.1 (8K @ 60Hz / 4K @ 120Hz) 1x RJ45', 1, 1, 2, NULL, NULL),
-(2, 'Screen Gaming Acer Nitro KG241Y-P (24″/ IPS/ FullHD/ 165Hz/ 0.5ms/ 99% sRGB)', 'Screen Acer Nitro', 'screen acer.jpg', 5990000, 4990000, 'i5 13500HX', 'RTX 4060', 'DDR5 16GB', '512GB', '16\" 2K+ 165Hz', '12 months 3s1', NULL, NULL, NULL, NULL, 2, 1, 2, NULL, NULL),
-(3, 'Screen  ASUS TUF Gaming VG249Q1A (24″/ Full HD/ IPS/ 1ms MPRT/ 165Hz)', 'Screen ASUS', 'screen asus.jpg', 5490000, 4990000, 'i5 13500HX', 'RTX 4060', 'DDR5 16GB', '512GB', '16\" 2K+ 165Hz', '12 months 3s1', NULL, NULL, NULL, NULL, 2, 1, 3, NULL, NULL),
+(2, 'Screen Gaming Acer Nitro KG241Y-P (24″/ IPS/ FullHD/ 165Hz/ 0.5ms/ 99% sRGB)', 'Screen Acer Nitro', 'screen acer.jpg', 4990000, 5990000, 'i5 13500HX', 'RTX 4060', 'DDR5 16GB', '512GB', '16\" 2K+ 165Hz', '12 months 3s1', NULL, NULL, NULL, NULL, 2, 1, 2, NULL, NULL),
+(3, 'Screen  ASUS TUF Gaming VG249Q1A (24″/ Full HD/ IPS/ 1ms MPRT/ 165Hz)', 'Screen ASUS', 'screen asus.jpg', 4490000, 4990000, 'i5 13500HX', 'RTX 4060', 'DDR5 16GB', '512GB', '16\" 2K+ 165Hz', '12 months 3s1', NULL, NULL, NULL, NULL, 2, 1, 3, NULL, NULL),
 (4, 'Laptop Acer Predator Helios Neo 16 PHN16-71-59TN Geforce RTX 4060 8GB Intel Core i5 13500HX 16GB 512GB 16″ WQXGA IPS 165Hz RGB 4-Zone Win11 N9.QJSWW.002\n                ', 'Nitro 7', 'laptop main.png', 26890000, 30490000, 'i5 13500HX', 'RTX 4060', 'DDR5 16GB', '512GB', '16\" 2K+ 165Hz', '12 months 3s1', NULL, NULL, NULL, NULL, 1, 1, 5, NULL, NULL),
-(5, 'Screen Gaming Acer Nitro KG241Y-P (24″/ IPS/ FullHD/ 165Hz/ 0.5ms/ 99% sRGB)', 'Screen Acer Nitro', 'screen acer.jpg', 5990000, 4990000, 'i5 13500HX', 'RTX 4060', 'DDR5 16GB', '512GB', '16\" 2K+ 165Hz', '12 months 3s1', NULL, NULL, NULL, NULL, 2, 1, 2, NULL, NULL),
-(47, 'Screen Gaming Acer Nitro KG241Y-P (24″/ IPS/ FullHD/ 165Hz/ 0.5ms/ 99% sRGB)', 'Screen Acer Nitro', '1687954697_casse.png', 5990000, 4990000, 'i5 13500HX', 'RTX 4060', 'DDR5 16GB', '512GB', '16\" 2K+ 165Hz', '12 months 3s1', '1', '1', '1', '1', 2, 1, 2, '2023-06-28 03:41:27', '2023-06-28 05:18:17'),
-(51, 'Screen Gaming Acer Nitro KG241Y-P (24″/ IPS/ FullHD/ 165Hz/ 0.5ms/ 99% sRGB)', 'Screen Acer Nitro', '1687954729_screen1.png', 5990000, 4990000, 'i5 13500HX', 'RTX 4060', 'DDR5 16GB', '512GB', '16\" 2K+ 165Hz', '12 months 3s1', '1', '1', '1', '1', 2, 1, 2, '2023-06-28 05:18:49', '2023-06-28 05:18:49'),
+(5, 'Screen Gaming Acer Nitro KG241Y-P (24″/ IPS/ FullHD/ 165Hz/ 0.5ms/ 99% sRGB)', 'Screen Acer Nitro', 'screen acer.jpg', 4990000, 4990000, 'i5 13500HX', 'RTX 4060', 'DDR5 16GB', '512GB', '16\" 2K+ 165Hz', '12 months 3s1', NULL, NULL, NULL, NULL, 2, 1, 2, NULL, NULL),
+(47, 'Screen Gaming Acer Nitro KG241Y-P (24″/ IPS/ FullHD/ 165Hz/ 0.5ms/ 99% sRGB)', 'Screen Acer Nitro', '1687954697_casse.png', 4990000, 6990000, 'i5 13500HX', 'RTX 4060', 'DDR5 16GB', '512GB', '16\" 2K+ 165Hz', '12 months 3s1', '1', '1', '1', '1', 2, 1, 2, '2023-06-28 03:41:27', '2023-06-28 05:18:17'),
+(51, 'Screen Gaming Acer Nitro KG241Y-P (24″/ IPS/ FullHD/ 165Hz/ 0.5ms/ 99% sRGB)', 'Screen Acer Nitro', '1687954729_screen1.png', 4990000, 5990000, 'i5 13500HX', 'RTX 4060', 'DDR5 16GB', '512GB', '16\" 2K+ 165Hz', '12 months 3s1', '1', '1', '1', '1', 2, 1, 2, '2023-06-28 05:18:49', '2023-06-28 05:18:49'),
 (52, 'Laptop Acer Predator Helios Neo 16 PHN16-71-59TN Geforce RTX 4060 8GB Intel Core i5 13500HX 16GB 512GB 16″ WQXGA IPS 165Hz RGB 4-Zone Win11 N9.QJSWW.002', 'Helios', '1687954864_laptop4.png', 26890000, 30490000, 'i5 13500HXA', 'RTX 4060', 'DDR5 16GB', '512GB', '16\" 2K+ 165Hz', '12 months 3s1', 'Windows 11 64 Bit', '4-Zone RGB Gaming Keyboard', '3 Cell 53.5 Battery (Whr)', '1x Mic-in/Headphone-out Combo Jack I/O PORTS 1x Type-C (USB3.2 Gen1 / DP) 2x Type-A USB3.2 Gen1 1x Type-A USB2.0 1x HDMI™ 2.1 (8K @ 60Hz / 4K @ 120Hz) 1x RJ45', 1, 1, 2, '2023-06-28 05:21:04', '2023-06-28 05:21:04'),
-(56, '1', 'Helios', '1688054355_1687954697_casse.png', 26890000, 30490000, 'i5 13500HXA', 'RTX 4060', 'DDR5 16GB', '512GB', '16\" 2K+ 165Hz', '12 months 3s1', 'Windows 11 64 Bit', '4-Zone RGB Gaming Keyboard', '3 Cell 53.5 Battery (Whr)', '1x Mic-in/Headphone-out Combo Jack I/O PORTS 1x Type-C (USB3.2 Gen1 / DP) 2x Type-A USB3.2 Gen1 1x Type-A USB2.0 1x HDMI™ 2.1 (8K @ 60Hz / 4K @ 120Hz) 1x RJ45', 1, 12, 12, '2023-06-29 01:42:54', '2023-06-29 08:59:23'),
-(57, '2', 'Helios', '1689157255_laptop4.png', 26890000, 30490000, 'i5 13500HXA', 'RTX 4060', 'DDR5 16GB', '512GB', '16\" 2K+ 165Hz', '12 months 3s1', 'Windows 11 64 Bit', '4-Zone RGB Gaming Keyboard', '3 Cell 53.5 Battery (Whr)', '1x Mic-in/Headphone-out Combo Jack I/O PORTS 1x Type-C (USB3.2 Gen1 / DP) 2x Type-A USB3.2 Gen1 1x Type-A USB2.0 1x HDMI™ 2.1 (8K @ 60Hz / 4K @ 120Hz) 1x RJ45', 1, 4, 2, '2023-07-12 03:20:55', '2023-07-12 03:20:55');
+(58, 'Laptop Acer Predator Helios Neo 16 PHN16-71-59TN Geforce RTX 4060 8GB Intel Core i5 13500HX 16GB 512GB 16″ WQXGA IPS 165Hz RGB 4-Zone Win11 N9.QJSWW.002', 'Helios', '1689182209_laptop2.png', 29890000, 30490000, 'i5 13500HXA', 'RTX 4060', 'DDR5 16GB', '512GB', '16\" 2K+ 165Hz', '12 months 3s1', 'Windows 11 64 Bit', '4-Zone RGB Gaming Keyboard', '3 Cell 53.5 Battery (Whr)', '1x Mic-in/Headphone-out Combo Jack I/O PORTS 1x Type-C (USB3.2 Gen1 / DP) 2x Type-A USB3.2 Gen1 1x Type-A USB2.0 1x HDMI™ 2.1 (8K @ 60Hz / 4K @ 120Hz) 1x RJ45', 1, 1, 2, '2023-07-12 10:16:49', '2023-07-12 10:16:49'),
+(59, 'Laptop Acer Predator Helios Neo 16 PHN16-71-59TN Geforce RTX 4060 8GB Intel Core i5 13500HX 16GB 512GB 16″ WQXGA IPS 165Hz RGB 4-Zone Win11 N9.QJSWW.002', 'Helios', '1689182678_laptop4.png', 27890000, 30490000, 'i5 13500HXA', 'RTX 4060', 'DDR5 16GB', '512GB', '16\" 2K+ 165Hz', '12 months 3s1', 'Windows 11 64 Bit', '4-Zone RGB Gaming Keyboard', '3 Cell 53.5 Battery (Whr)', '1x Mic-in/Headphone-out Combo Jack I/O PORTS 1x Type-C (USB3.2 Gen1 / DP) 2x Type-A USB3.2 Gen1 1x Type-A USB2.0 1x HDMI™ 2.1 (8K @ 60Hz / 4K @ 120Hz) 1x RJ45', 1, 1, 2, '2023-07-12 10:24:38', '2023-07-12 10:24:38'),
+(60, 'Laptop Acer Predator Helios Neo 16 PHN16-71-59TN Geforce RTX 4060 8GB Intel Core i5 13500HX 16GB 512GB 16″ WQXGA IPS 165Hz RGB 4-Zone Win11 N9.QJSWW.002', 'Helios', '1689182830_laptop3.png', 26990000, 30490000, 'i5 13500HXA', 'RTX 4060', 'DDR5 16GB', '512GB', '16\" 2K+ 165Hz', '12 months 3s1', 'Windows 11 64 Bit', '4-Zone RGB Gaming Keyboard', '3 Cell 53.5 Battery (Whr)', '1x Mic-in/Headphone-out Combo Jack I/O PORTS 1x Type-C (USB3.2 Gen1 / DP) 2x Type-A USB3.2 Gen1 1x Type-A USB2.0 1x HDMI™ 2.1 (8K @ 60Hz / 4K @ 120Hz) 1x RJ45', 1, 1, 2, '2023-07-12 10:27:10', '2023-07-12 10:27:10'),
+(61, 'Laptop Acer Predator Helios Neo 16 PHN16-71-59TN Geforce RTX 4060 8GB Intel Core i5 13500HX 16GB 512GB 16″ WQXGA IPS 165Hz RGB 4-Zone Win11 N9.QJSWW.002', 'Helios', '1689182961_Laptop-ASUS-ROG-Zephyrus-G14-GA402NJ-L4056W-768x768.jpg', 16990000, 30490000, 'i5 13500HXA', 'RTX 4060', 'DDR5 16GB', '512GB', '16\" 2K+ 165Hz', '12 months 3s1', 'Windows 11 64 Bit', '4-Zone RGB Gaming Keyboard', '3 Cell 53.5 Battery (Whr)', '1x Mic-in/Headphone-out Combo Jack I/O PORTS 1x Type-C (USB3.2 Gen1 / DP) 2x Type-A USB3.2 Gen1 1x Type-A USB2.0 1x HDMI™ 2.1 (8K @ 60Hz / 4K @ 120Hz) 1x RJ45', 1, 1, 2, '2023-07-12 10:29:21', '2023-07-12 10:29:21'),
+(62, 'Laptop Gaming MSI Vector GP68 HX 12VH-070VN RTX 4080 12GB Intel i9 12900HX 16GB 1TB 16″ FHD+ 144Hz Perkey RGB Win 11', 'MSI Vector', '1689235264_gp68-1-768x614.jpg', 60890000, 61990000, 'i9 12900HX', 'RTX 4080 12GB', 'DDR5 16GB', '1TB SSD', '16\" 16:10 FHD+', '12 months 3s1', 'Windows 11 SL 64 Bit', 'Per-Key RGB Gaming Keyboard by SteelSeries', '4 Cell, 90Whrs', 'Gb LAN (Up to 2.5G) 1x Type-C (USB3.2 Gen2 / DP) 1x Type-C (USB / DP / Thunderbolt™ 4) 1x Type-C (USB3.2 Gen2 / DP) with PD charging 1x Type-A USB3.2 Gen1 1x Type-A USB3.2 Gen2 1x SD Express Card Reader 1x HDMI™ 2.1 (8K @ 60Hz / 4K @ 120Hz) 1x RJ45 1x Mic-in/Headphone-out Combo Jack', 1, 1, 1, '2023-07-13 01:01:04', '2023-07-13 01:01:04'),
+(63, 'Screen Gaming Acer Nitro KG241Y-P (24″/ IPS/ FullHD/ 165Hz/ 0.5ms/ 99% sRGB)', 'Screen Acer Nitro', '1689269326_casse.png', 4990000, 5190000, 'i5 13500HX', 'RTX 4060', 'DDR5 16GB', '512GB', '16\" 2K+ 165Hz', '12 months 3s1', '1', '1', '1', '1', 2, 2, 2, '2023-07-13 10:28:46', '2023-07-13 10:28:46'),
+(64, 'PC ProTech UD5 Intel i5-12400F 16GB RTX 3060 12G Ram DDR4 16GB', 'Case pc', '1689269922_casse.png', 19290000, 23990000, 'Core i5-12400F', 'RTX 3060', 'DDR4 16GB', '250GB NVME', 'B760M', '12 months Genuine 3S1', '660W', 'ABC', 'ABC', 'abc', 5, 2, 1, '2023-07-13 10:38:42', '2023-07-13 10:38:42'),
+(65, 'PC ProTech UD5 Intel i5-12400F 16GB RTX 3060 12G Ram DDR4 16GB', 'Case pc', '1689270034_casse.png', 19290000, 23990000, 'Core i5-12400F', 'RTX 3060', 'DDR4 16GB', '250GB NVME', 'B760M', '12 months Genuine 3S1', '660W', 'ABC', 'ABC', 'abc', 2, 2, 1, '2023-07-13 10:40:34', '2023-07-13 10:40:34');
 
 -- --------------------------------------------------------
 
@@ -578,7 +608,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `account`
 --
 ALTER TABLE `account`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT for table `brands`
@@ -590,13 +620,13 @@ ALTER TABLE `brands`
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `cart_pro`
 --
 ALTER TABLE `cart_pro`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=72;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=83;
 
 --
 -- AUTO_INCREMENT for table `categories`
@@ -626,7 +656,7 @@ ALTER TABLE `giftcode`
 -- AUTO_INCREMENT for table `images`
 --
 ALTER TABLE `images`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT for table `migrations`
@@ -656,7 +686,7 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;
 
 --
 -- AUTO_INCREMENT for table `type_product`
