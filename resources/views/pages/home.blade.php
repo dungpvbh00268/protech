@@ -1521,7 +1521,7 @@
                     {{-- test list products --}}
                     @foreach ($products as $product)
                         @if ($product->id_typeProduct == 4)
-                            <a href="details.html" class="list__product">
+                            <a href="{{ route('details', [$product->id, str_replace('/', '-', $product->name)]) }}" class="list__product">
                                 <span class="inner__text">-14%</span>
                                 <span class="excerpt">VOUCHER 1.000.000 VNĐ</span>
                                 <div class="element__product-info">
