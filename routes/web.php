@@ -33,26 +33,13 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [productController::class, 'index'])->name('index');
 
-// Route::get('cart/{para}', function ($para){
-//     return view('layouts/master');
-// });
-
 Route::get('cart/', [cartController::class, 'index'])->name('cart');
 
-// Route::get('cart', function(){
-//     return view('pages/cart');
-// });
 Route::get('details/{id}/{name}', [detailsController::class, 'index'])->name('details');
-
-// Route::get('details', function(){
-//     return view('pages/details');
-// });
 
 Route::post('/login', [authController::class, 'login'])->name('login');
 Route::get('/logout', [authController::class, 'logout'])->name('logout');
 Route::post('/signup', [authController::class, 'signup'])->name('signup');
-
-// Route::get('getCart', [cartController::class, 'getCart'])->name('getCart');
 
 Route::get('addCart/{id}', [detailsController::class, 'addCart'])->name('addCart');
 Route::get('removeProductFromCart/{id}', [detailsController::class, 'removeProductFromCart'])->name('removeProductFromCart');
@@ -60,15 +47,6 @@ Route::get('removeProductFromCart/{id}', [detailsController::class, 'removeProdu
 Route::get('/updateInfo', [authController::class, 'updateInfo'])->name('updateInfo');
 
 Route::get('/search', [searchController::class, 'index'])->name('search');
-
-
-
-//dashborad
-// Route::get('dashboard/product-manage', function(){
-//     return view('pages/addproduct');
-// });
-
-// Route::get('dashboard', [authController::class, 'dashboard'])->name('dashboard');
 
 Route::get('dashboard', [authController::class, 'dashboardIndex'])
     ->name('dashboard.home')
@@ -83,8 +61,6 @@ Route::get('manage-products', [authController::class, 'dashboard'])
 
 Route::get('add-product', [addProduct_controller::class, 'index'])->name('add-Product')->middleware('checkAdmin');
 Route::post('addPro', [addProduct_controller::class, 'addPro'])->name('addPro')->middleware('checkAdmin');
-
-// eidt product
 Route::get('update-product/{id}/{name}', [addProduct_controller::class, 'updateProduct'])->name('updateProduct')->middleware('checkAdmin');
 Route::post('editPro/{id}', [addProduct_controller::class, 'editPro'])->name('editPro')->middleware('checkAdmin');
 Route::get('deletePro/{id}', [addProduct_controller::class, 'deletePro'])->name('deletePro')->middleware('checkAdmin');
@@ -104,8 +80,6 @@ Route::get('manage-categories', [CategoryManageCategory::class, 'index'])
 
 Route::get('add-category', [CategoryManageCategory::class, 'addCategory'])->name('add-category')->middleware('checkAdmin');
 Route::get('addCate', [CategoryManageCategory::class, 'addCate'])->name('addCate')->middleware('checkAdmin');
-
-// eidt product
 Route::get('update-category/{id}/{name}', [CategoryManageCategory::class, 'updateCategory'])->name('updateCategory')->middleware('checkAdmin');
 Route::post('edit/{id}', [CategoryManageCategory::class, 'edit'])->name('edit')->middleware('checkAdmin');
 Route::get('delete/{id}', [CategoryManageCategory::class, 'delete'])->name('delete')->middleware('checkAdmin');
@@ -135,6 +109,7 @@ Route::get('add-cart-copy/{id}/{name}', [manageCart_controller::class, 'copyCart
 Route::post('quickCopyCart', [manageCart_controller::class, 'quickCopyCart'])->name('quickCopyCart')->middleware('checkAdmin');
 
 
+// ================================================================================================================
 // 4. Brands
 
 Route::get('manage-brands', [manageBrand_controller::class, 'index'])
@@ -151,6 +126,8 @@ Route::get('deleteBrand/{id}', [manageBrand_controller::class, 'deleteBrand'])->
 Route::get('add-brand-copy/{id}/{name}', [manageBrand_controller::class, 'copyBrand'])->name('copyBrand')->middleware('checkAdmin');
 Route::post('quickCopyBrand', [manageBrand_controller::class, 'quickCopyBrand'])->name('quickCopyBrand')->middleware('checkAdmin');
 
+
+// ================================================================================================================
 // 5. Giftcode
 
 Route::get('manage-giftcode', [manageGiftcode_controller::class, 'index'])
@@ -168,6 +145,7 @@ Route::get('add-giftcode-copy/{id}/{name}', [manageGiftcode_controller::class, '
 Route::post('quickCopyGiftcode', [manageGiftcode_controller::class, 'quickCopyGiftcode'])->name('quickCopyGiftcode')->middleware('checkAdmin');
 
 
+// ================================================================================================================
 // 6. Images
 
 Route::get('manage-image', [manageImage_controller::class, 'index'])
@@ -185,6 +163,7 @@ Route::get('add-image-copy/{id}/{name}', [manageImage_controller::class, 'copyIm
 Route::post('quickCopyImage', [manageImage_controller::class, 'quickCopyImage'])->name('quickCopyImage')->middleware('checkAdmin');
 
 
+// ================================================================================================================
 // 7. order
 
 Route::get('manage-order', [manageOrrder_controller::class, 'index'])
@@ -202,6 +181,7 @@ Route::get('add-order-copy/{id}/{name}', [manageOrrder_controller::class, 'copyO
 Route::post('quickCopyOrder', [manageOrrder_controller::class, 'quickCopyOrder'])->name('quickCopyOrder')->middleware('checkAdmin');
 
 
+// ================================================================================================================
 // 8. account
 
 Route::get('manage-account', [manageAccount_controller::class, 'index'])

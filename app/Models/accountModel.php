@@ -11,7 +11,10 @@ class accountModel extends Model
 
     protected $table = "account";
     protected $primaryKey = "id";
-    protected $fillable = ['username', 'password', 'is_admin', 'gender', 'email', 'address', 'phone_number', 'bane', 'dob', 'avatar', 'description', 'id_giftcode'];
+    protected $fillable = [
+        'username', 
+        'password', 
+        'is_admin', 'gender', 'email', 'address', 'phone_number', 'bane', 'dob', 'avatar', 'description', 'id_giftcode'];
 
     public $timestamps = true;
 
