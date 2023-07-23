@@ -116,7 +116,7 @@ class manageAccount_controller extends Controller
 
             $newAccount->save();
             
-            // thêm cart -------------- not done
+            // add cart -------------- done
             $newCart = new cartModel();
             $newCart->id_user = $newAccount->id;
             $newCart->save();
