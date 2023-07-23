@@ -185,7 +185,6 @@ class addProduct_controller extends Controller
                 unlink($imagePath);
             }
 
-            // Xóa thông tin sản phẩm khỏi giỏ hàng
             $carts = cart_proModel::where('id_product', $id)->get();
             foreach ($carts as $cart) {
                 $cart->delete();
