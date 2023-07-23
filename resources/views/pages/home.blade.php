@@ -1522,8 +1522,22 @@
                     @foreach ($products as $product)
                         @if ($product->id_typeProduct == 4)
                             <a href="{{ route('details', [$product->id, str_replace('/', '-', $product->name)]) }}" class="list__product">
-                                <span class="inner__text">-14%</span>
-                                <span class="excerpt">VOUCHER 1.000.000 VNĐ</span>
+                                {{-- <span class="inner__text">-14%</span> --}}
+                                {{-- <span class="excerpt">VOUCHER 1.000.000 VNĐ</span> --}}
+                                <span class="inner__text">
+                                    {{-- -14% --}}
+                                    -{{ number_format((($product->cost_old - $product->cost) / $product->cost_old) * 100, 0) }}%
+                                </span>
+                                
+                                @if ($product->cost_old - $product->cost < 500000)
+                                    <span class="excerpt">FREE 8GB DDR5 RAM</span>
+                                @elseif ($product->cost_old - $product->cost >= 500000 && $product->cost_old - $product->cost < 1000000)
+                                    <span class="excerpt">Refund 1,000,000 VND</span>
+                                @elseif ($product->cost_old - $product->cost >= 1000000 && $product->cost_old - $product->cost < 2000000)
+                                    <span class="excerpt">VOUCHER 1.000.000 VNĐ</span>
+                                @else
+                                
+                                @endif
                                 <div class="element__product-info">
                                     <div class="element__product-info--img">
                                         <img src="{{ asset('images/logitech.png') }}" alt=""
