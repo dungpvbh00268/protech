@@ -2,10 +2,10 @@
 -- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Jul 17, 2023 at 02:58 AM
--- Server version: 10.4.25-MariaDB
--- PHP Version: 8.1.10
+-- Máy chủ: 127.0.0.1
+-- Thời gian đã tạo: Th7 25, 2023 lúc 12:23 PM
+-- Phiên bản máy phục vụ: 10.4.25-MariaDB
+-- Phiên bản PHP: 8.1.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `protech`
+-- Cơ sở dữ liệu: `protech`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `account`
+-- Cấu trúc bảng cho bảng `account`
 --
 
 CREATE TABLE `account` (
@@ -47,7 +47,7 @@ CREATE TABLE `account` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `account`
+-- Đang đổ dữ liệu cho bảng `account`
 --
 
 INSERT INTO `account` (`id`, `username`, `password`, `is_admin`, `gender`, `email`, `address`, `phone_number`, `ban`, `dob`, `avatar`, `description`, `balance`, `id_giftcode`, `created_at`, `updated_at`) VALUES
@@ -64,7 +64,7 @@ INSERT INTO `account` (`id`, `username`, `password`, `is_admin`, `gender`, `emai
 -- --------------------------------------------------------
 
 --
--- Table structure for table `brands`
+-- Cấu trúc bảng cho bảng `brands`
 --
 
 CREATE TABLE `brands` (
@@ -75,7 +75,7 @@ CREATE TABLE `brands` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `brands`
+-- Đang đổ dữ liệu cho bảng `brands`
 --
 
 INSERT INTO `brands` (`id`, `name`, `created_at`, `updated_at`) VALUES
@@ -87,12 +87,13 @@ INSERT INTO `brands` (`id`, `name`, `created_at`, `updated_at`) VALUES
 (6, 'think pad', NULL, NULL),
 (12, 'null', '2023-06-29 08:53:23', '2023-06-29 08:53:23'),
 (14, 'think pad1', '2023-06-29 09:05:12', '2023-06-29 09:05:12'),
-(15, 'abc', '2023-07-12 03:19:10', '2023-07-12 03:19:10');
+(15, 'abc', '2023-07-12 03:19:10', '2023-07-12 03:19:10'),
+(16, 'logitech', '2023-07-12 03:19:10', '2023-07-12 03:19:10');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `cart`
+-- Cấu trúc bảng cho bảng `cart`
 --
 
 CREATE TABLE `cart` (
@@ -103,7 +104,7 @@ CREATE TABLE `cart` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `cart`
+-- Đang đổ dữ liệu cho bảng `cart`
 --
 
 INSERT INTO `cart` (`id`, `id_user`, `created_at`, `updated_at`) VALUES
@@ -119,7 +120,7 @@ INSERT INTO `cart` (`id`, `id_user`, `created_at`, `updated_at`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `cart_pro`
+-- Cấu trúc bảng cho bảng `cart_pro`
 --
 
 CREATE TABLE `cart_pro` (
@@ -132,32 +133,27 @@ CREATE TABLE `cart_pro` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `cart_pro`
+-- Đang đổ dữ liệu cho bảng `cart_pro`
 --
 
 INSERT INTO `cart_pro` (`id`, `id_cart`, `id_product`, `quantity`, `created_at`, `updated_at`) VALUES
 (18, 6, 1, 9, '2023-06-07 11:28:05', '2023-06-07 12:05:34'),
-(19, 6, 2, 6, '2023-06-07 11:28:05', '2023-06-07 12:05:45'),
 (22, 2, 3, 2, '2023-06-08 01:09:12', '2023-06-08 01:10:04'),
 (23, 2, 1, 2, '2023-06-08 01:09:24', '2023-06-08 01:10:28'),
-(24, 2, 2, 3, '2023-06-08 01:09:42', '2023-06-08 01:10:18'),
 (41, 1, 4, 2, '2023-06-10 00:40:00', '2023-06-10 00:44:52'),
 (42, 1, 3, 1, '2023-06-10 00:40:19', '2023-06-10 00:40:19'),
-(43, 1, 2, 1, '2023-06-10 00:40:29', '2023-06-10 00:40:29'),
 (44, 1, 1, 2, '2023-06-10 00:40:44', '2023-06-10 00:40:54'),
-(56, 9, 5, 1, '2023-06-21 00:46:42', '2023-06-21 00:46:42'),
 (57, 9, 1, 4, '2023-06-21 00:46:59', '2023-06-21 00:46:59'),
 (66, 9, 4, 1, '2023-06-28 04:37:38', '2023-06-28 04:37:38'),
 (67, 3, 52, 2, '2023-06-28 23:46:12', '2023-07-12 03:14:38'),
 (69, 3, 3, 2, '2023-07-05 00:49:18', '2023-07-11 22:17:18'),
-(72, 3, 2, 1, '2023-07-12 10:48:10', '2023-07-12 10:48:10'),
 (73, 3, 1, 2, '2023-07-12 12:13:13', '2023-07-13 00:52:56'),
 (74, 3, 62, 2, '2023-07-13 07:51:50', '2023-07-13 09:29:45');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `categories`
+-- Cấu trúc bảng cho bảng `categories`
 --
 
 CREATE TABLE `categories` (
@@ -169,7 +165,7 @@ CREATE TABLE `categories` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `categories`
+-- Đang đổ dữ liệu cho bảng `categories`
 --
 
 INSERT INTO `categories` (`id`, `name`, `description`, `created_at`, `updated_at`) VALUES
@@ -178,12 +174,13 @@ INSERT INTO `categories` (`id`, `name`, `description`, `created_at`, `updated_at
 (3, 'Mouse', NULL, NULL, NULL),
 (4, 'Nitro 5', 'Laptop acer nitro 5 ...', NULL, '2023-06-29 01:08:42'),
 (5, 'Legion 5', 'Laptop lenove legion 5', '2023-06-29 00:29:08', '2023-06-29 01:12:38'),
-(12, 'NULL', 'NULL', '2023-06-29 01:27:56', '2023-06-29 01:27:56');
+(12, 'NULL', 'NULL', '2023-06-29 01:27:56', '2023-06-29 01:27:56'),
+(18, 'Keyboard', NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `comment`
+-- Cấu trúc bảng cho bảng `comment`
 --
 
 CREATE TABLE `comment` (
@@ -199,7 +196,7 @@ CREATE TABLE `comment` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `failed_jobs`
+-- Cấu trúc bảng cho bảng `failed_jobs`
 --
 
 CREATE TABLE `failed_jobs` (
@@ -215,7 +212,7 @@ CREATE TABLE `failed_jobs` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `giftcode`
+-- Cấu trúc bảng cho bảng `giftcode`
 --
 
 CREATE TABLE `giftcode` (
@@ -228,7 +225,7 @@ CREATE TABLE `giftcode` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `giftcode`
+-- Đang đổ dữ liệu cho bảng `giftcode`
 --
 
 INSERT INTO `giftcode` (`id`, `code`, `detail`, `expired`, `created_at`, `updated_at`) VALUES
@@ -238,7 +235,7 @@ INSERT INTO `giftcode` (`id`, `code`, `detail`, `expired`, `created_at`, `update
 -- --------------------------------------------------------
 
 --
--- Table structure for table `images`
+-- Cấu trúc bảng cho bảng `images`
 --
 
 CREATE TABLE `images` (
@@ -252,7 +249,7 @@ CREATE TABLE `images` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `images`
+-- Đang đổ dữ liệu cho bảng `images`
 --
 
 INSERT INTO `images` (`id`, `fileName`, `filePath`, `description`, `id_product`, `created_at`, `updated_at`) VALUES
@@ -274,12 +271,16 @@ INSERT INTO `images` (`id`, `fileName`, `filePath`, `description`, `id_product`,
 (16, 'Âm thanh như phòng thu', '[\"Laptop-ASUS-ROG-Zephyrus-G14-GA402NJ-L4056W-768x768.jpg\",\"gp68-d2-scaled.jpg\"]', 'Đắm chìm trong các bản nhạc lossless và tận hưởng chất lượng âm thanh cao cấp với Laptop Gaming MSI Vector GP68 HX 12VH-070VN nhờ trang bị loa Nahimic đến từ Steelseries.', 62, '2023-07-12 17:50:53', '2023-07-12 17:50:53'),
 (17, 'TRẢI NGHIỆM KHÔNG DÂY HOÀN HẢO', '[\"Laptop-ASUS-ROG-Zephyrus-G14-GA402NJ-L4056W-768x768.jpg\",\"gp-d3.png\"]', 'Laptop Gaming MSI Vector GP68 HX 12VH-070VN được trang bị Wi-Fi 6E mới nhất mang đến tốc độ tuyệt vời đồng thời giữ cho mạng mượt mà và ổn định ngay cả khi chia sẻ mạng với nhiều người dùng. Với thông lượng vượt trội và độ trễ thấp, bạn có thể đánh bại những người khác.', 62, '2023-07-12 17:50:53', '2023-07-12 17:50:53'),
 (18, 'Cổng kết nối', '[\"Laptop-ASUS-ROG-Zephyrus-G14-GA402NJ-L4056W-768x768.jpg\",\"gp68-d1-scaled.jpg\"]', 'Laptop Gaming MSI Vector GP68 HX 12VH-070VN trang bị đầy đủ cổng kết nối với các cổng Thunder Bolt 4, 2x USB-A, 2x USB-C (w PD and DP), HDMI 2.1, cổng LAN, jack 3.5mm, SD-card.', 62, '2023-07-12 17:50:53', '2023-07-12 17:50:53'),
-(34, 'title', '[\"1689518880_OIP.jpg\",\"1689518880_predator-laptop-helios-16-full-range-of-ports-1.png\"]', 'Case PC', 65, '2023-07-16 07:48:00', '2023-07-16 07:48:00');
+(34, 'title', '[\"1689518880_OIP.jpg\",\"1689518880_predator-laptop-helios-16-full-range-of-ports-1.png\"]', 'Case PC', 65, '2023-07-16 07:48:00', '2023-07-16 07:48:00'),
+(35, 'MIXED WITH THE BEST', '[\"1690279949_12.png\",\"1690279949_12.png\"]', 'Des', 70, '2023-07-25 03:12:29', '2023-07-25 03:12:29'),
+(36, 'MIXED WITH THE BEST', '[\"1690279999_13.png\",\"1690279999_13.png\"]', 'Logitech G903 Hero', 70, '2023-07-25 03:13:19', '2023-07-25 03:13:19'),
+(37, 'MIXED WITH THE BEST', '[\"1690280015_14.png\",\"1690280015_14.png\"]', 'Logitech G903 Hero', 70, '2023-07-25 03:13:35', '2023-07-25 03:13:35'),
+(38, 'MIXED WITH THE BEST', '[\"1690280092_18.png\",\"1690280092_18.png\"]', 'Logitech G903 Hero', 70, '2023-07-25 03:14:52', '2023-07-25 03:14:52');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `migrations`
+-- Cấu trúc bảng cho bảng `migrations`
 --
 
 CREATE TABLE `migrations` (
@@ -289,7 +290,7 @@ CREATE TABLE `migrations` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `migrations`
+-- Đang đổ dữ liệu cho bảng `migrations`
 --
 
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
@@ -313,7 +314,7 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `order`
+-- Cấu trúc bảng cho bảng `order`
 --
 
 CREATE TABLE `order` (
@@ -328,7 +329,7 @@ CREATE TABLE `order` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `order`
+-- Đang đổ dữ liệu cho bảng `order`
 --
 
 INSERT INTO `order` (`id`, `quantity`, `address`, `bill_info`, `status`, `id_user`, `created_at`, `updated_at`) VALUES
@@ -340,7 +341,7 @@ INSERT INTO `order` (`id`, `quantity`, `address`, `bill_info`, `status`, `id_use
 -- --------------------------------------------------------
 
 --
--- Table structure for table `order_pro`
+-- Cấu trúc bảng cho bảng `order_pro`
 --
 
 CREATE TABLE `order_pro` (
@@ -354,7 +355,7 @@ CREATE TABLE `order_pro` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `password_reset_tokens`
+-- Cấu trúc bảng cho bảng `password_reset_tokens`
 --
 
 CREATE TABLE `password_reset_tokens` (
@@ -366,7 +367,7 @@ CREATE TABLE `password_reset_tokens` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `personal_access_tokens`
+-- Cấu trúc bảng cho bảng `personal_access_tokens`
 --
 
 CREATE TABLE `personal_access_tokens` (
@@ -385,7 +386,7 @@ CREATE TABLE `personal_access_tokens` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `products`
+-- Cấu trúc bảng cho bảng `products`
 --
 
 CREATE TABLE `products` (
@@ -413,15 +414,13 @@ CREATE TABLE `products` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `products`
+-- Đang đổ dữ liệu cho bảng `products`
 --
 
 INSERT INTO `products` (`id`, `name`, `description`, `image`, `cost`, `cost_old`, `cpu`, `gpu`, `ram`, `storage`, `screen_size`, `warranty_period`, `os`, `keyboard`, `pin`, `connector`, `id_typeProduct`, `id_category`, `id_brand`, `created_at`, `updated_at`) VALUES
 (1, 'Laptop Acer Predator Helios Neo 16 PHN16-71-59TN Geforce RTX 4060 8GB Intel Core i5 13500HX 16GB 512GB 16″ WQXGA IPS 165Hz RGB 4-Zone Win11 N9.QJSWW.002\n                ', 'Helios', 'laptop1.png', 26890000, 30490000, 'i5 13500HXA', 'RTX 4060', 'DDR5 16GB', '512GB', '16\" 2K+ 165Hz', '12 months 3s1', '	Windows 11 64 Bit', '4-Zone RGB Gaming Keyboard', '3 Cell 53.5 Battery (Whr)', '1x Mic-in/Headphone-out Combo Jack I/O PORTS 1x Type-C (USB3.2 Gen1 / DP) 2x Type-A USB3.2 Gen1 1x Type-A USB2.0 1x HDMI™ 2.1 (8K @ 60Hz / 4K @ 120Hz) 1x RJ45', 1, 1, 2, NULL, NULL),
-(2, 'Screen Gaming Acer Nitro KG241Y-P (24″/ IPS/ FullHD/ 165Hz/ 0.5ms/ 99% sRGB)', 'Screen Acer Nitro', 'screen acer.jpg', 4990000, 5990000, 'i5 13500HX', 'RTX 4060', 'DDR5 16GB', '512GB', '16\" 2K+ 165Hz', '12 months 3s1', NULL, NULL, NULL, NULL, 2, 1, 2, NULL, NULL),
 (3, 'Screen  ASUS TUF Gaming VG249Q1A (24″/ Full HD/ IPS/ 1ms MPRT/ 165Hz)', 'Screen ASUS', 'screen asus.jpg', 4490000, 4990000, 'i5 13500HX', 'RTX 4060', 'DDR5 16GB', '512GB', '16\" 2K+ 165Hz', '12 months 3s1', NULL, NULL, NULL, NULL, 2, 1, 3, NULL, NULL),
 (4, 'Laptop Acer Predator Helios Neo 16 PHN16-71-59TN Geforce RTX 4060 8GB Intel Core i5 13500HX 16GB 512GB 16″ WQXGA IPS 165Hz RGB 4-Zone Win11 N9.QJSWW.002\n                ', 'Nitro 7', 'laptop main.png', 26890000, 30490000, 'i5 13500HX', 'RTX 4060', 'DDR5 16GB', '512GB', '16\" 2K+ 165Hz', '12 months 3s1', NULL, NULL, NULL, NULL, 1, 1, 5, NULL, NULL),
-(5, 'Screen Gaming Acer Nitro KG241Y-P (24″/ IPS/ FullHD/ 165Hz/ 0.5ms/ 99% sRGB)', 'Screen Acer Nitro', 'screen acer.jpg', 4990000, 4990000, 'i5 13500HX', 'RTX 4060', 'DDR5 16GB', '512GB', '16\" 2K+ 165Hz', '12 months 3s1', NULL, NULL, NULL, NULL, 2, 1, 2, NULL, NULL),
 (47, 'Screen Gaming Acer Nitro KG241Y-P (24″/ IPS/ FullHD/ 165Hz/ 0.5ms/ 99% sRGB)', 'Screen Acer Nitro', '1687954697_casse.png', 4990000, 6990000, 'i5 13500HX', 'RTX 4060', 'DDR5 16GB', '512GB', '16\" 2K+ 165Hz', '12 months 3s1', '1', '1', '1', '1', 2, 1, 2, '2023-06-28 03:41:27', '2023-06-28 05:18:17'),
 (51, 'Screen Gaming Acer Nitro KG241Y-P (24″/ IPS/ FullHD/ 165Hz/ 0.5ms/ 99% sRGB)', 'Screen Acer Nitro', '1687954729_screen1.png', 4990000, 5990000, 'i5 13500HX', 'RTX 4060', 'DDR5 16GB', '512GB', '16\" 2K+ 165Hz', '12 months 3s1', '1', '1', '1', '1', 2, 1, 2, '2023-06-28 05:18:49', '2023-06-28 05:18:49'),
 (52, 'Laptop Acer Predator Helios Neo 16 PHN16-71-59TN Geforce RTX 4060 8GB Intel Core i5 13500HX 16GB 512GB 16″ WQXGA IPS 165Hz RGB 4-Zone Win11 N9.QJSWW.002', 'Helios', '1687954864_laptop4.png', 26890000, 30490000, 'i5 13500HXA', 'RTX 4060', 'DDR5 16GB', '512GB', '16\" 2K+ 165Hz', '12 months 3s1', 'Windows 11 64 Bit', '4-Zone RGB Gaming Keyboard', '3 Cell 53.5 Battery (Whr)', '1x Mic-in/Headphone-out Combo Jack I/O PORTS 1x Type-C (USB3.2 Gen1 / DP) 2x Type-A USB3.2 Gen1 1x Type-A USB2.0 1x HDMI™ 2.1 (8K @ 60Hz / 4K @ 120Hz) 1x RJ45', 1, 1, 2, '2023-06-28 05:21:04', '2023-06-28 05:21:04'),
@@ -432,12 +431,18 @@ INSERT INTO `products` (`id`, `name`, `description`, `image`, `cost`, `cost_old`
 (62, 'Laptop Gaming MSI Vector GP68 HX 12VH-070VN RTX 4080 12GB Intel i9 12900HX 16GB 1TB 16″ FHD+ 144Hz Perkey RGB Win 11', 'MSI Vector', '1689235264_gp68-1-768x614.jpg', 60890000, 61990000, 'i9 12900HX', 'RTX 4080 12GB', 'DDR5 16GB', '1TB SSD', '16\" 16:10 FHD+', '12 months 3s1', 'Windows 11 SL 64 Bit', 'Per-Key RGB Gaming Keyboard by SteelSeries', '4 Cell, 90Whrs', 'Gb LAN (Up to 2.5G) 1x Type-C (USB3.2 Gen2 / DP) 1x Type-C (USB / DP / Thunderbolt™ 4) 1x Type-C (USB3.2 Gen2 / DP) with PD charging 1x Type-A USB3.2 Gen1 1x Type-A USB3.2 Gen2 1x SD Express Card Reader 1x HDMI™ 2.1 (8K @ 60Hz / 4K @ 120Hz) 1x RJ45 1x Mic-in/Headphone-out Combo Jack', 1, 1, 1, '2023-07-13 01:01:04', '2023-07-13 01:01:04'),
 (63, 'Screen Gaming Acer Nitro KG241Y-P (24″/ IPS/ FullHD/ 165Hz/ 0.5ms/ 99% sRGB)', 'Screen Acer Nitro', '1689269326_casse.png', 4990000, 5190000, 'i5 13500HX', 'RTX 4060', 'DDR5 16GB', '512GB', '16\" 2K+ 165Hz', '12 months 3s1', '1', '1', '1', '1', 2, 2, 2, '2023-07-13 10:28:46', '2023-07-13 10:28:46'),
 (64, 'PC ProTech UD5 Intel i5-12400F 16GB RTX 3060 12G Ram DDR4 16GB', 'Case pc', '1689269922_casse.png', 19290000, 23990000, 'Core i5-12400F', 'RTX 3060', 'DDR4 16GB', '250GB NVME', 'B760M', '12 months Genuine 3S1', '660W', 'ABC', 'ABC', 'abc', 5, 2, 1, '2023-07-13 10:38:42', '2023-07-13 10:38:42'),
-(65, 'PC ProTech UD5 Intel i5-12400F 16GB RTX 3060 12G Ram DDR4 16GB', 'Case pc', '1689270034_casse.png', 19290000, 23990000, 'Core i5-12400F', 'RTX 3060', 'DDR4 16GB', '250GB NVME', 'B760M', '12 months Genuine 3S1', '660W', 'ABC', 'ABC', 'abc', 2, 2, 1, '2023-07-13 10:40:34', '2023-07-13 10:40:34');
+(65, 'PC ProTech UD5 Intel i5-12400F 16GB RTX 3060 12G Ram DDR4 16GB', 'Case pc', '1689270034_casse.png', 19290000, 23990000, 'Core i5-12400F', 'RTX 3060', 'DDR4 16GB', '250GB NVME', 'B760M', '12 months Genuine 3S1', '660W', 'ABC', 'ABC', 'abc', 2, 2, 1, '2023-07-13 10:40:34', '2023-07-13 10:40:34'),
+(66, 'Asus TUF Gaming M3 Gen II Wired Mouse', 'TUF Gaming M3', '1690103086_mice.png', 1990000, 2550000, 'i5 13500HXA', 'RTX 4060', 'DDR5 16GB', '512GB', '16\" 2K+ 165Hz', '12 months 3s1', 'Windows 11 64 Bit', '4-Zone RGB Gaming Keyboard', '3 Cell 53.5 Battery (Whr)', '1x Mic-in/Headphone-out Combo Jack I/O PORTS 1x Type-C (USB3.2 Gen1 / DP) 2x Type-A USB3.2 Gen1 1x Type-A USB2.0 1x HDMI™ 2.1 (8K @ 60Hz / 4K @ 120Hz) 1x RJ45', 4, 3, 3, '2023-07-23 02:03:31', '2023-07-23 02:04:46'),
+(67, 'Screen Gaming Acer Nitro KG241Y-P (24″/ IPS/ FullHD/ 165Hz/ 0.5ms/ 99% sRGB)', 'Screen Acer Nitro', '1690216653_screen acer.jpg', 4990000, 5990000, 'i5 13500HX', 'RTX 4060', 'DDR5 16GB', '512GB', '16\" 2K+ 165Hz', '12 months 3s1', '1', '1', '1', '1', 3, 2, 2, '2023-07-24 09:37:33', '2023-07-24 09:37:33'),
+(68, 'Asus ROG Strix Scope NX Deluxe Blue Keyboard', 'ROG Strix', '1690279112_keyboard.png', 3190000, 3990000, 'i5 13500HXA', 'RTX 4060', 'DDR5 16GB', '512GB', '16\" 2K+ 165Hz', '12 months 3s1', 'Windows 11 64 Bit', '4-Zone RGB Gaming Keyboard', '3 Cell 53.5 Battery (Whr)', '1x Mic-in/Headphone-out Combo Jack I/O PORTS 1x Type-C (USB3.2 Gen1 / DP) 2x Type-A USB3.2 Gen1 1x Type-A USB2.0 1x HDMI™ 2.1 (8K @ 60Hz / 4K @ 120Hz) 1x RJ45', 6, 18, 3, '2023-07-25 02:58:32', '2023-07-25 02:58:32'),
+(69, 'Asus ROG Strix Scope NX Deluxe Blue Keyboard', 'ROG Strix', '1690279370_1690279112_keyboard.png', 3190000, 4500000, 'i5 13500HXA', 'RTX 4060', 'DDR5 16GB', '512GB', '16\" 2K+ 165Hz', '12 months 3s1', 'Windows 11 64 Bit', '4-Zone RGB Gaming Keyboard', '3 Cell 53.5 Battery (Whr)', '1x Mic-in/Headphone-out Combo Jack I/O PORTS 1x Type-C (USB3.2 Gen1 / DP) 2x Type-A USB3.2 Gen1 1x Type-A USB2.0 1x HDMI™ 2.1 (8K @ 60Hz / 4K @ 120Hz) 1x RJ45', 6, 18, 3, '2023-07-25 03:01:37', '2023-07-25 03:02:50'),
+(70, 'Logitech G903 Hero Lightspeed Wireless Mouse', 'Logitech G903 Hero', '1690279825_11.png', 2277500, 3416250, 'i5 13500HXA', 'RTX 4060', 'DDR5 16GB', '512GB', '16\" 2K+ 165Hz', '12 months 3s1', 'Windows 11 64 Bit', '4-Zone RGB Gaming Keyboard', '3 Cell 53.5 Battery (Whr)', '1x Mic-in/Headphone-out Combo Jack I/O PORTS 1x Type-C (USB3.2 Gen1 / DP) 2x Type-A USB3.2 Gen1 1x Type-A USB2.0 1x HDMI™ 2.1 (8K @ 60Hz / 4K @ 120Hz) 1x RJ45', 4, 3, 16, '2023-07-25 03:10:25', '2023-07-25 03:10:25'),
+(71, 'Screen Gaming Acer Nitro KG241Y-P (24″/ IPS/ FullHD/ 165Hz/ 0.5ms/ 99% sRGB)', 'Screen Acer Nitro', '1690280522_1690216653_screen acer.jpg', 4990000, 5990000, 'i5 13500HX', 'RTX 4060', 'DDR5 16GB', '512GB', '16\" 2K+ 165Hz', '12 months 3s1', '1', '1', '1', '1', 3, 2, 2, '2023-07-25 03:22:02', '2023-07-25 03:22:02');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `type_product`
+-- Cấu trúc bảng cho bảng `type_product`
 --
 
 CREATE TABLE `type_product` (
@@ -449,7 +454,7 @@ CREATE TABLE `type_product` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `type_product`
+-- Đang đổ dữ liệu cho bảng `type_product`
 --
 
 INSERT INTO `type_product` (`id`, `type`, `description`, `created_at`, `updated_at`) VALUES
@@ -457,12 +462,13 @@ INSERT INTO `type_product` (`id`, `type`, `description`, `created_at`, `updated_
 (2, 2, 'PC', NULL, NULL),
 (3, 3, 'Screen', NULL, NULL),
 (4, 4, 'Mouse', NULL, NULL),
-(5, 5, 'Case PC', NULL, NULL);
+(5, 5, 'Case PC', NULL, NULL),
+(6, 6, 'Keyboard', NULL, NULL);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Cấu trúc bảng cho bảng `users`
 --
 
 CREATE TABLE `users` (
@@ -477,11 +483,11 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Indexes for dumped tables
+-- Chỉ mục cho các bảng đã đổ
 --
 
 --
--- Indexes for table `account`
+-- Chỉ mục cho bảng `account`
 --
 ALTER TABLE `account`
   ADD PRIMARY KEY (`id`),
@@ -489,20 +495,20 @@ ALTER TABLE `account`
   ADD KEY `account_id_giftcode_foreign` (`id_giftcode`);
 
 --
--- Indexes for table `brands`
+-- Chỉ mục cho bảng `brands`
 --
 ALTER TABLE `brands`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `cart`
+-- Chỉ mục cho bảng `cart`
 --
 ALTER TABLE `cart`
   ADD PRIMARY KEY (`id`),
   ADD KEY `cart_id_user_foreign` (`id_user`);
 
 --
--- Indexes for table `cart_pro`
+-- Chỉ mục cho bảng `cart_pro`
 --
 ALTER TABLE `cart_pro`
   ADD PRIMARY KEY (`id`),
@@ -510,13 +516,13 @@ ALTER TABLE `cart_pro`
   ADD KEY `cart_pro_id_product_foreign` (`id_product`);
 
 --
--- Indexes for table `categories`
+-- Chỉ mục cho bảng `categories`
 --
 ALTER TABLE `categories`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `comment`
+-- Chỉ mục cho bảng `comment`
 --
 ALTER TABLE `comment`
   ADD PRIMARY KEY (`id`),
@@ -524,40 +530,40 @@ ALTER TABLE `comment`
   ADD KEY `comment_id_products_foreign` (`id_products`);
 
 --
--- Indexes for table `failed_jobs`
+-- Chỉ mục cho bảng `failed_jobs`
 --
 ALTER TABLE `failed_jobs`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `failed_jobs_uuid_unique` (`uuid`);
 
 --
--- Indexes for table `giftcode`
+-- Chỉ mục cho bảng `giftcode`
 --
 ALTER TABLE `giftcode`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `images`
+-- Chỉ mục cho bảng `images`
 --
 ALTER TABLE `images`
   ADD PRIMARY KEY (`id`),
   ADD KEY `images_id_product_foreign` (`id_product`);
 
 --
--- Indexes for table `migrations`
+-- Chỉ mục cho bảng `migrations`
 --
 ALTER TABLE `migrations`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `order`
+-- Chỉ mục cho bảng `order`
 --
 ALTER TABLE `order`
   ADD PRIMARY KEY (`id`),
   ADD KEY `order_id_user_foreign` (`id_user`);
 
 --
--- Indexes for table `order_pro`
+-- Chỉ mục cho bảng `order_pro`
 --
 ALTER TABLE `order_pro`
   ADD PRIMARY KEY (`id`),
@@ -565,13 +571,13 @@ ALTER TABLE `order_pro`
   ADD KEY `order_pro_id_product_foreign` (`id_product`);
 
 --
--- Indexes for table `password_reset_tokens`
+-- Chỉ mục cho bảng `password_reset_tokens`
 --
 ALTER TABLE `password_reset_tokens`
   ADD PRIMARY KEY (`email`);
 
 --
--- Indexes for table `personal_access_tokens`
+-- Chỉ mục cho bảng `personal_access_tokens`
 --
 ALTER TABLE `personal_access_tokens`
   ADD PRIMARY KEY (`id`),
@@ -579,7 +585,7 @@ ALTER TABLE `personal_access_tokens`
   ADD KEY `personal_access_tokens_tokenable_type_tokenable_id_index` (`tokenable_type`,`tokenable_id`);
 
 --
--- Indexes for table `products`
+-- Chỉ mục cho bảng `products`
 --
 ALTER TABLE `products`
   ADD PRIMARY KEY (`id`),
@@ -588,169 +594,169 @@ ALTER TABLE `products`
   ADD KEY `products_id_brand_foreign` (`id_brand`);
 
 --
--- Indexes for table `type_product`
+-- Chỉ mục cho bảng `type_product`
 --
 ALTER TABLE `type_product`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `users`
+-- Chỉ mục cho bảng `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `users_email_unique` (`email`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT cho các bảng đã đổ
 --
 
 --
--- AUTO_INCREMENT for table `account`
+-- AUTO_INCREMENT cho bảng `account`
 --
 ALTER TABLE `account`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
--- AUTO_INCREMENT for table `brands`
+-- AUTO_INCREMENT cho bảng `brands`
 --
 ALTER TABLE `brands`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
--- AUTO_INCREMENT for table `cart`
+-- AUTO_INCREMENT cho bảng `cart`
 --
 ALTER TABLE `cart`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
--- AUTO_INCREMENT for table `cart_pro`
+-- AUTO_INCREMENT cho bảng `cart_pro`
 --
 ALTER TABLE `cart_pro`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=83;
 
 --
--- AUTO_INCREMENT for table `categories`
+-- AUTO_INCREMENT cho bảng `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
--- AUTO_INCREMENT for table `comment`
+-- AUTO_INCREMENT cho bảng `comment`
 --
 ALTER TABLE `comment`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `failed_jobs`
+-- AUTO_INCREMENT cho bảng `failed_jobs`
 --
 ALTER TABLE `failed_jobs`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `giftcode`
+-- AUTO_INCREMENT cho bảng `giftcode`
 --
 ALTER TABLE `giftcode`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `images`
+-- AUTO_INCREMENT cho bảng `images`
 --
 ALTER TABLE `images`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
--- AUTO_INCREMENT for table `migrations`
+-- AUTO_INCREMENT cho bảng `migrations`
 --
 ALTER TABLE `migrations`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
--- AUTO_INCREMENT for table `order`
+-- AUTO_INCREMENT cho bảng `order`
 --
 ALTER TABLE `order`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `order_pro`
+-- AUTO_INCREMENT cho bảng `order_pro`
 --
 ALTER TABLE `order_pro`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `personal_access_tokens`
+-- AUTO_INCREMENT cho bảng `personal_access_tokens`
 --
 ALTER TABLE `personal_access_tokens`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `products`
+-- AUTO_INCREMENT cho bảng `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=72;
 
 --
--- AUTO_INCREMENT for table `type_product`
+-- AUTO_INCREMENT cho bảng `type_product`
 --
 ALTER TABLE `type_product`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT for table `users`
+-- AUTO_INCREMENT cho bảng `users`
 --
 ALTER TABLE `users`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- Constraints for dumped tables
+-- Các ràng buộc cho các bảng đã đổ
 --
 
 --
--- Constraints for table `account`
+-- Các ràng buộc cho bảng `account`
 --
 ALTER TABLE `account`
   ADD CONSTRAINT `account_id_giftcode_foreign` FOREIGN KEY (`id_giftcode`) REFERENCES `giftcode` (`id`);
 
 --
--- Constraints for table `cart`
+-- Các ràng buộc cho bảng `cart`
 --
 ALTER TABLE `cart`
   ADD CONSTRAINT `cart_id_user_foreign` FOREIGN KEY (`id_user`) REFERENCES `account` (`id`);
 
 --
--- Constraints for table `cart_pro`
+-- Các ràng buộc cho bảng `cart_pro`
 --
 ALTER TABLE `cart_pro`
   ADD CONSTRAINT `cart_pro_id_cart_foreign` FOREIGN KEY (`id_cart`) REFERENCES `cart` (`id`),
   ADD CONSTRAINT `cart_pro_id_product_foreign` FOREIGN KEY (`id_product`) REFERENCES `products` (`id`);
 
 --
--- Constraints for table `comment`
+-- Các ràng buộc cho bảng `comment`
 --
 ALTER TABLE `comment`
   ADD CONSTRAINT `comment_id_products_foreign` FOREIGN KEY (`id_products`) REFERENCES `products` (`id`),
   ADD CONSTRAINT `comment_id_user_foreign` FOREIGN KEY (`id_user`) REFERENCES `account` (`id`);
 
 --
--- Constraints for table `images`
+-- Các ràng buộc cho bảng `images`
 --
 ALTER TABLE `images`
   ADD CONSTRAINT `images_id_product_foreign` FOREIGN KEY (`id_product`) REFERENCES `products` (`id`);
 
 --
--- Constraints for table `order`
+-- Các ràng buộc cho bảng `order`
 --
 ALTER TABLE `order`
   ADD CONSTRAINT `order_id_user_foreign` FOREIGN KEY (`id_user`) REFERENCES `account` (`id`);
 
 --
--- Constraints for table `order_pro`
+-- Các ràng buộc cho bảng `order_pro`
 --
 ALTER TABLE `order_pro`
   ADD CONSTRAINT `order_pro_id_order_foreign` FOREIGN KEY (`id_order`) REFERENCES `order` (`id`),
   ADD CONSTRAINT `order_pro_id_product_foreign` FOREIGN KEY (`id_product`) REFERENCES `products` (`id`);
 
 --
--- Constraints for table `products`
+-- Các ràng buộc cho bảng `products`
 --
 ALTER TABLE `products`
   ADD CONSTRAINT `products_id_brand_foreign` FOREIGN KEY (`id_brand`) REFERENCES `brands` (`id`),

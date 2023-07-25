@@ -1105,7 +1105,7 @@
 
                 <!-- element product -->
                 <div class="element__product">
-                    <a href="details.html" class="list__product">
+                    {{-- <a href="details.html" class="list__product">
                         <span class="inner__text">-14%</span>
                         <span class="excerpt">Refund 1,000,000 VND</span>
                         <div class="element__product-info">
@@ -1514,13 +1514,13 @@
                                 <span>Free Nationwide</span>
                             </div>
                         </div>
-                    </a>
+                    </a> --}}
 
 
 
                     {{-- test list products --}}
                     @foreach ($products as $product)
-                        @if ($product->id_typeProduct == 4)
+                        @if ($product->id_typeProduct == 4 || $product->id_typeProduct == 6)
                             <a href="{{ route('details', [$product->id, str_replace('/', '-', $product->name)]) }}" class="list__product">
                                 {{-- <span class="inner__text">-14%</span> --}}
                                 {{-- <span class="excerpt">VOUCHER 1.000.000 VNĐ</span> --}}
@@ -1539,8 +1539,12 @@
                                 
                                 @endif
                                 <div class="element__product-info">
-                                    <div class="element__product-info--img">
+                                    {{-- <div class="element__product-info--img">
                                         <img src="{{ asset('images/logitech.png') }}" alt=""
+                                            class="element__product-img">
+                                    </div> --}}
+                                    <div class="element__product-info--img">
+                                        <img src="{{ asset('images/' . $product -> image) }}" alt=""
                                             class="element__product-img">
                                     </div>
                                     <div class="element__product-title">
