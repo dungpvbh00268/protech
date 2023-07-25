@@ -443,7 +443,7 @@
                     @foreach ($products as $product)
                         @if ($product->id_typeProduct == 1)
                             {{-- <a href="details/{{ $product->id }}/{{ $product->name }}" class="list__product"> --}}
-                            <a href="{{ route('details', [$product->id, str_replace('/', '-', $product->name)]) }}"
+                            <a href="{{ route('details', [$product->id, str_replace(['/', '%'], ['-', '-'], $product->name)]) }}"
                                 class="list__product">
                                 @if ($product->cost_old - $product->cost < 1000000)
                                     <span class="excerpt">FREE 8GB DDR5 RAM</span>
@@ -978,7 +978,7 @@
                     </a> --}}
                     @foreach ($products as $product)
                         @if ($product->id_typeProduct == 2 || $product->id_typeProduct == 3 || $product->id_typeProduct == 5)
-                            <a href="{{ route('details', [$product->id, str_replace('/', '-', $product->name)]) }}"
+                            <a href="{{ route('details', [$product->id, str_replace(['/', '%'], ['-', '-'], $product->name)]) }}"
                                 class="list__product">
                                 <span class="inner__text">
                                     {{-- -14% --}}
@@ -1521,7 +1521,7 @@
                     {{-- test list products --}}
                     @foreach ($products as $product)
                         @if ($product->id_typeProduct == 4 || $product->id_typeProduct == 6)
-                            <a href="{{ route('details', [$product->id, str_replace('/', '-', $product->name)]) }}"
+                            <a href="{{ route('details', [$product->id, str_replace(['/', '%'], ['-', '-'], $product->name)]) }}"
                                 class="list__product">
                                 {{-- <span class="inner__text">-14%</span> --}}
                                 {{-- <span class="excerpt">VOUCHER 1.000.000 VNĐ</span> --}}
