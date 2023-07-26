@@ -221,6 +221,88 @@
                                         </div>
                                     </div>
                                 </a>
+                            @elseif ($result->id_typeProduct == 4 || $result->id_typeProduct == 6 || $result->id_typeProduct == 7)
+                                <a href="{{ route('details', [$result->id, str_replace(['/', '%'], ['-', '-'], $result->name)]) }}"
+                                    class="list__product">
+                                    {{-- <span class="inner__text">-14%</span> --}}
+                                    {{-- <span class="excerpt">VOUCHER 1.000.000 VNĐ</span> --}}
+                                    <span class="inner__text">
+                                        {{-- -14% --}}
+                                        -{{ number_format((($result->cost_old - $result->cost) / $result->cost_old) * 100, 0) }}%
+                                    </span>
+
+                                    @if ($result->cost_old - $result->cost < 500000)
+                                        <span class="excerpt">FREE 8GB DDR5 RAM</span>
+                                    @elseif ($result->cost_old - $result->cost >= 500000 && $result->cost_old - $result->cost < 1000000)
+                                        <span class="excerpt">Refund 1,000,000 VND</span>
+                                    @elseif ($result->cost_old - $result->cost >= 1000000 && $result->cost_old - $result->cost < 2000000)
+                                        <span class="excerpt">VOUCHER 1.000.000 VNĐ</span>
+                                    @else
+                                    @endif
+                                    <div class="element__product-info">
+                                        {{-- <div class="element__product-info--img">
+                                            <img src="{{ asset('images/logitech.png') }}" alt=""
+                                                class="element__product-img">
+                                        </div> --}}
+                                        <div class="element__product-info--img">
+                                            <img src="{{ asset('images/' . $result->image) }}" alt=""
+                                                class="element__product-img">
+                                        </div>
+                                        <div class="element__product-title">
+                                            {{ $result->name }}
+                                        </div>
+
+                                        <div class="star-rating">
+                                            <i class="fa-sharp fa-solid fa-star"></i>
+                                            <i class="fa-sharp fa-solid fa-star"></i>
+                                            <i class="fa-sharp fa-solid fa-star"></i>
+                                            <i class="fa-sharp fa-solid fa-star"></i>
+                                            <i class="fa-sharp fa-solid fa-star"></i>
+                                        </div>
+
+                                        <div class="element__product-costs">
+                                            <del class="element__product-costs--old">
+                                                {{ number_format($result->cost_old, 0, ',', ',') }}
+                                                <u>đ</u></del>
+                                            <div class="element__product-costs--new">
+                                                {{ number_format($result->cost, 0, ',', ',') }}
+                                                <u>đ</u>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="element__product-details">
+                                        <div>
+                                            <img src="{{ asset('images/connector.png') }}" alt="">
+                                            <span>Wireless</span>
+                                        </div>
+
+                                        <div>
+                                            <img src="{{ asset('images/mouse.png') }}" alt="">
+                                            <span>Gaming</span>
+                                        </div>
+
+                                        <div>
+                                            <img src="{{ asset('images/charging.png') }}" alt="">
+                                            <span>Type C</span>
+                                        </div>
+
+                                        <div>
+                                            <img src="{{ asset('images/color.png') }}" alt="">
+                                            <span>Black</span>
+                                        </div>
+
+                                        <div>
+                                            <img src="{{ asset('images/brand.png') }}" alt="">
+                                            <span>Logitech</span>
+                                        </div>
+
+                                        <div>
+                                            <img src="{{ asset('images/delivery.png') }}" alt="">
+                                            <span>Free Nationwide</span>
+                                        </div>
+                                    </div>
+                                </a>
                             @endif
                             {{-- @endforeach --}}
                         @endforeach

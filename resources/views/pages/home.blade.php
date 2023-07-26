@@ -38,15 +38,16 @@
                                                         <span class="sr-only">Next</span>
                                                     </a>
                                                 </div> -->
-                    <img src="{{ asset('images/banner-Slide1.png') }}" alt="">
+                    <img src="{{ asset('images/banner-slide.png') }}" alt="" style="height: 348px">
+                    {{-- <img src="{{ asset('images/banner-Slide1.png') }}" alt=""> --}}
                     <!-- end -->
 
                 </div>
                 <div class="body__banner-noSlide">
-                    <a href="##"><img src="{{ asset('images/banner.png') }}" alt=""></a>
-                    <a href="##"><img src="{{ asset('images/banner.png') }}" alt=""></a>
-                    <a href="##"><img src="{{ asset('images/banner.png') }}" alt=""></a>
-                    <a href="##"><img src="{{ asset('images/banner.png') }}" alt=""></a>
+                    <a href="##"><img src="{{ asset('images/banner4.png') }}" alt=""></a>
+                    <a href="##"><img src="{{ asset('images/banner3.png') }}" alt=""></a>
+                    <a href="##"><img src="{{ asset('images/banner2.png') }}" alt=""></a>
+                    <a href="##"><img src="{{ asset('images/banner1.png') }}" alt=""></a>
                 </div>
 
 
@@ -1520,7 +1521,7 @@
 
                     {{-- test list products --}}
                     @foreach ($products as $product)
-                        @if ($product->id_typeProduct == 4 || $product->id_typeProduct == 6)
+                        @if ($product->id_typeProduct == 4 || $product->id_typeProduct == 6 || $product->id_typeProduct == 7)
                             <a href="{{ route('details', [$product->id, str_replace(['/', '%'], ['-', '-'], $product->name)]) }}"
                                 class="list__product">
                                 {{-- <span class="inner__text">-14%</span> --}}
