@@ -37,7 +37,7 @@ class manageAccount_controller extends Controller
                     $carts = cartModel::where("id_user", $id)->get();
 
                     $oldImg = public_path('images/' . $account->avatar);
-                    if($oldImg){
+                    if($account->avatar && file_exists($oldImg)){
                         unlink($oldImg);
                     }
 
