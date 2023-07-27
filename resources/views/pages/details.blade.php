@@ -149,15 +149,15 @@
                             </div>
 
                             <div class="pro-right-img-nav--a">
-                                <img src="{{ asset('images/th (1).png') }}" alt="">
+                                <img src="{{ asset('images/1689518880_OIP.jpg') }}" alt="">
                             </div>
 
                             <div class="pro-right-img-nav--a">
-                                <img src="{{ asset('images/laptop main.png') }}" alt="">
+                                <img src="{{ asset('images/1689518880_OIP.jpg') }}" alt="">
                             </div>
 
                             <div class="pro-right-img-nav--a">
-                                <img src="{{ asset('images/laptop main.png') }}" alt="">
+                                <img src="{{ asset('images/1689518880_OIP.jpg') }}" alt="">
                             </div>
                         @endif
                     </div>
