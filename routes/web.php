@@ -31,6 +31,8 @@ use Illuminate\Support\Facades\Route;
 //     return view('pages.home');
 // });
 
+// test commit
+
 Route::get('/', [productController::class, 'index'])->name('index');
 
 Route::get('cart/', [cartController::class, 'index'])->name('cart');
