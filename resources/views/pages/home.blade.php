@@ -1549,7 +1549,7 @@
                                             class="element__product-img">
                                     </div>
                                     <div class="element__product-title">
-                                        {{ $product->name }}
+                                        {{ Str::limit($product->name, $limit = 51, $end = '...') }}
                                     </div>
 
                                     <div class="star-rating">
