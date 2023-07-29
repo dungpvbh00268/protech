@@ -38,7 +38,9 @@
                                                         <span class="sr-only">Next</span>
                                                     </a>
                                                 </div> -->
-                    <img src="{{ asset('images/banner-slide.png') }}" alt="">
+                    <img src="{{ asset('images/banner-slide.png') }}" alt="" style="width: 100%;
+                    height: auto;
+                    border-radius: 5px;">
                     <!-- end -->
 
                 </div>
