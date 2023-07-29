@@ -35,7 +35,7 @@ class authController extends Controller
                 ->with('showToastSigninError', true);
         }
     }
-
+    
     public function logout()
     {
         session()->flush();
