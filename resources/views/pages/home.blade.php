@@ -39,7 +39,6 @@
                                                     </a>
                                                 </div> -->
                     <img src="{{ asset('images/banner-slide.png') }}" alt="">
-                    {{-- <img src="{{ asset('images/banner-Slide1.png') }}" alt=""> --}}
                     <!-- end -->
 
                 </div>
