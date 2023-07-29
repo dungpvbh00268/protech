@@ -878,10 +878,6 @@ footer {
     align-items: flex-end;
 }
 
-.modal__inner {
-    /* padding: 25px; */
-}
-
 .modal__inner-signin .form__input--padding {
     padding: 25px;
 }
@@ -1158,10 +1154,6 @@ main {
     font-weight: 700;
     font-size: 1.6rem;
     margin-left: 5%;
-}
-
-.element__product-info {
-    /* margin: 20px 10px 0 10px; */
 }
 
 .element__product-details {
@@ -2545,14 +2537,6 @@ div.cart-product__coupon{
     text-align: center;
     color: #333;
     font-size: 1.4rem;
-}
-
-.profile__main-position{
-    
-}
-
-.profile__main-age{
-    
 }
 
 .profile__main-config span{
