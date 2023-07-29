@@ -34,7 +34,6 @@
 </head>
 
 <body>
-
     <!-- header -->
     <div class="header">
         <div class="header__main">
