@@ -17,7 +17,7 @@ class manageCategory extends Controller
         $accounts = accountModel::all();
         $products = productsModel::all();
         $categories = categoriesModel::all();
-        return view('pages/admin/categories/managecategories', compact('accounts', 'products', 'categories'));
+        return view('pages/admin/categories/manageCategories', compact('accounts', 'products', 'categories'));
     }
 
     public function addCategory()
