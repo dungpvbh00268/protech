@@ -26,10 +26,24 @@ function showModal() {
     }
 }
 
+function showModalOrder(){
+    const modal = document.getElementById('myModalOrder');
+    modal.style.visibility = 'visible'
+}
+
 // function showCart() {
 //     const modalCart = document.getElementById("cartModal");
 //     modalCart.style.visibility = "visible";
 // }
+
+document.querySelectorAll('.payment__option option').forEach(option => {
+    option.addEventListener('click', function() {
+        const selectedValue = this.value;
+        const inputField = document.querySelector('.verificationInput');
+        inputField.value = selectedValue;
+    });
+});
+
 
 function showCart() {
     const a = document.querySelectorAll(".modal__cart");
@@ -68,6 +82,9 @@ function offModal() {
     for(let i = 0; i < btnProfile.length; i++){
         btnProfile[i].style.transition = "none";
     }
+
+    const offModalOrder = document.getElementById('myModalOrder');
+    offModalOrder.style.visibility = 'hidden';
 }
 
 function backModal() {
@@ -325,6 +342,16 @@ function updating() {
     notificationSound1.play();
 }
 
+function rqSignIn() {
+    toast({
+        title: "Error!",
+        message: "An account login is required to place an order!",
+        type: "error",
+        duration: 5000,
+    });
+    notificationSound1.play();
+}
+
 //loader
 function showSuccessToastCart(event) {
     // event.preventDefault(); // Ngăn chặn hành động mặc định của liên kết
@@ -364,3 +391,18 @@ function hideAllForms() {
         btnProfile[j].classList.remove("btnProfile-first");
     }
 }
+
+
+
+// Lắng nghe sự kiện submit của form thứ hai
+document.getElementById("form2").addEventListener("submit", function(event) {
+    // Lấy giá trị của trường input trong form đầu tiên
+    var quantityValue = document.getElementById("quantityInput").value;
+
+    // Đặt giá trị vào trường input trong form thứ hai
+    var hiddenInput = document.createElement("input");
+    hiddenInput.setAttribute("type", "hidden");
+    hiddenInput.setAttribute("name", "quantity");
+    hiddenInput.setAttribute("value", quantityValue);
+    document.getElementById("form2").appendChild(hiddenInput);
+});

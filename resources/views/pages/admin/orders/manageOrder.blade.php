@@ -384,7 +384,27 @@
                                                 @if ($order->address == null)
                                                     <i>NULL</i>
                                                 @else
-                                                    {{ $order->address }}
+                                                    @php
+                                                        $infoAddress = json_decode($order->address, true);
+                                                        if (isset($infoAddress[0])) {
+                                                            $addressDeli = $infoAddress[0];
+                                                        } else {
+                                                            $addressDeli = 'N/A';
+                                                        }
+                                                        
+                                                        if (isset($infoAddress[1])) {
+                                                            $city = $infoAddress[1];
+                                                        } else {
+                                                            $city = 'N/A';
+                                                        }
+                                                        
+                                                        if (isset($infoAddress[2])) {
+                                                            $district = $infoAddress[2];
+                                                        } else {
+                                                            $district = 'N/A';
+                                                        }
+                                                    @endphp
+                                                    {{ $addressDeli }}, {{ $city }}, {{ $district }}
                                                 @endif
                                             </td>
                                             <td class="table--padding">

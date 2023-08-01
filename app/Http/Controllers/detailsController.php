@@ -55,7 +55,7 @@ class detailsController extends Controller
                     $cart_pro = new cart_proModel();
                     $cart_pro->id_cart = $cart->id;
                     $cart_pro->id_product = $product->id;
-                    $cart_pro->quantity = $quantity; 
+                    $cart_pro->quantity = $quantity;
                     $cart_pro->save();
                 }
 

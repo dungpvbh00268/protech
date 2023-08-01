@@ -182,6 +182,9 @@ Route::get('deleteOrder/{id}', [manageOrrder_controller::class, 'deleteOrder'])-
 Route::get('add-order-copy/{id}/{name}', [manageOrrder_controller::class, 'copyOrder'])->name('copyOrder')->middleware('checkAdmin');
 Route::post('quickCopyOrder', [manageOrrder_controller::class, 'quickCopyOrder'])->name('quickCopyOrder')->middleware('checkAdmin');
 
+// --
+Route::post('getOrder/{id}', [manageOrrder_controller::class, 'getOrder'])->name('getOrder');
+// --
 
 // ================================================================================================================
 // 8. account

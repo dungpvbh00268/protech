@@ -4,6 +4,7 @@ namespace App\Http\Controllers\admin\order;
 
 use App\Http\Controllers\Controller;
 use App\Models\accountModel;
+use App\Models\order_proModel;
 use App\Models\orderModel;
 use App\Models\productsModel;
 use Illuminate\Http\Request;
@@ -53,6 +54,10 @@ class manageOrrder_controller extends Controller
             //     'productId' => $request->productId,
             //     'code' => $request->code,
             // ];
+            // $infoAddress = [
+            //     $request
+            // ]
+
             $billInfo = [
                 $request->name,
                 $request->phoneNumber,
@@ -66,6 +71,50 @@ class manageOrrder_controller extends Controller
             $newOrder->save();
 
             return redirect()->intended('manage-order')->with('showToastSuccess', true);
+        }
+    }
+
+    public function getOrder(Request $request, $id)
+    {
+        $product = productsModel::find($id);
+        $validator = Validator::make($request->all(), [
+            // 'quantity' => 'required|integer|min:1',
+        ]);
+        if ($validator->fails()) {
+            return back();
+        } else {
+            $getOrder = new orderModel();
+            $getOrder->id_user = session('id_user');
+            $getOrder->quantity = $request->quantity;
+            $infoAddress = [
+                $request->address,
+                $request->city,
+                $request->district
+            ];
+            $billInfo = [
+                session('username'),
+                $request->phoneNumber,
+                $product->cost,
+                $product->description,
+                $id,
+                $request->message,
+            ];
+            $getOrder->address = json_encode($infoAddress);
+            $getOrder->bill_info = json_encode($billInfo);
+            $getOrder->save();
+
+            $orderId = $getOrder->id;
+
+            // $order_pro = order_proModel::where('id_product', $product->id)
+            //     ->where('id_order', $getOrder->id)
+            //     ->first();
+            // if ($order_pro) {
+                $nerOrderPro = new order_proModel();
+                $nerOrderPro->id_product = $product->id;
+                $nerOrderPro->id_order = $orderId;
+                $nerOrderPro->save();
+            // }
+            return back();
         }
     }
 }

@@ -1513,7 +1513,7 @@ main {
     display: flex;
 }
 
-.btn__payment input {
+.btn__payment .input {
     width: 3.631em;
     text-align: center;
     height: 100%;
@@ -1527,7 +1527,7 @@ main {
     transition: 0.4s;
 }
 
-.btn__payment button {
+.btn__payment .button {
     font-size: 1.4rem;
     font-weight: 700;
     color: #fff;
@@ -1538,12 +1538,11 @@ main {
     margin-left: 5px;
 }
 
-.btn__payment a {
+/* .btn__payment a {
     font-size: 1.4rem;
     font-weight: 700;
     color: #fff;
     background: #EE272A;
-    /* height: 100%; */
     padding: 11px 15px;
     border-radius: 5px;
     margin-left: 5px;
@@ -1551,7 +1550,7 @@ main {
     align-items: center;
     justify-content: center;
     width: 74px;
-}
+} */
 
 .btn__payment a:hover{
     opacity: 0.8;
@@ -2756,6 +2755,39 @@ div.cart-product__coupon{
     }
 }
 
+.payment__option{
+    background: #fff;
+    position: absolute;
+    width: 210px;
+    color: #333;
+    font-size: 1.3rem;
+    padding-left: 0;
+    padding-right: 0;
+    top: 106%;
+    left: 10px;
+    visibility: hidden;
+    transition: 0.5s;
+    z-index: 100000;
+}
+
+.option__padding{
+    padding: 8px 11px;
+    cursor: pointer;
+}
+
+.option__padding:hover{
+    background: #ececec;
+    transition: 0.3s;
+}
+
+.form__row--focus:focus ~ .payment__option{
+    transform: translateY(-15px);
+    visibility: visible;
+}
+
+.inner__btn-height{
+    height: 40px;
+}
 
 
 /* responsive */

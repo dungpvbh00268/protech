@@ -143,7 +143,7 @@
                                 @endif
                             @endforeach
                         @endforeach
-                        @if ($countImage === 0) 
+                        @if ($countImage === 0)
                             <div class="pro-right-img-nav--a">
                                 <img src="{{ asset('images/1689518880_OIP.jpg') }}" alt="">
                             </div>
@@ -242,14 +242,6 @@
                                     <span>♦ Free machine cleaning.</span><br>
                                     <span>♦ Free delivery nationwide.</span><br>
                                 </div>
-                                {{-- <div class="btn__payment">
-                                    <input type="number" value="1" title="Quantity" min="1" name="quantity">
-                                    <a href="{{ route('addCart', ['id' => $id]) }}" onclick="showSuccessToastCart(event)()">
-                                        Add To Cart
-                                    </a>
-
-                                    <button onclick="updating()">Buy Now</button>
-                                </div> --}}
 
                                 <div class="btn__payment">
                                     {{-- <input type="number" value="1" title="Quantity" min="1" name="quantity"> --}}
@@ -257,13 +249,133 @@
                                     <form action="{{ route('addCart', ['id' => $id]) }}" method="get">
                                         @csrf
                                         <div class="btn__payment">
-                                            <input type="number" value="1" title="Quantity" min="1"
-                                                name="quantity">
-                                            <button type="submit" onclick="showSuccessToastCart(event)()">Add To
+                                            <input id="quantityInput" class="input" type="number" value="1" title="Quantity"
+                                                min="1" name="quantity">
+                                            <button class="button" type="submit"
+                                                onclick="showSuccessToastCart(event)()">Add To
                                                 Cart</button>
                                         </div>
                                     </form>
-                                    <button onclick="updating()">Buy Now</button>
+
+                                    @if (session('username') && session('password'))
+                                        <button class="button" onclick="showModalOrder()">Buy Now</button>
+                                        <div id="myModalOrder" class="modal">
+                                            <div class="modal__main">
+                                                <div class="modal__inner">
+                                                    <form id="form2" method="POST" action="{{ route('getOrder', ['id' => $id]) }}"
+                                                        class="modal__inner-signin modal__inner-signin">
+                                                        @csrf
+                                                        <div class="form__input--padding">
+                                                            <div class="inner__header">
+                                                                <h2>Infomation Order</h2>
+                                                                <div onclick="offModal()"
+                                                                    class="elementor-menu-cart__close-button"></div>
+                                                            </div>
+
+                                                            <div class="inner__form">
+                                                                <div onclick="enbEffModal()" class="inner__form-row">
+                                                                    <input autocomplete="off" type="text"
+                                                                        class="form__row form__row-order" title="Full Name"
+                                                                        placeholder="" name="fullName" class="phoneInput"
+                                                                        required>
+                                                                    <span class="form__row-label">First and last name</span>
+                                                                </div>
+
+                                                                <div onclick="enbEffModal()" class="inner__form-row">
+                                                                    <input autocomplete="off" type="password"
+                                                                        class="form__row" title="Phone Number" placeholder=""
+                                                                        name="phoneNumber" class="passwordInput" required>
+                                                                    <span class="form__row-label">Phone Number</span>
+                                                                </div>
+
+                                                                <div onclick="enbEffModal()" class="inner__form-row">
+                                                                    <input autocomplete="off" type="text"
+                                                                        class="form__row" title="Address"
+                                                                        placeholder="" class="verificationInput" name="address" required>
+                                                                    <span class="form__row-label">Delivery address</span>
+                                                                </div>
+
+                                                                <div onclick="enbEffModal()" class="inner__form-row">
+                                                                    <input autocomplete="off" type="text"
+                                                                        class="form__row" title="City"
+                                                                        placeholder="" class="verificationInput" name="city" required>
+                                                                    <span class="form__row-label">City</span>
+                                                                </div>
+
+                                                                <div onclick="enbEffModal()" class="inner__form-row">
+                                                                    <input autocomplete="off" type="text"
+                                                                        class="form__row" title="District"
+                                                                        placeholder="" class="verificationInput" name="district" required>
+                                                                    <span class="form__row-label">District</span>
+                                                                </div>
+
+                                                                <div onclick="enbEffModal()" class="inner__form-row">
+                                                                    <input name="paymentMethod" autocomplete="off" type="text" class="form__row verificationInput form__row--focus" title="Select a payment method" placeholder="" required>
+                                                                    <span class="form__row-label">Select a payment method</span>
+                                                                    <div class="form__row verificationInput payment__option" name="paymentMethod" id="paymentMethodSelect">
+                                                                        <option class="option__padding" value="Online Payment">Online Payment</option>
+                                                                        <option class="option__padding" value="Payment on delivery (COD)">Payment on delivery (COD)</option>
+                                                                    </div>
+
+                                                                    <script src="{{asset('js/a.js')}}"></script>
+                                                                </div>
+
+                                                                <div onclick="enbEffModal()" class="inner__form-row">
+                                                                    {{-- <input autocomplete="off" type="text"
+                                                                        class="form__row" title="Verification"
+                                                                        placeholder="" class="verificationInput" required> --}}
+                                                                    <textarea class="form__row" title="Description" placeholder="" class="verificationInput" name="message" required></textarea>
+                                                                    <span class="form__row-label">Message</span>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="inner__terms">
+                                                                By signup, you agree to ProTech's <a
+                                                                    class="inner__terms-link" href="##">Terms of
+                                                                    Service</a> & <a class="inner__terms-link"
+                                                                    href="###">Privacy Policy</a>
+                                                            </div>
+
+                                                            <div class="inner__btn inner__btn-height">
+                                                                <div onclick="offModal()"
+                                                                    class="inner__btn-main inner__btn-back"
+                                                                    style="cursor: pointer">
+                                                                    Back
+                                                                </div>
+                                                                <!--up-->
+                                                                <button ondblclick="showToast()"
+                                                                    onclick="validateInputsAndSubmit();" type="submit"
+                                                                    class="inner__btn-main inner__btn-signup">Order</button>
+                                                                <!--up-->
+                                                            </div>
+                                                        </div>
+                                                    </form>
+                                                    <script src="{{asset('js/a.js')}}"></script>
+                                                    
+                                                    <script>
+                                                        // Lắng nghe sự kiện submit của form thứ hai
+                                                        document.getElementById("form2").addEventListener("submit", function(event) {
+                                                            // Lấy giá trị của trường input trong form đầu tiên
+                                                            var quantityValue = document.getElementById("quantityInput").value;
+                                                    
+                                                            // Đặt giá trị vào trường input trong form thứ hai
+                                                            var hiddenInput = document.createElement("input");
+                                                            hiddenInput.setAttribute("type", "hidden");
+                                                            hiddenInput.setAttribute("name", "quantity");
+                                                            hiddenInput.setAttribute("value", quantityValue);
+                                                            document.getElementById("form2").appendChild(hiddenInput);
+                                                        });
+                                                    </script>
+                                                </div>
+                                            </div>
+                                            <!-- backModal() -->
+                                            <div onclick="offModal()" class="modal__overlay"></div>
+                                        </div>
+                                        <!-- end modal -->
+                                    @else
+                                        <button class="button" onclick="rqSignIn()">Buy Now</button>
+                                    @endif
+
                                 </div>
 
                             </div>

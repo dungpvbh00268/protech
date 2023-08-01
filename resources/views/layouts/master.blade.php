@@ -466,7 +466,8 @@
                                                                     @if ($account->is_admin == 1)
                                                                         <span class="profile__id-admin">(ADMIN)</span>
                                                                     @elseif ($account->is_admin == 2)
-                                                                        <span class="profile__id-admin">(Super Admin)</span>
+                                                                        <span class="profile__id-admin">(Super
+                                                                            Admin)</span>
                                                                     @endif
                                                                 @endif
                                                             @endforeach
@@ -550,6 +551,26 @@
                                                         <div id="profile__info-num profile__info-2"
                                                             class="formProfile" style="display: none;">
                                                             442
+                                                            {{-- <table>
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th>ID Orders</th>
+                                                                        <th>Product</th>
+                                                                        <th>Total</th>
+                                                                        <th>Status</th>
+                                                                        <th>Time</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td>PT45</td>
+                                                                        <td>Acer Nitro 5</td>
+                                                                        <td>10,000,000</td>
+                                                                        <td>Pending</td>
+                                                                        <td>10;1</td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table> --}}
                                                         </div>
                                                         <div id="profile__info-num profile__info-3"
                                                             class="formProfile" style="display: none;">
