@@ -590,8 +590,8 @@
                                                         </svg>
                                                     </button>
                                                     <ul class="users-item-dropdown dropdown">
-                                                        <li><a
-                                                                href="update-category/{{ $category->id }}/{{ str_replace('/', '-', $category->name) }}">Edit</a>
+                                                        <li>
+                                                            <a href="updateCategory/{{ $category->id }}/{{ str_replace('/', '-', $category->name) }}">Edit</a>
                                                         </li>
                                                         <li><a
                                                                 href="{{ route('copyCate', [$category->id, str_replace('/', '-', $category->name)]) }}">Quick

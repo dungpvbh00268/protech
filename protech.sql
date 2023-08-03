@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 31, 2023 at 04:19 AM
+-- Generation Time: Aug 03, 2023 at 07:17 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -58,8 +58,9 @@ INSERT INTO `account` (`id`, `username`, `password`, `is_admin`, `gender`, `emai
 (12, 'qqqqqq', 'qqqqqq', 0, NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL, 0, NULL, '2023-06-07 10:59:03', '2023-06-07 10:59:03'),
 (13, '222222', '222222', 0, NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL, 0, NULL, '2023-06-07 11:26:48', '2023-06-07 11:26:48'),
 (17, 'user', 'user', 0, 'male', 'phamdung.22092003@gmail.com', 'Ha Noi', 787099745, 0, '2003-09-22', 'avatar1.png', NULL, 20000, NULL, '2023-06-21 00:27:37', '2023-06-21 00:27:37'),
-(26, 'phamdung22092003', 'phamdung22092003', 1, 'male', 'phamdung.22092003@gmail.com', 'Ha Noi', 787099745, 0, '2003-09-22', 'null.png', 'abc', 20000, NULL, '2023-07-16 03:52:37', '2023-07-16 03:52:37'),
-(29, 'phamdung22091', 'phamdung22091', 0, 'male', 'phamdung.22092003@gmail.com', 'Ha Noi', 787099745, 0, '2023-07-16', 'null.png', 'abc', 20000, NULL, '2023-07-16 06:40:02', '2023-07-16 06:40:02');
+(29, 'phamdung22091', 'phamdung22091', 0, 'male', 'phamdung.22092003@gmail.com', 'Ha Noi', 787099745, 0, '2023-07-16', 'null.png', 'abc', 20000, NULL, '2023-07-16 06:40:02', '2023-07-16 06:40:02'),
+(31, 'dungpham2209', 'dungpham2209', 0, NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL, 0, NULL, '2023-08-01 12:01:11', '2023-08-01 12:01:11'),
+(32, 'loan123', 'loan123', 0, NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL, 0, NULL, '2023-08-02 03:01:45', '2023-08-02 03:01:45');
 
 -- --------------------------------------------------------
 
@@ -115,7 +116,9 @@ INSERT INTO `cart` (`id`, `id_user`, `created_at`, `updated_at`) VALUES
 (5, 12, NULL, NULL),
 (6, 13, NULL, NULL),
 (9, 17, NULL, NULL),
-(19, 29, '2023-07-16 06:40:02', '2023-07-16 06:40:02');
+(19, 29, '2023-07-16 06:40:02', '2023-07-16 06:40:02'),
+(21, 31, '2023-08-01 12:01:11', '2023-08-01 12:01:11'),
+(22, 32, '2023-08-02 03:01:45', '2023-08-02 03:01:45');
 
 -- --------------------------------------------------------
 
@@ -142,12 +145,16 @@ INSERT INTO `cart_pro` (`id`, `id_cart`, `id_product`, `quantity`, `created_at`,
 (23, 2, 1, 2, '2023-06-08 01:09:24', '2023-06-08 01:10:28'),
 (41, 1, 4, 2, '2023-06-10 00:40:00', '2023-06-10 00:44:52'),
 (42, 1, 3, 1, '2023-06-10 00:40:19', '2023-06-10 00:40:19'),
-(44, 1, 1, 2, '2023-06-10 00:40:44', '2023-06-10 00:40:54'),
+(44, 1, 1, 6, '2023-06-10 00:40:44', '2023-08-01 09:08:19'),
 (57, 9, 1, 4, '2023-06-21 00:46:59', '2023-06-21 00:46:59'),
 (66, 9, 4, 1, '2023-06-28 04:37:38', '2023-06-28 04:37:38'),
 (74, 3, 62, 2, '2023-07-13 07:51:50', '2023-07-13 09:29:45'),
 (83, 3, 63, 1, '2023-07-25 08:12:05', '2023-07-25 08:12:05'),
-(84, 3, 51, 1, '2023-07-25 08:12:12', '2023-07-25 08:12:12');
+(84, 3, 51, 1, '2023-07-25 08:12:12', '2023-07-25 08:12:12'),
+(87, 3, 64, 2, '2023-08-01 01:52:16', '2023-08-01 02:15:50'),
+(88, 3, 74, 1, '2023-08-01 23:05:54', '2023-08-01 23:05:54'),
+(89, 22, 62, 5, '2023-08-02 03:04:11', '2023-08-02 03:04:17'),
+(90, 22, 52, 1, '2023-08-02 03:07:21', '2023-08-02 03:07:21');
 
 -- --------------------------------------------------------
 
@@ -333,10 +340,20 @@ CREATE TABLE `order` (
 --
 
 INSERT INTO `order` (`id`, `quantity`, `address`, `bill_info`, `status`, `id_user`, `created_at`, `updated_at`) VALUES
-(1, 10, 'Ha Noi', '[\"phamdung2209\",\"0787099745\",\"29999999\",\"8afGh7R2b9aghfw0\", \"Screen Gaming Acer Nitro\", \"2\"]', 'pending', 10, '2023-07-12 05:26:09', '2023-07-12 05:26:09'),
-(2, 12, 'Ha Noi', '[\"dungpham\",\"0787099745\",\"123456\",\"Dell Gaming\",\"2\",\"db2Mam\"]', 'processing', 10, '2023-07-12 04:29:31', '2023-07-12 04:29:31'),
-(3, 1, 'Ha Noi', '[\"dungpham\",\"0787099745\",\"123456\",\"Dell Gaming\",\"2\",\"DHoHS6\"]', 'shipped', 10, '2023-07-12 04:36:41', '2023-07-12 04:36:41'),
-(4, 1000, 'Ha Noi', '[\"dungpham\",\"0787099745\",\"30000000\",\"Dell Gaming\",\"2\",\"dYTI0P\"]', 'delivered', 10, '2023-07-12 05:13:27', '2023-07-12 05:13:27');
+(32, 2, '[\"Ha Noi\",\"Ha Noi\",\"1\"]', '[\"zzzzzz\",\"1\",60890000,\"MSI Vector\",\"62\",\"1\"]', 'pending', 11, '2023-08-01 09:15:41', '2023-08-01 09:15:41'),
+(33, 3, '[\"Ha Noi\",\"Ha Noi\",\"1\"]', '[\"zzzzzz\",\"1\",60890000,\"MSI Vector\",\"62\",\"1\"]', 'pending', 11, '2023-08-01 09:16:08', '2023-08-01 09:16:08'),
+(34, 1000, '[\"Ha Noi\",\"Ha Noi\",\"1\"]', '[\"zzzzzz\",\"1\",60890000,\"MSI Vector\",\"62\",\"1\"]', 'pending', 11, '2023-08-01 09:16:30', '2023-08-01 09:16:30'),
+(44, 1, '[\"Ha Noi\",\"Ha Noi\",\"1\"]', '[\"phamdung2209\",\"1\",1440000,\"Mouse Pad Razer\",\"74\",\"1\"]', 'delivered', 10, '2023-08-01 09:41:05', '2023-08-01 09:41:05'),
+(45, 1, '[\"Ha Noi\",\"Ha Noi\",\"1\"]', '[\"phamdung2209\",\"1\",4490000,\"Screen ASUS\",\"3\",\"1\"]', 'shipped', 10, '2023-08-01 10:14:08', '2023-08-01 10:14:08'),
+(46, 3, '[\"Ha Noi\",\"Ha Noi\",\"1\"]', '[\"phamdung2209\",\"1\",29290000,\"Case pc\",\"64\",\"1\"]', 'processing', 10, '2023-08-01 10:41:21', '2023-08-01 10:41:21'),
+(47, 1, '[\"Ha Noi\",\"Ha Noi\",\"2\"]', '[\"phamdung2209\",\"2\",4490000,\"Screen ASUS\",\"3\",\"2\"]', 'pending', 10, '2023-08-01 11:17:10', '2023-08-01 11:17:10'),
+(52, 1, '[\"Ha Noi\",\"Ha Noi\",\"1\"]', '[\"phamdung2209\",\"1\",19890000,\"Asus TUF\",\"58\",\"1\"]', 'pending', 10, '2023-08-01 11:43:25', '2023-08-01 11:43:25'),
+(53, 1, '[\"Ha Noi\",\"Ha Noi\",\"1\"]', '[\"phamdung2209\",\"1\",19890000,\"Asus TUF\",\"58\",\"1\"]', 'pending', 10, '2023-08-01 11:44:20', '2023-08-01 11:44:20'),
+(54, 1, '[\"Ha Noi\",\"Ha Noi\",\"11\"]', '[\"phamdung2209\",\"1\",19890000,\"Asus TUF\",\"58\",\"1\"]', 'processing', 10, '2023-08-01 11:44:30', '2023-08-01 11:44:30'),
+(55, 1, '[\"Ha Noi\",\"Ha Noi\",\"1\"]', '[\"phamdung2209\",\"1\",1440000,\"Mouse Pad Razer\",\"74\",\"1\"]', 'pending', 10, '2023-08-01 23:13:26', '2023-08-01 23:13:26'),
+(56, 1, '[\"Ha Noi\",\"Ha Noi\",\"1\"]', '[\"phamdung2209\",\"1\",1440000,\"Mouse Pad Razer\",\"74\",\"1\"]', 'pending', 10, '2023-08-01 23:14:15', '2023-08-01 23:14:15'),
+(57, 1, '[\"Ha Noi\",\"Ha Noi\",\"1\"]', '[\"phamdung2209\",\"1\",1440000,\"Mouse Pad Razer\",\"74\",\"1\"]', 'pending', 10, '2023-08-01 23:15:02', '2023-08-01 23:15:02'),
+(58, 1, '[\"Ha Noi\",\"Ha Noi\",\"1\"]', '[\"loan123\",\"1\",60890000,\"MSI Vector\",\"62\",\"1\"]', 'pending', 32, '2023-08-02 03:04:38', '2023-08-02 03:04:38');
 
 -- --------------------------------------------------------
 
@@ -351,6 +368,23 @@ CREATE TABLE `order_pro` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `order_pro`
+--
+
+INSERT INTO `order_pro` (`id`, `id_order`, `id_product`, `created_at`, `updated_at`) VALUES
+(1, 44, 74, '2023-08-01 09:41:05', '2023-08-01 09:41:05'),
+(2, 45, 3, '2023-08-01 10:14:08', '2023-08-01 10:14:08'),
+(3, 46, 64, '2023-08-01 10:41:21', '2023-08-01 10:41:21'),
+(4, 47, 3, '2023-08-01 11:17:10', '2023-08-01 11:17:10'),
+(9, 52, 58, '2023-08-01 11:43:25', '2023-08-01 11:43:25'),
+(10, 53, 58, '2023-08-01 11:44:20', '2023-08-01 11:44:20'),
+(11, 54, 58, '2023-08-01 11:44:30', '2023-08-01 11:44:30'),
+(12, 55, 74, '2023-08-01 23:13:26', '2023-08-01 23:13:26'),
+(13, 56, 74, '2023-08-01 23:14:15', '2023-08-01 23:14:15'),
+(14, 57, 74, '2023-08-01 23:15:02', '2023-08-01 23:15:02'),
+(15, 58, 62, '2023-08-02 03:04:38', '2023-08-02 03:04:38');
 
 -- --------------------------------------------------------
 
@@ -620,7 +654,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `account`
 --
 ALTER TABLE `account`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT for table `brands`
@@ -632,13 +666,13 @@ ALTER TABLE `brands`
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `cart_pro`
 --
 ALTER TABLE `cart_pro`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=87;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=91;
 
 --
 -- AUTO_INCREMENT for table `categories`
@@ -680,13 +714,13 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `order`
 --
 ALTER TABLE `order`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
 
 --
 -- AUTO_INCREMENT for table `order_pro`
 --
 ALTER TABLE `order_pro`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
@@ -698,7 +732,7 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=77;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=78;
 
 --
 -- AUTO_INCREMENT for table `type_product`

@@ -2499,6 +2499,17 @@ div.cart-product__coupon{
     width: 50%;
 }
 
+.cart__null-notify--check{
+    background: #F7F6F7;
+    padding: 1em 2em 1em 3.5em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #515151;
+    font-size: 1.3rem;
+    border-top: 3px solid #1e85be;
+}
+
 .cart__null-btnBack{
     font-size: 1.4rem;
     font-weight: 500;
@@ -2846,4 +2857,41 @@ div.cart-product__coupon{
         height: 300px;
         transition: 0.5s;
     }
+}
+
+
+.processing{
+    background: #FFC107;
+    color: #fff;
+    padding: 2px 5px;
+    border-radius: 3px;
+    font-weight: 500;
+}
+
+.pending{
+    background: #d2d6de;
+    color: #444;
+    padding: 2px 5px;
+    border-radius: 3px;
+    font-weight: 500;
+}
+
+.shipped{
+    background: #00c0ef;
+    color: #fff;
+    padding: 2px 5px;
+    border-radius: 3px;
+    font-weight: 500;
+}
+
+.delivered{
+    background: #00a65a;
+    color: #fff;
+    padding: 2px 5px;
+    border-radius: 3px;
+    font-weight: 500;
+}
+
+.tdOrder{
+    padding: 13px 5px;
 }

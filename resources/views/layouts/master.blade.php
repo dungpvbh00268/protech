@@ -549,28 +549,83 @@
                                                             </span>
                                                         </div>
                                                         <div id="profile__info-num profile__info-2"
-                                                            class="formProfile" style="display: none;">
-                                                            442
-                                                            {{-- <table>
-                                                                <thead>
-                                                                    <tr>
-                                                                        <th>ID Orders</th>
-                                                                        <th>Product</th>
-                                                                        <th>Total</th>
-                                                                        <th>Status</th>
-                                                                        <th>Time</th>
-                                                                    </tr>
-                                                                </thead>
+                                                            class="formProfile"
+                                                            style="display: none; max-height: 42vh;
+                                                            overflow-y: auto; max-width: 100%; overflow-x:auto">
+                                                            <table style="font-size: 1.2rem; ">
+                                                                @foreach ($orders as $order)
+                                                                    @if (session('id_user') == $order->id_user)
+                                                                        <thead style="height: 23px;">
+                                                                            <tr>
+                                                                                <th>ID</th>
+                                                                                <th>Product</th>
+                                                                                <th>Total</th>
+                                                                                <th>Status</th>
+                                                                                <th style="width: 71px;">Time</th>
+                                                                            </tr>
+                                                                        </thead>
+                                                                        @break
+                                                                    @endif
+                                                                @endforeach
+
+
                                                                 <tbody>
-                                                                    <tr>
-                                                                        <td>PT45</td>
-                                                                        <td>Acer Nitro 5</td>
-                                                                        <td>10,000,000</td>
-                                                                        <td>Pending</td>
-                                                                        <td>10;1</td>
-                                                                    </tr>
+                                                                    @php
+                                                                        $isNull = 0;
+                                                                    @endphp
+                                                                    @foreach ($orders as $order)
+                                                                        @if (session('id_user') == $order->id_user)
+                                                                            @php
+                                                                                $billInfo = json_decode($order->bill_info, true);
+                                                                                $price = $billInfo[2];
+                                                                                $name = $billInfo[3];
+                                                                                $isNull += 1;
+                                                                            @endphp
+                                                                            <tr>
+                                                                                <td class="tdOrder">
+                                                                                    PT{{ $order->id }}</td>
+                                                                                <td class="tdOrder">
+                                                                                    {{ $name }}</td>
+                                                                                <td class="tdOrder">
+                                                                                    {{ number_format($price, 0, ',', ',') }}
+                                                                                    <u>đ</u>
+                                                                                </td>
+                                                                                <td class="tdOrder">
+                                                                                    @if ($order->status == 'pending')
+                                                                                        <span
+                                                                                            class="pending">{{ $order->status }}</span>
+                                                                                        @elseif ($order->status == 'processing')
+                                                                                        <span
+                                                                                            class="processing">{{ $order->status }}</span>
+                                                                                        @elseif ($order->status == 'shipped')
+                                                                                        <span
+                                                                                            class="shipped">{{ $order->status }}</span>
+                                                                                        @elseif ($order->status == 'delivered')
+                                                                                        <span
+                                                                                            class="delivered">{{ $order->status }}</span>
+                                                                                    @endif
+
+                                                                                </td>
+                                                                                <td class="tdOrder">{{$order->updated_at}}</td>
+                                                                            </tr>
+                                                                        @endif
+                                                                    @endforeach
+                                                                    @if ($isNull == 0)
+                                                                        {{-- <div class="cart__inner-pro--mess">
+                                                                            No products in the cart. sssssssssssssssss
+                                                                        </div> --}}
+                                                                        <div class="cart__null-notify--check">
+                                                                            <i style="    
+                                                                            color: #1e85be;
+                                                                            margin-right: 15px;
+                                                                            font-size: 1.6rem;
+                                                                            font-weight: bold;"
+                                                                                class="fa-brands fa-opencart"></i>
+                                                                            There are no products on order.
+                                                                        </div>
+                                                                    @endif
                                                                 </tbody>
-                                                            </table> --}}
+                                                            </table>
                                                         </div>
                                                         <div id="profile__info-num profile__info-3"
                                                             class="formProfile" style="display: none;">
@@ -1506,7 +1561,7 @@
     @if (session('showToastSignupError'))
         <script>
             toast({
-                title: "Error!",
+                title: "Signup Error!",
                 message: "The account or password is invalid, please enter the account and password with at least 6 digits.",
                 type: "error",
                 duration: 5000
@@ -1515,6 +1570,29 @@
         </script>
     @endif
 
+    @if (session('showToastGetOrderSS'))
+        <script>
+            toast({
+                title: "Order Success!",
+                message: "Your order has been successfully placed and is being processed.",
+                type: "success",
+                duration: 5000
+            });
+            notificationSound1.play();
+        </script>
+    @endif
+
+    @if (session('showToastGetOrderError'))
+        <script>
+            toast({
+                title: "Order Error!",
+                message: "An error has occurred, please contact the administrator.",
+                type: "error",
+                duration: 5000
+            });
+            notificationSound1.play();
+        </script>
+    @endif
 
     <!--warning-->
     <!-- <div id="message" class="message message--warning">

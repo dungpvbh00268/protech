@@ -81,7 +81,7 @@ class manageOrrder_controller extends Controller
             // 'quantity' => 'required|integer|min:1',
         ]);
         if ($validator->fails()) {
-            return back();
+            return back()->with('showToastGetOrderError', true);
         } else {
             $getOrder = new orderModel();
             $getOrder->id_user = session('id_user');
@@ -109,12 +109,12 @@ class manageOrrder_controller extends Controller
             //     ->where('id_order', $getOrder->id)
             //     ->first();
             // if ($order_pro) {
-                $nerOrderPro = new order_proModel();
-                $nerOrderPro->id_product = $product->id;
-                $nerOrderPro->id_order = $orderId;
-                $nerOrderPro->save();
+            $nerOrderPro = new order_proModel();
+            $nerOrderPro->id_product = $product->id;
+            $nerOrderPro->id_order = $orderId;
+            $nerOrderPro->save();
             // }
-            return back();
+            return back()->with('showToastGetOrderSS', true);
         }
     }
 }
