@@ -820,6 +820,8 @@
         <div class="hearder__nav">
             <ul class="hearder__nav-list">
                 <li class="hearder__nav-list--hover">Laptop</li>
+                {{-- toyssssss --}}
+                {{-- <li class="hearder__nav-list--hover">Lego</li> --}}
                 <div class="header__nav-list--sub">
                     <ul>
                         <li class="header__nav-list--sub-1">Laptop Acer</li>
@@ -915,6 +917,8 @@
             </ul>
             <ul class="hearder__nav-list">
                 <li class="hearder__nav-list--hover" class="hearder__nav-list--hover">ProTech PC</li>
+                {{-- toysssss --}}
+                {{-- <li class="hearder__nav-list--hover" class="hearder__nav-list--hover">ProTech Toys</li> --}}
                 <div class="header__nav-list--sub">
                     <ul>
                         <li>Custom Configuration</li>
@@ -944,6 +948,8 @@
             </ul>
             <ul class="hearder__nav-list">
                 <li class="hearder__nav-list--hover">Screen</li>
+                {{-- toysssss --}}
+                {{-- <li class="hearder__nav-list--hover">Toy Model</li> --}}
 
                 <div class="header__nav-list--sub">
                     <ul>

@@ -39,6 +39,8 @@
                                                     </a>
                                                 </div> -->
                     <img src="{{ asset('images/banner-slide.png') }}" alt="" style="height: 348px">
+                    {{-- toyssss --}}
+                    {{-- <img src="https://static.vecteezy.com/system/resources/previews/000/454/904/original/vector-poster-design-for-toys.jpg" alt="" style="height: 348px"> --}}
                     <!-- end -->
 
                 </div>
@@ -47,6 +49,11 @@
                     <a href="##"><img src="{{ asset('images/banner3.png') }}" alt=""></a>
                     <a href="##"><img src="{{ asset('images/banner2.png') }}" alt=""></a>
                     <a href="##"><img src="{{ asset('images/banner1.png') }}" alt=""></a>
+                    {{-- toyssss --}}
+                    {{-- <a href="##"><img src="https://images.toysrus.com/Toy-House-LEGO/41729_boxprod_v142.jpg" alt=""></a>
+                    <a href="##"><img src="https://images.toysrus.com/Toy-House-LEGO/41947_boxprod_v39.jpg" alt=""></a>
+                    <a href="##"><img src="https://images.toysrus.com/Toy-House-LEGO/41714_boxprod_v39_ALT.jpg" alt=""></a>
+                    <a href="##"><img src="https://images.toysrus.com/Toy-House-LEGO/41721_boxprod_v39_ALT.jpg" alt=""></a> --}}
                 </div>
 
 
