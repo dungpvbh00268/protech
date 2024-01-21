@@ -204,8 +204,6 @@ Route::get('add-account-copy/{id}/{name}', [manageAccount_controller::class, 'co
 Route::post('quickCopyAccount', [manageAccount_controller::class, 'quickCopyAccount'])->name('quickCopyAccount')->middleware('checkAdmin');
 
 
-<<<<<<< HEAD
-=======
 // ================================================================================================================
 // 9. account
 
@@ -214,4 +212,3 @@ Route::post('quickCopyAccount', [manageAccount_controller::class, 'quickCopyAcco
 Route::prefix('api')->group(function () {
     Route::get('getProduct', [productController::class, 'getProduct'])->name('getProduct')->middleware('checkAdmin');
 });
->>>>>>> responsive
