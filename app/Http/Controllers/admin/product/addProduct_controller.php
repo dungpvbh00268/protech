@@ -6,12 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Models\brandsModel;
 use App\Models\cart_proModel;
 use App\Models\categoriesModel;
-<<<<<<< HEAD
-=======
 use App\Models\imagesModel;
 use App\Models\order_proModel;
 use App\Models\orderModel;
->>>>>>> responsive
 use App\Models\productsModel;
 use App\Models\type_productModel;
 use Illuminate\Http\Request;
@@ -196,8 +193,6 @@ class addProduct_controller extends Controller
                 $cart->delete();
             }
 
-<<<<<<< HEAD
-=======
             $images = imagesModel::where('id_product', $id)->get();
             foreach ($images as $image) {
                 $image->delete();
@@ -208,7 +203,6 @@ class addProduct_controller extends Controller
                 $order->delete();
             }
 
->>>>>>> responsive
             $product->delete();
 
             return redirect()->intended('manage-products')
