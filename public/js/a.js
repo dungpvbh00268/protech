@@ -7,7 +7,11 @@
 // });
 
 function showModal() {
+<<<<<<< HEAD
     const modal = document.getElementById("myModal");
+=======
+    var modal = document.getElementById("myModal");
+>>>>>>> responsive
     modal.style.visibility = "visible";
     const notificationSound = document.getElementById("notificationSound");
     notificationSound.play();

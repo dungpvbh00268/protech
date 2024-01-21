@@ -933,8 +933,13 @@
                         </div>
                     </div>
                     <div class="card-body">
+<<<<<<< HEAD
                         <form method="post" action="{{ route('editPro', $id) }}" data-toggle="validator" novalidate="true"
                             enctype="multipart/form-data">
+=======
+                        <form method="post" action="{{ route('editPro', $id) }}" data-toggle="validator"
+                            novalidate="true" enctype="multipart/form-data">
+>>>>>>> responsive
                             @csrf
                             <div class="row">
                                 {{-- <div class="col-md-12">

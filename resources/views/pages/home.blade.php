@@ -9,6 +9,7 @@
                     <!-- test slide -->
                     <!-- <div id="myCarousel" class="carousel slide" data-ride="carousel">
 
+<<<<<<< HEAD
                                                     <ol class="carousel-indicators">
                                                         <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
                                                         <li data-target="#myCarousel" data-slide-to="1"></li>
@@ -42,6 +43,38 @@
                     {{-- toyssss --}}
                     {{-- <img src="https://static.vecteezy.com/system/resources/previews/000/454/904/original/vector-poster-design-for-toys.jpg" alt="" style="height: 348px"> --}}
                     <!-- end -->
+=======
+                                                        <ol class="carousel-indicators">
+                                                            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                                                            <li data-target="#myCarousel" data-slide-to="1"></li>
+                                                            <li data-target="#myCarousel" data-slide-to="2"></li>
+                                                        </ol>
+                                                        
+                                                        <div class="carousel-inner">
+                                                            <div class="item active">
+                                                            <img src="{{ asset('images/banner-Slide1.png') }}" alt="Los Angeles">
+                                                            </div>
+                                                        
+                                                            <div class="item">
+                                                            <img src="{{ asset('images/banner-Slide1.png') }}" alt="Chicago">
+                                                            </div>
+                                                        
+                                                            <div class="item">
+                                                            <img src="{{ asset('images/banner-Slide1.png') }}" alt="New York">
+                                                            </div>
+                                                        </div>
+                                                        
+                                                        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                                                            <span class="glyphicon glyphicon-chevron-left"></span>
+                                                            <span class="sr-only">Previous</span>
+                                                        </a>
+                                                        <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                                                            <span class="glyphicon glyphicon-chevron-right"></span>
+                                                            <span class="sr-only">Next</span>
+                                                        </a>
+                                                    </div> -->
+                    <img src="{{ asset('images/banner-slide.png') }}" alt="" style="height: 348px">
+>>>>>>> responsive
 
                 </div>
                 <div class="body__banner-noSlide">
@@ -49,11 +82,14 @@
                     <a href="##"><img src="{{ asset('images/banner3.png') }}" alt=""></a>
                     <a href="##"><img src="{{ asset('images/banner2.png') }}" alt=""></a>
                     <a href="##"><img src="{{ asset('images/banner1.png') }}" alt=""></a>
+<<<<<<< HEAD
                     {{-- toyssss --}}
                     {{-- <a href="##"><img src="https://images.toysrus.com/Toy-House-LEGO/41729_boxprod_v142.jpg" alt=""></a>
                     <a href="##"><img src="https://images.toysrus.com/Toy-House-LEGO/41947_boxprod_v39.jpg" alt=""></a>
                     <a href="##"><img src="https://images.toysrus.com/Toy-House-LEGO/41714_boxprod_v39_ALT.jpg" alt=""></a>
                     <a href="##"><img src="https://images.toysrus.com/Toy-House-LEGO/41721_boxprod_v39_ALT.jpg" alt=""></a> --}}
+=======
+>>>>>>> responsive
                 </div>
 
 
@@ -96,6 +132,7 @@
 
                 <!-- element product -->
                 <div class="element__product">
+<<<<<<< HEAD
                     {{-- <a href="details" class="list__product">
                         <span class="inner__text">-14%</span>
                         <span class="excerpt">Refund 1,000,000 VND</span>
@@ -447,6 +484,8 @@
                         </div>
                     </a> --}}
 
+=======
+>>>>>>> responsive
                     @foreach ($products as $product)
                         @if ($product->id_typeProduct == 1)
                             {{-- <a href="details/{{ $product->id }}/{{ $product->name }}" class="list__product"> --}}
@@ -567,13 +606,19 @@
                         </a>
 
                         <!-- <a href="" class="title__product-laptop-link">
+<<<<<<< HEAD
                                                         Strix G
                                                     </a> -->
+=======
+                                                            Strix G
+                                                        </a> -->
+>>>>>>> responsive
                     </div>
                 </div>
 
                 <!-- element product -->
                 <div class="element__product">
+<<<<<<< HEAD
                     {{-- <a href="details.html" class="list__product">
                         <span class="inner__text">-14%</span>
                         <span class="excerpt">Refund 1,000,000 VND</span>
@@ -983,6 +1028,8 @@
                             </div>
                         </div>
                     </a> --}}
+=======
+>>>>>>> responsive
                     @foreach ($products as $product)
                         @if ($product->id_typeProduct == 2 || $product->id_typeProduct == 3 || $product->id_typeProduct == 5)
                             <a href="{{ route('details', [$product->id, str_replace(['/', '%'], ['-', '-'], $product->name)]) }}"
@@ -1105,6 +1152,7 @@
                         </a>
 
                         <!-- <a href="" class="title__product-laptop-link">
+<<<<<<< HEAD
                             Strix G
                         </a> -->
                     </div>
@@ -1526,6 +1574,15 @@
 
 
                     {{-- test list products --}}
+=======
+                                Strix G
+                            </a> -->
+                    </div>
+                </div>
+
+                <!-- element product-->
+                <div class="element__product">
+>>>>>>> responsive
                     @foreach ($products as $product)
                         @if ($product->id_typeProduct == 4 || $product->id_typeProduct == 6 || $product->id_typeProduct == 7)
                             <a href="{{ route('details', [$product->id, str_replace(['/', '%'], ['-', '-'], $product->name)]) }}"
@@ -1547,9 +1604,15 @@
                                 @endif
                                 <div class="element__product-info">
                                     {{-- <div class="element__product-info--img">
+<<<<<<< HEAD
                                         <img src="{{ asset('images/logitech.png') }}" alt=""
                                             class="element__product-img">
                                     </div> --}}
+=======
+                                                <img src="{{ asset('images/logitech.png') }}" alt=""
+                                                    class="element__product-img">
+                                            </div> --}}
+>>>>>>> responsive
                                     <div class="element__product-info--img">
                                         <img src="{{ asset('images/' . $product->image) }}" alt=""
                                             class="element__product-img">
@@ -1611,7 +1674,10 @@
                             </a>
                         @endif
                     @endforeach
+<<<<<<< HEAD
 
+=======
+>>>>>>> responsive
                 </div>
 
                 <div class="view__all-products">

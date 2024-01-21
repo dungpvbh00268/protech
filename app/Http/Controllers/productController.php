@@ -30,4 +30,33 @@ class productController extends Controller
 
         return view('pages.home', compact(['products', 'cart_pros', 'carts', 'accounts', 'header__search', 'results', 'images', 'orders']));
     }
+<<<<<<< HEAD
+=======
+
+    function getProduct(Request $request){
+        $products = productsModel::all();
+        $cart_pros = cart_proModel::all();
+        $carts = cartModel::all();
+        $accounts = accountModel::all();
+        $images = imagesModel::all();
+        $orders = orderModel::all();
+
+        $header__search = $request->input(('header__search'));
+        $results = productsModel::where('name', 'like', '%' . $header__search . '%')
+        ->orWhere('description', 'like', '%' . $header__search . '%')
+        ->get();
+
+        return response()
+            -> json([
+                'products' => $products, 
+                'cart_pros' => $cart_pros, 
+                'carts' => $carts, 
+                'accounts' => $accounts, 
+                'header__search' => $header__search, 
+                'results' => $results, 
+                'images' => $images, 
+                'orders' => $orders
+            ]);
+    }
+>>>>>>> responsive
 }
