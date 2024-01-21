@@ -45,12 +45,8 @@
                     <a href="{{ route('dashboard.home') }}" class="logo-wrapper" title="Home">
                         <span class="sr-only">Home</span>
                         {{-- <span class="icon logo" aria-hidden="true"></span> --}}
-<<<<<<< HEAD
                         <img style="    width: 70px;" src="{{ asset('images/designlogo.png') }}" style=""
                             aria-hidden="true">
-=======
-                        <img style="width: 70px;" src="{{ asset('images/designlogo.png') }}" aria-hidden="true">
->>>>>>> responsive
                         <div class="logo-text">
                             <span class="logo-title">Protech</span>
                             <span class="logo-subtitle">Dashboard</span>

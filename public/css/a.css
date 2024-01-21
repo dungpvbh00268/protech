@@ -1083,17 +1083,11 @@ main {
 }
 
 .element__product {
-<<<<<<< HEAD
     /* width: 22%; */
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-gap: 20px;
 
-=======
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-gap: 20px;
->>>>>>> responsive
 }
 
 .element__product-img {
