@@ -12,16 +12,10 @@ class accountModel extends Model
     protected $table = "account";
     protected $primaryKey = "id";
     protected $fillable = [
-<<<<<<< HEAD
-        'username', 
-        'password', 
-        'is_admin', 'gender', 'email', 'address', 'phone_number', 'bane', 'dob', 'avatar', 'description', 'id_giftcode'];
-=======
         'username',
         'password',
         'is_admin', 'gender', 'email', 'address', 'phone_number', 'bane', 'dob', 'avatar', 'description', 'id_giftcode'
     ];
->>>>>>> responsive
 
     public $timestamps = true;
 
@@ -34,9 +28,4 @@ class accountModel extends Model
     {
         return $this->hasOne(cartModel::class, 'id_user');
     }
-<<<<<<< HEAD
-
 }
-=======
-}
->>>>>>> responsive

@@ -30,8 +30,6 @@ class productController extends Controller
 
         return view('pages.home', compact(['products', 'cart_pros', 'carts', 'accounts', 'header__search', 'results', 'images', 'orders']));
     }
-<<<<<<< HEAD
-=======
 
     function getProduct(Request $request){
         $products = productsModel::all();
@@ -58,5 +56,4 @@ class productController extends Controller
                 'orders' => $orders
             ]);
     }
->>>>>>> responsive
 }
